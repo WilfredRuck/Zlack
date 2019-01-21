@@ -6,7 +6,7 @@ class Api::SessionsController < ApplicationController
       login!(@user)
       redirect_to root_url
     else
-      redirect_to root_url
+      render json: "Wrong username and/or password", status: 401
     end
   end
 

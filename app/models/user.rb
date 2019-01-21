@@ -33,6 +33,7 @@ class User < ApplicationRecord
 
   def assign_avatar
     self.avatar ||= "https://image.ibb.co/eTEYam/20140817_150047.jpg"
+    self.email ||= "#{self.username}@gmail.com"
   end
 
 end
