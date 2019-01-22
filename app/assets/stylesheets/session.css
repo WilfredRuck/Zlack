@@ -1,0 +1,58 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  font-family: 'Roboto', sans-serif;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  align-self: center;
+}
+
+.nav-login {
+  text-decoration: none;
+  font-family: CircularPro,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
+  letter-spacing: .8px;
+  color: black;
+  transition: all ease .5s;
+  margin-right: 30px;
+  align-self: center;
+}
+
+.nav-login:hover {
+  color: #611f69;
+}
+
+.nav-signup {
+  padding: .75rem 1rem;
+  background-color: #611f69;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  font-family: CircularPro,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
+  font-weight: 425;
+  font-size: 13px;
+  line-height: 1.28571429;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all ease .5s;
+}
+
+.nav-signup:hover {
+  background-color: #48174d
+}
+
+.logo {
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.session-form {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

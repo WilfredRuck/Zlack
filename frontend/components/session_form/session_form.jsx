@@ -7,6 +7,10 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  demoSubmit() {
+
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -33,20 +37,19 @@ class SessionForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          Welcome to Zlack!
           <br/>
-          Please {this.props.formType} or {this.props.navLink}
+          {this.props.formType}!
           {this.renderErrors()}
           <div>
             <br/>
-            <label>Username:
+            <label>Username:<br/>
               <input type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
               />
             </label>
             <br/>
-            <label>Password:
+            <label>Password:<br/>
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
@@ -54,7 +57,13 @@ class SessionForm extends React.Component {
             </label>
             <br/>
             <input type="submit" value={this.props.formType} />
-          </div>
+          </div> <br/>
+        </form>
+        
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" defaultValue="demoUser"/>
+          <input type="hidden" defaultValue="demouser"/>
+          <input type="submit" value="Log in as Demo User"/>
         </form>
       </div>
     );
