@@ -73,7 +73,7 @@ nav {
   text-align: center;
   background-color: #f9f9f9;
   padding-top: 50px;
-  padding-bottom: 100%;
+  padding-bottom: 25%;
 }
 
 .session-form {
@@ -83,6 +83,7 @@ nav {
   width: 50%;
   height: 50%;
   margin: 0 auto;
+  align-self: center;
   border: solid 1px lightgray;
   border-radius: 5px;
 }

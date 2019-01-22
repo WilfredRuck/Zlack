@@ -16,7 +16,7 @@ const App = () => (
       </div>
     </header>
     <div className="session-form-container">
-      <div class='session-form'>
+      <div className='session-form'>
         <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       </div>
