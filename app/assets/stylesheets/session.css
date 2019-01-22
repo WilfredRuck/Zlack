@@ -1,9 +1,17 @@
 header {
+  width: 100%;
+  background-color: white;
+  height: 72px;
+}
+
+header > div {
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  width: 80%;
+  height: 100%;
   font-family: 'Roboto', sans-serif;
   margin: 0 auto;
+  background-color: white;
 }
 
 nav {
@@ -48,11 +56,37 @@ nav {
 
 .logo {
   text-decoration: none;
-  font-size: 13px;
+  font-size: 30px;
+  font-weight: bolder;
+  transition: all ease 1s;
+  align-self: center;
+  line-height: 1.28571429;
+  letter-spacing: 1px;
+}
+
+.logo:hover {
+  color:green;
+  font-size: 35px;
+}
+
+.session-form-container {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding-top: 50px;
+  padding-bottom: 100%;
 }
 
 .session-form {
   display: flex;
   justify-content: center;
-  text-align: center;
+  background-color: white;
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  border: solid 1px lightgray;
+  border-radius: 5px;
+}
+
+.errors {
+  list-style: none;
 }

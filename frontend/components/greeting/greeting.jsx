@@ -14,6 +14,7 @@ const Greeting = ({ currentUser, logout }) => {
       <button onClick={logout}>Log Out</button>
     </nav>
   );
+
   return currentUser ? personalGreeting() : sessionLinks();
 };
 
