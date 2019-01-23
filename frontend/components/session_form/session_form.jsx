@@ -3,7 +3,7 @@ import React from 'react'
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: '', password: ''}
+    this.state = {email: '', password: ''}
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoSubmit = this.demoSubmit.bind(this);
   }
@@ -12,7 +12,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     e.persist();
     this.setState({
-      username:'DemoUser', password:'demouser'
+      email:'demouser@gmail.com', password:'demouser'
     }, () => this.handleSubmit(e))
   }
 
@@ -41,33 +41,40 @@ class SessionForm extends React.Component {
   
   render() {
     return (
-      <div className="session-form-container">
-        <div className="session-form">
-          <form onSubmit={this.handleSubmit}>
-            <br/>
-            <h1>{this.props.formType}</h1>
-            {this.renderErrors()}
-            <div>
+        <div className="session-form-container">
+          <div className="session-form">
+        <div className="session-form-bottle">
+            <form onSubmit={this.handleSubmit}>
               <br/>
-              <label><p>Username</p><br/>
-                <input className="session-input" type="text"
-                  value={this.state.username}
-                  onChange={this.update('username')}
-                />
-              </label>
-              <br/>
-              <label><p>Password</p><br/>
-                <input className="session-input" type="password"
-                  value={this.state.password}
-                  onChange={this.update('password')}
-                />
-              </label>
-              <br/>
-              <input className="session-submit" type="submit" value={this.props.formType} />
-            </div> <br/>
-          <button className="session-submit demo-user-button" onClick={this.demoSubmit}>Use Demo User</button>
-          </form>
-        
+              <h1>{this.props.formType} to App Academy 2014</h1>
+              {this.renderErrors()}
+              <div>
+                <br/>
+                <label><p>Enter your <b>email address</b> and <b>password</b>.</p><br/>
+                  <input 
+                    className="session-input" 
+                    type="text"
+                    placeholder="you@example.com"
+                    value={this.state.email}
+                    onChange={this.update('email')}
+                  />
+                </label>
+                <br/>
+                <label>
+                  <input 
+                    className="session-input" 
+                    type="password"
+                    placeholder="password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                  />
+                </label>
+                <br/>
+                <input className="session-submit" type="submit" value={this.props.formType} />
+              </div> <br/>
+            <button className="session-submit demo-user-button" onClick={this.demoSubmit}>Use Demo User</button>
+            </form>
+          </div>
         </div>
       </div>
     );

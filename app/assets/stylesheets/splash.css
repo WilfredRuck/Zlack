@@ -47,6 +47,7 @@
   width: 70%;
   font-size: 15xpx;
   margin-bottom: 30px;
+  margin-top: 20px;
 }
 
 .splash-image {
@@ -56,4 +57,54 @@
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
+}
+
+
+/* FOOTER */
+
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  background-color: #FFF;
+  padding: 100px;
+  border-top: 1px solid lightgrey;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-container ul {
+  display: inline-flex;
+  justify-content: space-evenly;
+}
+
+.footer-container ul li {
+  padding: 0px 70px;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: Slack-Lato,appleLogo,sans-serif;
+  letter-spacing: 1px;
+}
+
+.portfolio {
+  text-decoration: none;
+  color: #e9a820;
+}
+
+.github {
+  text-decoration: none;
+  color: #e01563;
+}
+
+.linkedin {
+  text-decoration: none;
+  color: #3eb991;
+}
+
+.instagram {
+  text-decoration: none;
+  color: #6ecadc;
 }

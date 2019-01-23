@@ -4,10 +4,10 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  after_initialize :ensure_session_token, :assign_avatar
+  after_initialize :ensure_session_token, :assign_avatar, :assign_username
 
-  def self.find_by_credentials(username, password)
-    user = User.find_by(username: username)
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
     return nil unless user && user.is_password?(password)
     user
   end
@@ -33,7 +33,10 @@ class User < ApplicationRecord
 
   def assign_avatar
     self.avatar ||= "https://image.ibb.co/eTEYam/20140817_150047.jpg"
-    self.email ||= "#{self.username}@gmail.com"
+  end
+
+  def assign_username
+    self.username ||= self.email
   end
 
 end
