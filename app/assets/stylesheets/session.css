@@ -1,3 +1,7 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 header {
   width: 100%;
   background-color: white;
@@ -9,13 +13,12 @@ header > div {
   justify-content: space-between;
   width: 80%;
   height: 100%;
-  font-family: 'Roboto', sans-serif;
   margin: 0 auto;
   background-color: white;
 }
 
 nav {
-  display: flex;
+  display: flex !important;
   align-self: center;
 }
 
@@ -27,6 +30,7 @@ nav {
   transition: all ease .5s;
   margin-right: 30px;
   align-self: center;
+  text-align: center;
 }
 
 .nav-login:hover {
@@ -55,18 +59,8 @@ nav {
 }
 
 .logo {
-  text-decoration: none;
-  font-size: 30px;
-  font-weight: bolder;
-  transition: all ease 1s;
   align-self: center;
-  line-height: 1.28571429;
-  letter-spacing: 1px;
-}
-
-.logo:hover {
-  color:green;
-  font-size: 35px;
+  display: block;
 }
 
 .session-form-container {
@@ -86,8 +80,55 @@ nav {
   align-self: center;
   border: solid 1px lightgray;
   border-radius: 5px;
+  padding-bottom: 25px;
 }
 
 .errors {
   list-style: none;
+}
+
+form > h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+label > p {
+  font-size: 20px;
+  font-weight: 300px;
+}
+
+.session-input {
+  margin-bottom: 15px;
+  padding: 12px 50px;
+  width: 50%;
+  border-radius: 3px;
+  border: 1px solid black;
+  font-size: 20px;
+  text-align: center;
+}
+
+.session-submit {
+  padding: .75rem 1rem;
+  background-color: #007a5a;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: CircularPro,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
+  font-weight: 425;
+  font-size: 18px;
+  line-height: 1.28571429;
+  letter-spacing: 1px;
+  border: none;
+  transition: all ease .5s;
+  width: 85%;
+}
+
+.session-submit:hover {
+  box-shadow: 2px 2px #000;
+}
+
+.demo-user-button{
+  background-color: #e9a820;
 }

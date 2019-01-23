@@ -41,33 +41,34 @@ class SessionForm extends React.Component {
   
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <br/>
-          {this.props.formType}!
-          {this.renderErrors()}
-          <div>
+      <div className="session-form-container">
+        <div className="session-form">
+          <form onSubmit={this.handleSubmit}>
             <br/>
-            <label>Username:<br/>
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-              />
-            </label>
-            <br/>
-            <label>Password:<br/>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-              />
-            </label>
-            <br/>
-            <input type="submit" value={this.props.formType} />
-          </div> <br/>
-        </form>
+            <h1>{this.props.formType}</h1>
+            {this.renderErrors()}
+            <div>
+              <br/>
+              <label><p>Username</p><br/>
+                <input className="session-input" type="text"
+                  value={this.state.username}
+                  onChange={this.update('username')}
+                />
+              </label>
+              <br/>
+              <label><p>Password</p><br/>
+                <input className="session-input" type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                />
+              </label>
+              <br/>
+              <input className="session-submit" type="submit" value={this.props.formType} />
+            </div> <br/>
+          <button className="session-submit demo-user-button" onClick={this.demoSubmit}>Use Demo User</button>
+          </form>
         
-          <button onClick={this.demoSubmit}>Log in as Demo User</button>
-
+        </div>
       </div>
     );
   }

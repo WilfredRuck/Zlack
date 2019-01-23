@@ -3,24 +3,24 @@ import { Link } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute } from '../util/route_util';
+import Splash from '../components/landing_page/splash';
 
 const App = () => (
   <div>
     <header>
       <div>
         <Link to="/" className="logo">
-          <h1>6lack</h1>
+          <img src="https://i.ibb.co/JpnqNm7/6lack.png" width="20%" height="20%" alt="6lack logo"/>
         </Link>
         <GreetingContainer />
       </div>
     </header>
-    <div className="session-form-container">
-      <div className='session-form'>
-        <AuthRoute exact path="/login" component={LogInFormContainer} />
-        <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      </div>
+    <div>
+      <AuthRoute exact path="/" component={Splash} />
     </div>
+    <AuthRoute exact path="/login" component={LogInFormContainer} />
+    <AuthRoute exact path="/signup" component={SignUpFormContainer} />
   </div>
 );
 

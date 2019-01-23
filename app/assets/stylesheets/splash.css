@@ -1,0 +1,59 @@
+.splash-container {
+  margin: 0 auto;
+  width: 70%;
+  margin-top: 60px;
+}
+
+.splash-container h1 {
+  margin-left: 10rem;
+  font-size: 4rem;
+  font-family: Larsseit,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
+  letter-spacing: -.8px;
+  line-height: 1.12;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+
+.splash-main-content {
+  display: flex;
+  height: 500px;
+}
+
+.splash-main-content button {
+  padding: 1rem 2rem;
+  background-color: #75257e;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  font-family: CircularPro,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
+  font-weight: 425;
+  font-size: 13px;
+  line-height: 1.28571429;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all ease .5s;
+}
+
+.splash-main-content button:hover {
+  background-color:#581b5f;
+}
+
+.splash-main-content p {
+  font-family: CircularPro,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
+  line-height: 1.44444444;
+  letter-spacing: -.2px;
+  width: 70%;
+  font-size: 15xpx;
+  margin-bottom: 30px;
+}
+
+.splash-image {
+  background-image: url("https://i.ibb.co/WK9xX4B/Slack-Customer.jpg");
+  background-size: contain;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+}
