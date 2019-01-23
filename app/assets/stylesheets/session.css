@@ -1,0 +1,156 @@
+body {
+  font-family: 'Lato', sans-serif !important;
+  min-height: 100%;
+}
+
+header {
+  width: 100%;
+  background-color: white;
+  height: 72px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.1) !important;
+}
+
+header > div {
+  display: flex;
+  justify-content: space-between;
+  width: 99%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: white;
+}
+
+nav {
+  display: flex !important;
+  align-self: center;
+}
+
+.nav-login {
+  text-decoration: none;
+  letter-spacing: .8px;
+  color: black;
+  transition: all ease .5s;
+  margin-right: 30px;
+  align-self: center;
+  text-align: center;
+}
+
+.nav-login:hover {
+  color: #611f69;
+}
+
+.nav-signup {
+  padding: .75rem 1rem;
+  background-color: #611f69;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 425;
+  font-size: 13px;
+  line-height: 1.28571429;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all ease .5s;
+}
+
+.nav-signup:hover {
+  background-color: #48174d
+}
+
+.logo {
+  align-self: center;
+  display: block;
+}
+
+.session-form-bottle {
+  padding: 0px 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.session-form-container {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding-top: 50px;
+  padding-bottom: 15%;
+  height: 100%;
+}
+
+.session-form {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  width: 35%;
+  height: 100%;
+  margin: 0 auto;
+  align-self: center;
+  border: solid 1px lightgray;
+  border-radius: 5px;
+  padding-bottom: 25px;
+}
+
+.errors {
+  list-style: none;
+}
+
+form > h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+label > p {
+  font-size: 16px;
+  text-align: left;
+}
+
+b {
+  font-weight: bold !important;
+}
+
+.session-input {
+  margin-bottom: 15px;
+  padding: 12px 50px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 1px solid #868686;
+  font-size: 20px;
+  text-align: left;
+  padding-left: 10px;
+  outline: none;
+}
+
+input::placeholder {
+  color: rgb(148, 148, 153);
+  font-family: 'Lato', sans-serif;
+}
+
+input:nth-child(3) {
+  margin-bottom: 10px;
+} 
+
+.session-submit {
+  padding: .75rem 1rem;
+  background-color: #007a5a;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.28571429;
+  letter-spacing: 1px;
+  border: none;
+  transition: all ease .5s;
+  width: 100%;
+}
+
+.session-submit:hover {
+  box-shadow: 2px 2px #000;
+}
+
+.demo-user-button{
+  background-color: #e9a820;
+}
