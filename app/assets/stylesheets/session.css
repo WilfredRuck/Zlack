@@ -1,6 +1,7 @@
 body {
   font-family: 'Lato', sans-serif !important;
   min-height: 100%;
+  background-color: #f9f9f9;
 }
 
 header {
@@ -73,7 +74,6 @@ nav {
   text-align: center;
   background-color: #f9f9f9;
   padding-top: 50px;
-  padding-bottom: 15%;
   height: 100%;
 }
 
