@@ -2,6 +2,7 @@
   margin: 0 auto;
   width: 50%;
   margin-top: 60px;
+  margin-bottom: 100px;
   padding-left: 150px;
   padding-bottom: 10px;
   position: relative;
@@ -32,7 +33,6 @@
   font-family: CircularPro,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
   font-weight: 425;
   font-size: 13px;
-  line-height: 1.28571429;
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
@@ -120,7 +120,6 @@
 }
 
 .splash-image-below {
-  z-index: -1;
   background-image: url("https://i.ibb.co/gMcx3n7/Slack-Customer-Autodesk.jpg");
   background-size: contain;
   background-position: center;
@@ -140,7 +139,7 @@
   padding: 60px;
   border-top: 1px solid lightgrey;
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
 }

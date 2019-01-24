@@ -8,7 +8,7 @@ const Splash = () => {
       <div className="splash-main-content">
         <div className="splash-image-above"></div>
         <div className="splash-image"></div>
-        <p>Molly Moon creates a recipe for success with Slack</p>
+        <p>Molly Moon creates a recipe for success with 6lack</p>
         <div className="splash-content">
           <p>
             Slack is a collaboration hub for work, no matter what work you do.
@@ -21,7 +21,7 @@ const Splash = () => {
             </form>
             <Link to="/signup"><button>Get Started</button></Link>
           </div>
-          <p className="login-link-section">Already using Slack? <Link to="/login">Sign in</Link>.</p>
+          <p className="login-link-section">Already using 6lack? <Link to="/login">Sign in</Link>.</p>
           <div className="splash-image-below"></div>
         </div>
       </div>

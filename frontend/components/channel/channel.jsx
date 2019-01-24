@@ -5,16 +5,11 @@ import { connect } from 'react-redux';
 class Channel extends React.Component {
 
   componentDidMount() {
-    this.props.requestChannels();
+    let channelId = this.props.match.params.channelId;
+    this.props.requestChannel(channelId);
   }
 
   render() {
-
-    const channels = this.props.channels.map(channel => {
-      return(
-        <div key={channel.id}> {channel.title} <p>{channel.description}</p> </div>
-      )
-    })
 
     return (
       <div className="channel-container">
@@ -25,9 +20,7 @@ class Channel extends React.Component {
 
         <div className="chatbox-container">
           <div className="chatbox">
-            <ul>
-              {channels}
-            </ul>
+            
           </div>
 
           <div className="form">
@@ -40,16 +33,16 @@ class Channel extends React.Component {
   }
 }
 
-const mapStateToProps = ({ session, entities: { users, channels } }) => {
-  let allChannels = Object.values(channels);
+const mapStateToProps = ({ session, entities: { users, channels } }, ownProps) => {
+  let channelId = ownProps.match.params.channelId;
+  let channel = channels[channelId];
   return {
     currentUser: users[session.id],
-    channels: allChannels,
+    channel: channel,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  requestChannels: () => dispatch(requestChannels()),
   requestChannel: (id) => dispatch(requestChannel(id)),
 });
 
