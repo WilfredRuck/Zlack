@@ -1,11 +1,14 @@
 .splash-container {
   margin: 0 auto;
-  width: 70%;
+  width: 50%;
   margin-top: 60px;
+  padding-left: 150px;
+  padding-bottom: 10px;
+  position: relative;
 }
 
 .splash-container h1 {
-  margin-left: 10rem;
+  margin-left: 6rem;
   font-size: 4rem;
   font-family: Larsseit,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
   letter-spacing: -.8px;
@@ -20,8 +23,8 @@
 }
 
 .splash-main-content button {
-  padding: 1rem 2rem;
-  background-color: #75257e;
+  padding: 1.3rem 2.3rem;
+  background-color: #611f69;
   color: white;
   cursor: pointer;
   border-radius: 4px;
@@ -40,11 +43,19 @@
   background-color:#581b5f;
 }
 
-.splash-main-content p {
+.splash-main-content > p:first-of-type {
+  position: absolute;
+  bottom: 0;
+  opacity: 1;
+  font-size: .875rem;
+  color: #696969;
+}
+
+.splash-content p {
   font-family: CircularPro,"Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
   line-height: 1.44444444;
   letter-spacing: -.2px;
-  width: 70%;
+  width: 95%;
   font-size: 15xpx;
   margin-bottom: 30px;
   margin-top: 20px;
@@ -59,6 +70,65 @@
   background-repeat: no-repeat;
 }
 
+.splash-content {
+  width: 100%;
+  margin-left: 20px;
+}
+
+.splash-signup-section {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.splash-input {
+  margin-right: 20px;
+  padding: 1.1rem 2.9rem;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 1px solid #868686;
+  font-size: 20px;
+  text-align: left;
+  padding-left: 15px;
+  outline: none;
+}
+
+.splash-input::placeholder {
+  color: rgb(148, 148, 153);
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+}
+
+.login-link-section {
+  font-size: .875rem;
+}
+
+.login-link-section a {
+  color: #1264a3;
+}
+
+.splash-image-above {
+  z-index: -1;
+  position: absolute;
+  top: 85px;
+  left: 60px;
+  background-image: url("https://i.ibb.co/KWCxyQH/Slack-Customer-Away.jpg");
+  background-size: contain;
+  background-position: center;
+  height: 251px;
+  width: 251px;
+  background-repeat: no-repeat;
+}
+
+.splash-image-below {
+  z-index: -1;
+  background-image: url("https://i.ibb.co/gMcx3n7/Slack-Customer-Autodesk.jpg");
+  background-size: contain;
+  background-position: center;
+  height: 316px;
+  width: 316px;
+  background-repeat: no-repeat;
+}
+
 
 /* FOOTER */
 
@@ -67,7 +137,7 @@
   display: flex;
   justify-content: center;
   background-color: #FFF;
-  padding: 100px;
+  padding: 60px;
   border-top: 1px solid lightgrey;
   box-sizing: border-box;
   position: absolute;

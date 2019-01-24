@@ -45,7 +45,7 @@ class SessionForm extends React.Component {
         <div className="session-form-bottle">
             <form onSubmit={this.handleSubmit}>
               <br/>
-              <h1>{this.props.formType} to App Academy 2019</h1>
+              <h1>{this.props.formType} to 6lack</h1>
               {this.renderErrors()}
               <div>
                 <br/>

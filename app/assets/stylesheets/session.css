@@ -11,10 +11,10 @@ body {
   box-shadow: 0 1px 1px rgba(0,0,0,.1) !important;
 }
 
-.splash-nav > div {
+.splash-nav .splash-content {
   display: flex;
   justify-content: space-between;
-  width: 99%;
+  width: 65%;
   height: 100%;
   margin: 0 auto;
   background-color: white;
@@ -23,6 +23,17 @@ body {
 .splash-nav nav {
   display: flex !important;
   align-self: center;
+}
+
+.nav-left {
+  display: flex;
+}
+
+.nav-left .nav-github {
+  text-decoration: none;
+  align-self: center;
+  margin-left: 25px;
+  color: #000
 }
 
 .nav-login {
@@ -123,7 +134,7 @@ b {
   outline: none;
 }
 
-input::placeholder {
+.session-input::placeholder {
   color: rgb(148, 148, 153);
   font-family: 'Lato', sans-serif;
 }

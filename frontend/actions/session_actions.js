@@ -27,9 +27,9 @@ export const createNewUser = user => dispatch => {
 }
 
 export const loginUser = user => dispatch => {
-  return postSession(user).then(user => {
-    return dispatch(receiveCurrentUser(user))
-  })
+  return postSession(user).then(user => dispatch(receiveCurrentUser(user)), err => (
+      dispatch(receiveErrors(err.responseJSON))
+  ))
 }
 
 export const logoutUser = () => dispatch => {
