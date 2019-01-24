@@ -25,6 +25,7 @@ class ChannelNav extends React.Component {
           <p>{this.props.currentUser.username}</p>
         </div>
         <div className="channel-names">
+          <h4>Channels</h4>
           <ul>
             {channels}
           </ul>

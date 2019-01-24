@@ -48,6 +48,11 @@
   padding-top: 5px;
 }
 
+.channel-names h4 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
 /* CHATROOM  */
 
 .channel-container {
