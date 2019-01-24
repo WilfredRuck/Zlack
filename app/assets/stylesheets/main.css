@@ -1,0 +1,78 @@
+.main-container {
+  display: flex;
+  box-sizing: border-box;
+}
+
+/* CHANNEL NAV */
+
+.channel-nav-container {
+  background-color: #3F0E40;
+  width: 12%;
+  height: 100vh;
+  padding-left: 1%;
+  padding-top: 15px;
+}
+
+.channel-nav-container .logout {
+  margin-bottom: 10px;
+  color: white;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+.current-user {
+  display: flex;
+  color: #ab9ba9;
+  text-align: center;
+  font-weight: 400;
+  font-size: .875rem;
+}
+
+.current-user .online-dot {
+  background-color: #38978d;
+  height: 8px;
+  width: 8px;
+  border-radius: 10px;
+  margin-top: 4px;
+  margin-right: 8px;
+}
+
+/* CHATROOM  */
+
+.channel-container {
+  background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+}
+
+.channel-header {
+  background-color: orange;
+  height: 6vh;
+  border-bottom: 1px solid lightgrey;
+}
+
+.channel-header h1 {
+  font-weight: 900;
+  color: #1d1c1d;
+  padding: 15px;
+  padding-top: 20px; 
+}
+
+.chatbox-container {
+  height: 94vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: burlywood;
+}
+
+.chatbox-container .chatbox {
+  padding: 15px;
+}
+
+.chatbox-container .form {
+  background-color: grey;
+  padding: 15px;
+}

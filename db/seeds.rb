@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(username:'DemoUser', email: 'demouser@gmail.com', password: 'demouser')
+Channel.create(title:"App Academy 2019", creator_id: User.first.id)

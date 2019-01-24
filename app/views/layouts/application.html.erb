@@ -5,9 +5,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="icon" href="https://i.ibb.co/1vhgKL0/6lack.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Lato" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Lato" rel="stylesheet">
+    <script type="text/javascript"> 
+    <% if current_user %>
+      window.current_user = {
+        username: "<%= current_user.username %>",
+        email: "<%= current_user.email %>"
+      } 
+    <% end %>
+    </script>
   </head>
 
   <body>

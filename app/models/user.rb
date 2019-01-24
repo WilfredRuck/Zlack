@@ -1,7 +1,34 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint(8)        not null, primary key
+#  username        :string
+#  email           :string
+#  avatar          :string
+#  password_digest :string
+#  session_token   :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ApplicationRecord
   validates :username, :email, :avatar, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
+  has_many :channels,
+  foreign_key: :creator_id
+
+  has_many :messages,
+  foreign_key: :author_id
+
+  has_many :subscriptions
+
+  has_many :chatrooms,
+  through: :subscriptions,
+  source: :channel
+
+  
   attr_reader :password
 
   after_initialize :ensure_session_token, :assign_avatar, :assign_username
