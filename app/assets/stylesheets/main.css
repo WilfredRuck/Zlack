@@ -7,9 +7,10 @@
 
 .channel-nav-container {
   background-color: #3F0E40;
-  width: 12%;
+  width: 11%;
   height: 100vh;
   padding-left: 1%;
+  padding-right: 1%;
   padding-top: 15px;
 }
 
@@ -45,8 +46,14 @@
   overflow: hidden;
 }
 
-.channel-names div {
+.channel-names a div {
   padding-top: 10px;
+  text-decoration: none;
+  color: #c5b7c6;
+}
+
+.channel-names a div:hover {
+  color: #9f92a0;
 }
 
 .channel-names h4 {
@@ -63,7 +70,6 @@
 }
 
 .channel-header {
-  background-color: orange;
   height: 6vh;
   border-bottom: 1px solid lightgrey;
 }
@@ -81,22 +87,50 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: burlywood;
   overflow: hidden;
 }
 
 .chatbox-container .chatbox {
-  padding: 15px;
+  margin: 35px;
 }
 
-.chatbox-container .form {
-  background-color: grey;
+.chatbox-form input {
   padding: 15px;
+  margin-left: 1.5%;
+  margin-bottom: 1%;
+  width: 97%;
+  box-sizing: border-box;
+  border: 2px solid #616061;
+  border-radius: 2px;
+  height: auto;
+  font-size: 15px;
 }
 
-.chatbox {
-  
-}
 .chatbox ul li {
-  padding-top: 10px;
+  padding-top: 20px;
+}
+
+.message-container {
+  display: flex;
+}
+
+.message-container img {
+  margin-right: 8px;
+}
+
+.top-of-message {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.top-of-message .created-at {
+  color: #c5b7c6;
+  font-size: 12px;
+  align-self: flex-end;
+}
+
+.message-container .username {
+  font-weight: 900;
+  font-family: 'Roboto Slab', serif;
+  margin-right: 10px;
 }

@@ -6,15 +6,34 @@ import { connect } from 'react-redux';
 class Channel extends React.Component {
 
   componentDidMount() {
-    // let channelId = this.props.match.params.channelId;
-    this.props.requestChannel(1);
-    this.props.requestMessages(1);
+    let channelId = this.props.match.params.channelId;
+    this.props.requestChannel(channelId);
+    this.props.requestMessages(channelId);
+  }
+
+  componentDidUpdate(oldProps) {
+    if (oldProps.match.params.channelId != this.props.match.params.channelId) {
+      let channelId = this.props.match.params.channelId;
+      this.props.requestChannel(channelId);
+      this.props.requestMessages(channelId);
+    }
   }
 
   render() {
     const messages = this.props.messages.map(message => {
       return(
-        <li key={message.id}> <img src={message.avatar} alt="user's avatar" height="2%" width="2%"/>{message.user}: {message.body} </li>
+        <li key={message.id}>
+          <div className="message-container">
+            <img src={message.avatar} alt="user's avatar" height="36px" width="36px"/>
+            <div>
+              <div className="top-of-message">
+                <div className="username">{message.user}</div> 
+                <div className="created-at">{message.created}</div>
+              </div>
+               <div className="message">{message.body}</div>
+            </div>
+          </div>
+        </li>
       )
     })
 
@@ -22,8 +41,7 @@ class Channel extends React.Component {
       <div className="channel-container">
         
         <header className="channel-header">
-          {/* <h1>{this.props.currentUser.username}</h1> */}
-          <h1>App Academy 2019</h1>
+          <h1>Channel Title</h1>
         </header>
 
         <div className="chatbox-container">
@@ -33,8 +51,14 @@ class Channel extends React.Component {
             </ul>
           </div>
 
-          <div className="form">
-            MESSAGE SUBMISSION FORM WILL GO HERE
+          <div className="chatbox-form">
+            <form>
+              <input
+                type="text"
+                placeholder="Message"
+              
+              />
+            </form>
           </div>
         </div>
 
@@ -44,8 +68,8 @@ class Channel extends React.Component {
 }
 
 const mapStateToProps = ({ session, entities: { users, channels, messages } }, ownProps) => {
-  // let channelId = ownProps.match.params.channelId;
-  let channel = channels[1];
+  let channelId = ownProps.match.params.channelId;
+  let channel = channels[channelId];
   let allMessages = Object.values(messages);
   return {
     currentUser: users[session.id],

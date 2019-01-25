@@ -2,6 +2,7 @@ import React from 'react';
 import { requestChannel, requestChannels } from "../../actions/channel_actions";
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/session_actions';
+import { Link } from 'react-router-dom';
 
 class ChannelNav extends React.Component {
 
@@ -12,7 +13,7 @@ class ChannelNav extends React.Component {
   render() {
     const channels = this.props.channels.map(channel => {
       return(
-        <div key={channel.id}> {channel.title} </div>
+        <Link key={channel.id} to={`/channels/${channel.id}`}> <div> #  {channel.title} </div> </Link>
       )
     })
 
