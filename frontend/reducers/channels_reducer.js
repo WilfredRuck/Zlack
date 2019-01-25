@@ -1,5 +1,5 @@
 import { RECEIVE_CHANNEL, RECEIVE_CHANNELS } from '../actions/channel_actions';
-import merge from 'lodash';
+import { merge } from 'lodash';
 
 export const channelsReducer = (state = {}, action) => {
   Object.freeze(state);

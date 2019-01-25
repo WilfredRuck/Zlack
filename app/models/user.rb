@@ -14,6 +14,7 @@
 
 class User < ApplicationRecord
   validates :email, :avatar, :password_digest, :session_token, presence: true
+  validates :email, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :channels,

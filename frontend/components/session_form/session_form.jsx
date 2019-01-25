@@ -25,7 +25,10 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user)
+    // .then(() => {
+    //   this.props.history.push("/channels/1")
+    // });
   }
 
   renderErrors() {
@@ -39,6 +42,10 @@ class SessionForm extends React.Component {
   }
   
   render() {
+    let demo = ""
+    if (this.props.formType == 'Sign in') {
+      demo = <button className="session-submit demo-user-button" onClick={this.demoSubmit}>Use Demo User</button>;
+    }
     return (
         <div className="session-form-container">
           <div className="session-form">
@@ -71,7 +78,8 @@ class SessionForm extends React.Component {
                 <br/>
                 <input className="session-submit" type="submit" value={this.props.formType} />
               </div> <br/>
-            <button className="session-submit demo-user-button" onClick={this.demoSubmit}>Use Demo User</button>
+              
+            {demo}
             </form>
           </div>
         </div>

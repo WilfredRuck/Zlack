@@ -12,14 +12,18 @@ import Channel from './channel/channel';
 const App = () => (
   <div>
     <div className="main-container">
-      <ProtectedRoute path="/channels" component={ChannelNav}/>
-      <ProtectedRoute path="/channels" component={Channel}/>
+      <ProtectedRoute path="/channels/:channelId" component={ChannelNav}/>
+      <ProtectedRoute path="/channels/:channelId" component={Channel}/>
     </div>
-    <AuthRoute path="/" component={NavContainer} />
+    <AuthRoute exact path="/" component={NavContainer} />
+    <AuthRoute exact path="/login" component={NavContainer} />
+    <AuthRoute exact path="/signup" component={NavContainer} />
     <AuthRoute exact path="/" component={Splash} />
     <AuthRoute exact path="/login" component={LogInFormContainer} />
     <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-    <AuthRoute path="/" component={Footer}/>
+    <AuthRoute exact path="/" component={Footer}/>
+    <AuthRoute exact path="/login" component={Footer}/>
+    <AuthRoute exact path="/signup" component={Footer}/>
   </div>
 );
 

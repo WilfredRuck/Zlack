@@ -10,10 +10,9 @@ class ChannelNav extends React.Component {
   }
   
   render() {
-    
     const channels = this.props.channels.map(channel => {
       return(
-        <div key={channel.id}> {channel.title} <p>{channel.description}</p> </div>
+        <div key={channel.id}> {channel.title} </div>
       )
     })
 
