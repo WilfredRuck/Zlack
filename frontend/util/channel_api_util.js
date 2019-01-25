@@ -25,3 +25,11 @@ export const fetchChannelMessages = (id) => {
     url: `api/channels/${id}/messages`
   })
 }
+
+export const postChannelMessage = (message) => {
+  return $.ajax({
+    method: "POST",
+    url: `api/messages`,
+    data: { message }
+  })
+}

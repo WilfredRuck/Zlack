@@ -135,7 +135,7 @@ b {
 }
 
 .session-input::placeholder {
-  color: rgb(148, 148, 153);
+  color: #949499;
   font-family: 'Lato', sans-serif;
 }
 

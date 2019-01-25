@@ -9,13 +9,14 @@ class Api::MessagesController < ApplicationController
     if @message.save
       render "api/messages/index"
     else
-      render json: @message.errors.full_messages, status: 401
+      logger.info(@message.errors.full_messages)
+      render json: "Invalid or empty input", status: 401
     end
   end
 
   private
 
   def message_params
-    params.require(:body)
+    params.require(:message).permit(:body)
   end
 end

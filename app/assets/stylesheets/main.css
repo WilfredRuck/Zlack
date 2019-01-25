@@ -95,19 +95,28 @@
 }
 
 .chatbox-form input {
-  padding: 15px;
-  margin-left: 1.5%;
+  padding: 12px;
+  margin-left: 1.4%;
   margin-bottom: 1%;
-  width: 97%;
+  width: 98%;
   box-sizing: border-box;
   border: 2px solid #616061;
-  border-radius: 2px;
+  border-radius: 5px;
   height: auto;
   font-size: 15px;
+  outline: none;
+}
+
+.chatbox-form input::placeholder {
+  color: #949499;
 }
 
 .chatbox ul li {
-  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.chatbox ul li:hover {
+  background-color: #f8f8f8;
 }
 
 .message-container {
@@ -124,7 +133,7 @@
 }
 
 .top-of-message .created-at {
-  color: #c5b7c6;
+  color: #616061;
   font-size: 12px;
   align-self: flex-end;
 }

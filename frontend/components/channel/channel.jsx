@@ -1,9 +1,18 @@
 import React from 'react';
 import { requestChannel } from '../../actions/channel_actions';
-import { requestChannelMessages } from '../../actions/message_actions'
+import { requestChannelMessages, createMessage } from '../../actions/message_actions';
 import { connect } from 'react-redux';
 
 class Channel extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      body: '', 
+      channel_id: this.props.match.params.channelId,
+      user_id: this.props.currentUser.id
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   componentDidMount() {
     let channelId = this.props.match.params.channelId;
@@ -17,6 +26,18 @@ class Channel extends React.Component {
       this.props.requestChannel(channelId);
       this.props.requestMessages(channelId);
     }
+  }
+
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const message = Object.assign({}, this.state);
+    this.props.createMessage(message);
   }
 
   render() {
@@ -34,6 +55,7 @@ class Channel extends React.Component {
             </div>
           </div>
         </li>
+
       )
     })
 
@@ -52,11 +74,12 @@ class Channel extends React.Component {
           </div>
 
           <div className="chatbox-form">
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <input
                 type="text"
                 placeholder="Message"
-              
+                value={this.state.body}
+                onChange={this.update('body')}
               />
             </form>
           </div>
@@ -78,10 +101,13 @@ const mapStateToProps = ({ session, entities: { users, channels, messages } }, o
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  requestChannel: (id) => dispatch(requestChannel(id)),
-  requestMessages: (id) => dispatch(requestChannelMessages(id)),
-});
+const mapDispatchToProps = dispatch => {
+  return {
+    requestChannel: (id) => dispatch(requestChannel(id)),
+    requestMessages: (id) => dispatch(requestChannelMessages(id)),
+    createMessage: (message) => dispatch(createMessage(message)),
+  };
+};
 
 export default connect(
   mapStateToProps,

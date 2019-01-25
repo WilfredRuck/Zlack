@@ -10,5 +10,6 @@ Rails.application.routes.draw do
       resources :messages, only: [:index]
       resources :subscriptions, only: [:create, :destroy]
     end
+    resources :messages, only: [:create]
   end
 end
