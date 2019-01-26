@@ -7,7 +7,6 @@ export const messagesReducer = (state = {}, action) => {
     case RECEIVE_CHANNEL_MESSAGES:
       return action.messages;
     case RECEIVE_CHANNEL_MESSAGE:
-      debugger
       return merge({}, state, { [action.message.id]: action.message });
     default:
       return state;

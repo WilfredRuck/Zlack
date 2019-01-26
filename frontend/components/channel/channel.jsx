@@ -44,7 +44,9 @@ class Channel extends React.Component {
 
   update(field) {
     return e => this.setState({
-      [field]: e.currentTarget.value
+      [field]: e.currentTarget.value,
+      channel_id: this.props.match.params.channelId,
+      author_id: this.props.currentUser.id
     });
   }
 

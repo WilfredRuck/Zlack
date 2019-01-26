@@ -7,7 +7,7 @@
 
 .channel-nav-container {
   background-color: #3F0E40;
-  width: 11%;
+  width: 19%;
   height: 100vh;
   padding-left: 1%;
   padding-right: 1%;
@@ -48,8 +48,11 @@
 
 .channel-names a div {
   padding-top: 10px;
-  text-decoration: none;
   color: #c5b7c6;
+}
+
+.channel-names a {
+  text-decoration: none;
 }
 
 .channel-names a div:hover {
