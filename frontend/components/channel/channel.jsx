@@ -9,7 +9,7 @@ class Channel extends React.Component {
     this.state = { 
       body: '', 
       channel_id: this.props.match.params.channelId,
-      user_id: this.props.currentUser.id
+      author_id: this.props.currentUser.id
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
