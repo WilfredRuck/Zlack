@@ -87,11 +87,26 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
 }
 
 .chatbox-container .chatbox {
-  margin: 35px;
+  padding: 0px 30px;  
+  overflow-y: auto;
+}
+
+.chatbox-container .chatbox::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+}
+
+.chatbox-container .chatbox::-webkit-scrollbar-thumb {
+  background-color: #888686;
+  border-radius: 5px;
+  padding: 0px 51px;
+}
+
+.chatbox-container .chatbox::-webkit-scrollbar-track {
+  margin: 8px 0px;
 }
 
 .chatbox-form input {
@@ -113,6 +128,10 @@
 
 .chatbox ul li {
   margin-top: 20px;
+}
+
+.chatbox ul li:last-child {
+  margin-bottom: 20px;
 }
 
 .chatbox ul li:hover {

@@ -18,6 +18,7 @@ class Channel extends React.Component {
     let channelId = this.props.match.params.channelId;
     this.props.requestChannel(channelId);
     this.props.requestMessages(channelId);
+    this.scrollToBottom();
   }
 
   componentDidUpdate(oldProps) {
@@ -26,6 +27,19 @@ class Channel extends React.Component {
       this.props.requestChannel(channelId);
       this.props.requestMessages(channelId);
     }
+  }
+
+  componentWillReceiveProps() {
+    this.scrollToBottom();
+  }
+
+  scrollToBottom() {
+    const chatbox = document.querySelector('.chatbox');
+    chatbox.scrollTop = chatbox.scrollHeight;
+    setTimeout(function () {
+      const chatbox = document.querySelector('.chatbox');
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }, 0);
   }
 
   update(field) {

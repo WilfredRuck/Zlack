@@ -6,6 +6,6 @@
     json.user message.user.username
     json.avatar message.user.avatar
     json.channelId message.channel_id
-    json.created message.created_at
+    json.created message.created_at.strftime("%d %b %Y")
   end
 end
