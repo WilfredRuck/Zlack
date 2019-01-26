@@ -7,15 +7,35 @@
 
 .channel-nav-container {
   background-color: #3F0E40;
-  width: 19%;
+  width: 18.6%;
   height: 100vh;
-  padding-left: 1%;
+  padding-left: 1.2%;
   padding-right: 1%;
-  padding-top: 15px;
+  padding-top: 12px;
+  overflow-y: auto;
+}
+
+.fa-angle-down {
+  margin-left: 7px;
+  font-size: 12px;
+  color: #ab9ba9;
+}
+
+.menu .logo-name {
+  font-size: 1.125rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.channel-nav-container .menu:hover {
+  background-color: #2f0a2f;
+  cursor: pointer;
 }
 
 .channel-nav-container .logout {
-  margin-bottom: 10px;
+  margin-bottom: 50px;
+  margin-top: 20px;
   color: white;
   padding: 10px;
   background-color: transparent;
@@ -29,7 +49,6 @@
   text-align: center;
   font-weight: 400;
   font-size: .875rem;
-  margin-bottom: 80px;
 }
 
 .current-user .online-dot {
@@ -43,25 +62,74 @@
 
 .channel-names {
   color: #c5b7c6;
-  overflow: hidden;
+}
+
+.channel-names > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fa-plus-circle {
+  color: #ab9ba9;
+  transition: all ease 0.3s;
+}
+
+.fa-plus-circle:hover {
+  cursor: pointer;
+  color: #e7d1e5;
+}
+
+.add-channel-button {
+  display: flex;
+  color: #c5b7c6;
+  margin-top: 30px;
+  font-size: 16px;
+  transition: all ease 0.3s;
+  margin-bottom: 38px;
+}
+
+.fa-plus {
+  color: #ab9ba9;
+  margin-right: 7px;
+  font-size: 9px;
+  align-self: center;
+}
+
+.add-channel-button:hover {
+  background-color: #2f0a2f;
+  cursor: pointer;
 }
 
 .channel-names a div {
-  padding-top: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 1px;
   color: #c5b7c6;
+  opacity: 0.5;
 }
 
 .channel-names a {
   text-decoration: none;
+  font-size: .865rem;
+  transition: all ease 0.3s;
 }
 
 .channel-names a div:hover {
-  color: #9f92a0;
+  background-color: #2f0a2f;
 }
 
 .channel-names h4 {
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 8px;
+}
+
+.direct-messages {
+  color: #c5b7c6;
+}
+
+.direct-messages > div {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* CHATROOM  */

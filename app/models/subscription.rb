@@ -10,6 +10,8 @@
 #
 
 class Subscription < ApplicationRecord
+  validates_uniqueness_of :channel_id, scope: [:user_id]
+
   belongs_to :channel
   belongs_to :user
 end

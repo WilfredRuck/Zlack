@@ -12,6 +12,14 @@ export const fetchChannel = (id) => {
   })
 }
 
+export const postChannel = (channel) => {
+  return $.ajax({
+    method: "POST",
+    url: 'api/channels',
+    data: { channel }
+  })
+}
+
 export const fetchChannelUsers = (id) => {
   return $.ajax({
     method: "GET",

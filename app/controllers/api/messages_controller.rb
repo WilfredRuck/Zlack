@@ -7,6 +7,7 @@ class Api::MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
+      Subscription.create(channel_id: @message.channel_id, user_id: current_user.id)
       @messages = Channel.find(@message.channel_id).messages
       render "api/messages/index"
     else

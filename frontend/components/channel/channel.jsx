@@ -9,7 +9,7 @@ class Channel extends React.Component {
     this.state = { 
       body: '', 
       channel_id: this.props.match.params.channelId,
-      author_id: this.props.currentUser.id
+      author_id: this.props.currentUser.id,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -79,7 +79,7 @@ class Channel extends React.Component {
       <div className="channel-container">
         
         <header className="channel-header">
-          <h1>Channel Title</h1>
+          <h1>Title</h1>
         </header>
 
         <div className="chatbox-container">
