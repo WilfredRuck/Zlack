@@ -228,10 +228,11 @@
   color: #616061;
   font-size: 12px;
   align-self: flex-end;
+  text-transform: uppercase;
 }
 
 .message-container .username {
   font-weight: 900;
   font-family: 'Roboto Slab', serif;
-  margin-right: 10px;
+  margin-right: 8px;
 }

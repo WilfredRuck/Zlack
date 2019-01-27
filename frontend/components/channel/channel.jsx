@@ -32,7 +32,7 @@ class Channel extends React.Component {
         </header>
 
         <div className="chatbox-container">
-          <ChannelMessagesIndex 
+          <ChannelMessagesIndex
             messages={this.props.messages}
           />
           <ChannelForm
