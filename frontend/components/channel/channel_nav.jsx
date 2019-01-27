@@ -2,7 +2,7 @@ import React from 'react';
 import { requestChannels, createChannel } from "../../actions/channel_actions";
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/session_actions';
-import { Link } from 'react-router-dom';
+import ChannelNavItem from './channel_nav_item';
 
 class ChannelNav extends React.Component {
 
@@ -12,9 +12,7 @@ class ChannelNav extends React.Component {
   
   render() {
     const channels = this.props.channels.map(channel => {
-      return(
-        <Link key={channel.id} to={`/channels/${channel.id}`}> <div> <i className="fas fa-hashtag"></i>  {channel.title} </div> </Link>
-      )
+      return(<ChannelNavItem key={channel.id} channel={channel} />)
     })
 
     return (
