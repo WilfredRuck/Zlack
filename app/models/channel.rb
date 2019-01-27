@@ -17,7 +17,7 @@ class Channel < ApplicationRecord
   validates :description, length: { maximum: 50 }
   validates :is_direct, :is_private, inclusion: { in: [ true, false ] }
 
-  belongs_to :user,
+  belongs_to :owner,
   class_name: 'User',
   foreign_key: :creator_id
 
