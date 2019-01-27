@@ -13,15 +13,15 @@ class ChannelNav extends React.Component {
   render() {
     const channels = this.props.channels.map(channel => {
       return(
-        <Link key={channel.id} to={`/channels/${channel.id}`}> <div> <i class="fas fa-hashtag"></i>  {channel.title} </div> </Link>
+        <Link key={channel.id} to={`/channels/${channel.id}`}> <div> <i className="fas fa-hashtag"></i>  {channel.title} </div> </Link>
       )
     })
 
     return (
       <div className="channel-nav-container">
-        <div class="menu">
+        <div className="menu">
           <div className="logo-name"> 6lack
-            <i class="fas fa-angle-down"></i>
+            <i className="fas fa-angle-down"></i>
           </div>
           <div className="current-user">
             <p className="online-dot"></p>
@@ -31,11 +31,10 @@ class ChannelNav extends React.Component {
 
         <button className="logout" onClick={this.props.logout}>Log Out</button>
 
-
         <div className="channel-names">
           <div>
             <h4>Channels</h4>
-            <i class="fas fa-plus-circle"></i>
+            <p className="plus-circle">⊕</p>
           </div>
           <ul>
             {channels}
@@ -43,13 +42,13 @@ class ChannelNav extends React.Component {
         </div>
         
         <div className="add-channel-button">
-          <i class="fas fa-plus"></i> Add a channel
+          <i className="fas fa-plus"></i> Add a channel
         </div>
 
         <div className="direct-messages">
           <div>
               <h4>Direct Messages</h4>
-              <i class="fas fa-plus-circle"></i>
+              <p className="plus-circle">⊕</p>
           </div>
         </div>
 

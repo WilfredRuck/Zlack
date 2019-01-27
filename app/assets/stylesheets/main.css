@@ -53,10 +53,10 @@
 
 .current-user .online-dot {
   background-color: #38978d;
-  height: 8px;
-  width: 8px;
+  height: 8.5px;
+  width: 8.5px;
   border-radius: 10px;
-  margin-top: 4px;
+  margin-top: 3px;
   margin-right: 8px;
 }
 
@@ -67,14 +67,17 @@
 .channel-names > div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.fa-plus-circle {
+.plus-circle {
   color: #ab9ba9;
   transition: all ease 0.3s;
+  font-size: 25px;
 }
 
-.fa-plus-circle:hover {
+.plus-circle:hover {
   cursor: pointer;
   color: #e7d1e5;
 }
@@ -92,7 +95,6 @@
   color: #ab9ba9;
   margin-right: 7px;
   font-size: 9px;
-  align-self: center;
 }
 
 .add-channel-button:hover {
@@ -120,7 +122,6 @@
 
 .channel-names h4 {
   font-size: 16px;
-  margin-bottom: 8px;
 }
 
 .direct-messages {
@@ -130,6 +131,7 @@
 .direct-messages > div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 /* CHATROOM  */
