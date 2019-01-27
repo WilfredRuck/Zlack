@@ -7,13 +7,13 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Splash from '../components/landing_page/splash';
 import Footer from './landing_page/footer';
 import ChannelNav from './channel/channel_nav';
-import Channel from './channel/channel';
+import ChannelContainer from './channel/channel_container';
 
 const App = () => (
   <div>
     <div className="main-container">
       <ProtectedRoute path="/channels/:channelId" component={ChannelNav}/>
-      <ProtectedRoute path="/channels/:channelId" component={Channel}/>
+      <ProtectedRoute path="/channels/:channelId" component={ChannelContainer}/>
     </div>
     <AuthRoute exact path="/" component={NavContainer} />
     <AuthRoute exact path="/login" component={NavContainer} />

@@ -1,7 +1,5 @@
 import React from 'react';
-import { requestChannel } from '../../actions/channel_actions';
-import { requestChannelMessages, createMessage } from '../../actions/message_actions';
-import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import ChannelMessagesIndex from './channel_messages_index';
 import ChannelForm from './channel_form';
 
@@ -49,26 +47,4 @@ class Channel extends React.Component {
   }
 }
 
-const mapStateToProps = ({ session, entities: { users, channels, messages } }, ownProps) => {
-  let channelId = ownProps.match.params.channelId;
-  let channel = channels[channelId];
-  let allMessages = Object.values(messages);
-  return {
-    currentUser: users[session.id],
-    channel: channel,
-    messages: allMessages,
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    requestChannel: (id) => dispatch(requestChannel(id)),
-    requestMessages: (id) => dispatch(requestChannelMessages(id)),
-    createMessage: (message) => dispatch(createMessage(message)),
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Channel);
+export default withRouter(Channel);

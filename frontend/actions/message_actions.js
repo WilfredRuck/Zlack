@@ -22,5 +22,7 @@ export const requestChannelMessages = channelId => dispatch => {
 }
 
 export const createMessage = message => dispatch => {
-  return postChannelMessage(message).then(message => dispatch(receiveChannelMessage(message)))
+  return postChannelMessage(message).then(message => {
+    return dispatch(receiveChannelMessage(message))
+  })
 }

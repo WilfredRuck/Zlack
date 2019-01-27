@@ -7,7 +7,10 @@ export const messagesReducer = (state = {}, action) => {
     case RECEIVE_CHANNEL_MESSAGES:
       return action.messages;
     case RECEIVE_CHANNEL_MESSAGE:
-      return merge({}, state, { [action.message.id]: action.message });
+      const messageArray = Object.values(action.message);
+      const newMessage = messageArray.slice(messageArray.length - 1);
+      const newState = Object.assign({}, state, { [newMessage[0].id]: newMessage[0] });
+      return newState;
     default:
       return state;
   }
