@@ -3,10 +3,12 @@ import { fetchChannelMessages, postChannelMessage } from "../util/channel_api_ut
 export const RECEIVE_CHANNEL_MESSAGES = 'RECEIVE_CHANNEL_MESSAGES'; 
 export const RECEIVE_CHANNEL_MESSAGE = 'RECEIVE_CHANNEL_MESSAGE';
 
-const receiveChannelMessages = messages => ({
-  type: RECEIVE_CHANNEL_MESSAGES,
-  messages,
-})
+const receiveChannelMessages = messages => {
+  return {
+    type: RECEIVE_CHANNEL_MESSAGES,
+    messages,
+  }
+}
 
 export const receiveChannelMessage = message => {
   return {
@@ -17,7 +19,7 @@ export const receiveChannelMessage = message => {
 
 export const requestChannelMessages = channelId => dispatch => {
   return fetchChannelMessages(channelId).then(messages => {
-    return dispatch(receiveChannelMessages(messages))
+      return dispatch(receiveChannelMessages(messages))
   })
 }
 

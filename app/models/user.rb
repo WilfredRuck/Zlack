@@ -34,6 +34,17 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token, :assign_avatar, :assign_username
 
+  LINKS = [
+    "https://i.ibb.co/J5mGCy3/fox.png",
+    "https://i.ibb.co/b2N6bsD/frog.png",
+    "https://i.ibb.co/DYM8GGZ/pig.png",
+    "https://i.ibb.co/9hzZkx3/monkey.png",
+    "https://i.ibb.co/5rX2RYG/cow.png",
+    "https://i.ibb.co/dQWQd2Y/wolf.png",
+    "https://i.ibb.co/9ns4nHv/dog.png",
+    "https://i.ibb.co/XX8XHc0/cat.png"
+  ]
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return nil unless user && user.is_password?(password)
@@ -60,7 +71,7 @@ class User < ApplicationRecord
   end
 
   def assign_avatar
-    self.avatar ||= "https://image.ibb.co/eTEYam/20140817_150047.jpg"
+    self.avatar ||= LINKS.sample
   end
 
   def assign_username

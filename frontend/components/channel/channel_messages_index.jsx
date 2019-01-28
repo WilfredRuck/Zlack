@@ -9,11 +9,12 @@ class ChannelMessagesIndex extends React.Component {
   }
   
   componentDidMount() {
+    let that = this;
     App.cable.subscriptions.create(
       { channel: "ChatChannel" },
       {
         received: () => {
-          this.props.requestMessages(this.props.channelId);
+          that.props.requestMessages(that.props.channelId);
         },
         speak: function(data) {
           return this.perform("speak", data);

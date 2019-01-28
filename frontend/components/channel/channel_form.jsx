@@ -23,8 +23,6 @@ class ChannelForm extends React.Component {
     e.preventDefault();
     App.cable.subscriptions.subscriptions[0].speak({ message: this.state });
     this.setState({ body: "" });
-    // const message = Object.assign({}, this.state);
-    // this.props.createMessage(message);
   }
 
   render() {
