@@ -143,15 +143,49 @@
 }
 
 .channel-header {
-  height: 6vh;
   border-bottom: 1px solid lightgrey;
+  display: flex;
+  justify-content: space-between;
 }
 
-.channel-header h1 {
+.channel-header .channel-info {
   font-weight: 900;
   color: #1d1c1d;
-  padding: 15px;
-  padding-top: 20px; 
+  margin-left: 20px;
+  margin-top: 11px;
+  margin-bottom: 11px;
+  display: flex;
+  flex-direction: column;
+  text-transform: lowercase;
+}
+
+.channel-header .channel-info > div {
+  margin-top: 9px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.channel-header .channel-search {
+  margin-right: 20px;
+  align-self: center;
+}
+
+input[type="search"] {
+  height: 34px;
+  padding-right: 140px;
+  border: solid 1px #868686;
+  border-radius: 5px;
+  display: flex;
+  font-size: 15px;
+  padding-left: 20px;
+  /* background-image: url("https://i.ibb.co/SnyFXnS/search-icon.png");
+  background-repeat: no-repeat;
+  background-size: contain; */
+}
+
+input[type="search"]::placeholder {
+  text-align: left;
+  opacity: 0.5;
 }
 
 .chatbox-container {

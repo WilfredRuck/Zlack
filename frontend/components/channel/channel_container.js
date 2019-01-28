@@ -5,7 +5,7 @@ import Channel from './channel';
 
 const mapStateToProps = ({ session, entities: { users, channels, messages } }, ownProps) => {
   let channelId = ownProps.match.params.channelId;
-  let channel = channels[channelId] || {};
+  let channel = channels[channelId] || {memberIds: []};
   let allMessages = Object.values(messages);
   return {
     currentUser: users[session.id],

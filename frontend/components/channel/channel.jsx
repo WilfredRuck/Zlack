@@ -6,6 +6,7 @@ import ChannelForm from './channel_form';
 class Channel extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { amountOfMembers: this.props.channel.memberIds.length }
   }
 
   componentDidMount() {
@@ -28,7 +29,15 @@ class Channel extends React.Component {
       <div className="channel-container">
         
         <header className="channel-header">
-          <h1>{this.props.channel.title}</h1>
+          <div className="channel-info">
+            <h1>#{this.props.channel.title}</h1>
+            <div><i className="far fa-user"></i> {this.props.channel.memberIds.length}</div>
+          </div>
+          <div className="channel-search">
+            <form action="">
+              <input type="search" placeholder="Search"/>
+            </form>
+          </div>
         </header>
 
         <div className="chatbox-container">
