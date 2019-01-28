@@ -4,9 +4,27 @@ import ChannelMessagesIndexItem from './channel_messages_index_item';
 class ChannelMessagesIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { messages: [] };
+    this.bottom = React.createRef();
   }
-
+  
   componentDidMount() {
+    App.cable.subscriptions.create(
+      { channel: "ChatChannel" },
+      {
+        received: () => {
+          this.props.requestMessages(this.props.channelId);
+        },
+        speak: function(data) {
+          return this.perform("speak", data);
+        }
+      }
+    );
+
+    this.scrollToBottom();
+  }
+    
+    componentDidUpdate() {
     this.scrollToBottom();
   }
 
@@ -34,6 +52,7 @@ class ChannelMessagesIndex extends React.Component {
         <ul>
           {messages}
         </ul>
+        <div ref={this.bottom}></div>
       </div>
     )
   }

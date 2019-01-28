@@ -8,7 +8,7 @@ const receiveChannelMessages = messages => ({
   messages,
 })
 
-const receiveChannelMessage = message => {
+export const receiveChannelMessage = message => {
   return {
     type: RECEIVE_CHANNEL_MESSAGE,
     message,

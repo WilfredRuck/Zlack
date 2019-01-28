@@ -28,12 +28,15 @@ class Channel extends React.Component {
       <div className="channel-container">
         
         <header className="channel-header">
-          <h1>Channel Title</h1>
+          <h1>{this.props.channel.title}</h1>
         </header>
 
         <div className="chatbox-container">
           <ChannelMessagesIndex
             messages={this.props.messages}
+            createMessage = {this.props.createMessage}
+            channelId = {this.props.match.params.channelId}
+            requestMessages = {this.props.requestMessages}
           />
           <ChannelForm
             channelId = {this.props.match.params.channelId}
