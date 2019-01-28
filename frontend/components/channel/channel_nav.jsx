@@ -27,6 +27,7 @@ class ChannelNav extends React.Component {
           </div>
         </div>
 
+        <img src={this.props.currentUser.avatar} alt="user's avatar" height=".875em" width=".875em"/>
         <button className="logout" onClick={this.props.logout}>Log Out</button>
 
         <div className="channel-names">
