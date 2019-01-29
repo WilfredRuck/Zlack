@@ -80,16 +80,30 @@
   color: #000;
 }
 
-.nav-menu ul li {
-  padding: 10 24px;
+.nav-menu .user-info {
+  padding: 10px 24px;
+  margin-bottom: 5px;
   font-size: 16px;
-  border-top: 1px solid rgba(0,0,0,.15);
+}
+
+.nav-menu .user-info > div {
+  display: flex;
+  align-items: center;
+  font-size: 1.125em;
+  font-weight: bolder;
 }
 
 .nav-menu .logout-button {
-  padding: 10 24px;
-  border: 1px solid ;
+  margin-bottom: 5px;
+  font-size: 16px;
+  padding: 10px 24px;
+  border-top: 1px solid #000;
   cursor: pointer;
+}
+
+.nav-menu .logout-button:hover {
+  background-color: #08c;
+  color: #fff;
 }
 
 
