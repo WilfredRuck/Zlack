@@ -3,6 +3,7 @@ import { requestChannels, createChannel } from "../../actions/channel_actions";
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/session_actions';
 import ChannelNavItem from './channel_nav_item';
+import { openModal } from '../../actions/modal_actions';
 
 class ChannelNav extends React.Component {
 
@@ -33,7 +34,7 @@ class ChannelNav extends React.Component {
         <div className="channel-names">
           <div>
             <h4>Channels</h4>
-            <p className="plus-circle">⊕</p>
+            <p onClick={() => this.props.openModal('newChannel')} className="plus-circle">⊕</p>
           </div>
           <ul>
             {channels}
@@ -69,6 +70,7 @@ const mapDispatchToProps = dispatch => ({
   requestChannels: () => dispatch(requestChannels()),
   createChannel: (channel) => dispatch(createChannel(channel)),
   logout: () => dispatch(logoutUser()),
+  openModal: modal => dispatch(openModal(modal)),
 });
 
 export default connect(

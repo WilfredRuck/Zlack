@@ -8,12 +8,16 @@ import Splash from '../components/landing_page/splash';
 import Footer from './landing_page/footer';
 import ChannelNav from './channel/channel_nav';
 import ChannelContainer from './channel/channel_container';
+import ChannelNewModal from './channel/channel_new_modal';
+import Modal from './ui/modal';
 
 const App = () => (
   <div>
+    <Modal />
     <div className="main-container">
       <ProtectedRoute path="/channels/:channelId" component={ChannelNav}/>
       <ProtectedRoute path="/channels/:channelId" component={ChannelContainer}/>
+      <ProtectedRoute path="/channels/new" component={ChannelNewModal}/>
     </div>
     <AuthRoute exact path="/" component={NavContainer} />
     <AuthRoute exact path="/login" component={NavContainer} />

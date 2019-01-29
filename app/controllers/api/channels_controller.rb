@@ -19,6 +19,7 @@ class Api::ChannelsController < ApplicationController
       Subscription.create(channel_id: @channel.id, user_id: @channel.creator_id)
       render :show
     else
+      logger.info(@channel.errors.full_messages)
       render json: @channel.errors.full_messages, status: 401
     end
   end
@@ -26,6 +27,6 @@ class Api::ChannelsController < ApplicationController
   private
 
   def channel_params
-    params.require(:channel).permit(:title, :description)
+    params.require(:channel).permit(:title, :description, :creator_id)
   end
 end
