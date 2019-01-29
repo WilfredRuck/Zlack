@@ -15,9 +15,9 @@ const App = () => (
   <div>
     <ProtectedRoute path="/channels" component={Modal}/>
     <div className="main-container">
+      <ProtectedRoute path="/channels/new" component={ChannelNewModal}/>
       <ProtectedRoute path="/channels/:channelId" component={ChannelNav}/>
       <ProtectedRoute path="/channels/:channelId" component={ChannelContainer}/>
-      <ProtectedRoute path="/channels/new" component={ChannelNewModal}/>
     </div>
     <AuthRoute exact path="/" component={NavContainer} />
     <AuthRoute exact path="/login" component={NavContainer} />

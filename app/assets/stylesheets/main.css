@@ -1,14 +1,17 @@
 .main-container {
   display: flex;
   box-sizing: border-box;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 
 /* CHANNEL NAV */
 
 .channel-nav-container {
   background-color: #3F0E40;
-  width: 12.7em;
-  height: 100vh;
+  width: 12.57em;
+  height: 100%;
   padding-left: 1.2%;
   padding-right: 1%;
   padding-top: 12px;
@@ -128,8 +131,11 @@
 
 .channel-container {
   background-color: #fff;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .channel-header {
@@ -149,10 +155,20 @@
   text-transform: lowercase;
 }
 
-.channel-header .channel-info > div {
+.channel-header .channel-info > a {
   margin-top: 9px;
   font-size: 13px;
   opacity: 0.7;
+  width: max-content;
+}
+
+.channel-detail-button {
+  color: inherit;
+  text-decoration: none;
+}
+
+.channel-detail-button:hover {
+  color: #1264a3;
 }
 
 .channel-header .channel-search {
@@ -168,9 +184,6 @@ input[type="search"] {
   display: flex;
   font-size: 15px;
   padding-left: 20px;
-  /* background-image: url("https://i.ibb.co/SnyFXnS/search-icon.png");
-  background-repeat: no-repeat;
-  background-size: contain; */
 }
 
 input[type="search"]::placeholder {
@@ -179,16 +192,21 @@ input[type="search"]::placeholder {
 }
 
 .chatbox-container {
-  height: 94vh;
-  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.chatbox-index-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .chatbox-container .chatbox {
   padding: 0px 30px;  
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .chatbox-container .chatbox::-webkit-scrollbar {
@@ -211,11 +229,10 @@ input[type="search"]::placeholder {
 }
 
 .chatbox-form input {
-  padding: 12px;
+  padding: 10.8px;
   margin-left: 1.4%;
-  margin-bottom: 1%;
-  width: 98%;
-  box-sizing: border-box;
+  margin-bottom: 1.35%;
+  width: 100%;
   border: 2px solid #616061;
   border-radius: 5px;
   height: auto;
@@ -263,4 +280,12 @@ input[type="search"]::placeholder {
   font-weight: 900;
   font-family: 'Roboto Slab', serif;
   margin-right: 8px;
+}
+
+/* CHANNEL DETAIL SECTION */
+
+.channel-detail-container {
+  height: 100%;
+  justify-self: flex-end;
+  width: 25%;
 }
