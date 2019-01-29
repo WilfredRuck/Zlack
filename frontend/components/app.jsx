@@ -13,7 +13,7 @@ import Modal from './ui/modal';
 
 const App = () => (
   <div>
-    <Modal />
+    <ProtectedRoute path="/channels" component={Modal}/>
     <div className="main-container">
       <ProtectedRoute path="/channels/:channelId" component={ChannelNav}/>
       <ProtectedRoute path="/channels/:channelId" component={ChannelContainer}/>

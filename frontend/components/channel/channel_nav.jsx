@@ -18,7 +18,7 @@ class ChannelNav extends React.Component {
 
     return (
       <div className="channel-nav-container">
-        <div className="menu">
+        <div className="menu" onClick={() => this.props.openModal('navMenu')}>
           <div className="logo-name"> 6lack
             <i className="fas fa-angle-down"></i>
           </div>
@@ -29,7 +29,6 @@ class ChannelNav extends React.Component {
         </div>
 
         <img src={this.props.currentUser.avatar} alt="user's avatar" height=".875em" width=".875em"/>
-        <button className="logout" onClick={this.props.logout}>Log Out</button>
 
         <div className="channel-names">
           <div>

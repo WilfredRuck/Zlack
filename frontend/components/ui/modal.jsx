@@ -1,9 +1,9 @@
 import React from 'react';
-import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import ChannelNewModal from '../channel/channel_new_modal';
+import ChannelNavMenu from '../channel/channel_nav_menu';
 
-function Modal({modal, closeModal}) {
+function Modal({modal}) {
   if (!modal) {
     return null;
   }
@@ -12,14 +12,15 @@ function Modal({modal, closeModal}) {
     case 'newChannel':
       component = <ChannelNewModal />;
       break;
+    case 'navMenu':
+      component = <ChannelNavMenu />;
+      break;
     default:
       return null;
   }
   return (
-    <div className="modal-background" onClick={closeModal}>
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
-        { component }
-      </div>
+    <div>
+      { component }
     </div>
   );
 }
@@ -30,10 +31,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    closeModal: () => dispatch(closeModal())
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(mapStateToProps, null)(Modal);

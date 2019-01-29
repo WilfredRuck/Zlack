@@ -25,37 +25,52 @@ class ChannelNewModal extends React.Component {
 
   render() {
     return (
-      <div className="new-channel-container">  
-        <div>
-          <div onClick={() => this.props.closeModal()} className="cancel-modal">X</div>
-          <div>Create a Channel</div><br/>
-          <div>Channels are where your members communicate. They’re best when organized around a topic — #leads, for example.</div><br/>
-          <form onSubmit={this.handleSubmit}>
-          <label>Name <br/>
-            <input 
-              type="text" 
-              placeholder="e.g. leads"
-              value={this.state.title}
-              onChange={this.update('title')}
-            />
-            <br/>
-          </label>
-
-          <label>Purpose(optional) <br/>
-            <input 
-              type="text"
-              value={this.state.description}
-              onChange={this.update('description')}
-            />
-            <br/>
-          </label>
-          
-            <input 
-              type="submit" 
-              value="Create Channel"
-            />
-          </form>
+      <div className="modal-background">
+        <div onClick={() => this.props.closeModal()} className="cancel-modal">
+          <p>X</p>
+          <p>esc</p>
         </div>
+        <div className="modal-child" onClick={e => e.stopPropagation()}>
+          <div className="new-channel-container">  
+              <div className="new-channel-form">
+                <div className="form-title">Create a channel</div><br/>
+                <div className="form-description">Channels are where your members communicate. They’re best when organized around a topic — #leads, for example.</div><br/>
+                <form onSubmit={this.handleSubmit}>
+                <label>Name <br/>
+                  <input 
+                    type="text" 
+                    placeholder="e.g. leads"
+                    value={this.state.title}
+                    onChange={this.update('title')}
+                  />
+                </label>
+                <p>Names must be lowercase, without spaces or periods, and shorter than 22 characters.</p>
+
+                <label>Purpose (optional) <br/>
+                  <input 
+                    type="text"
+                    value={this.state.description}
+                    onChange={this.update('description')}
+                  />
+                </label>
+                  <p> What's this channel about?</p><br/>
+
+                <div className="form-buttons">
+                  <input 
+                    type="button" 
+                    value="Cancel"
+                    onClick={() => this.props.closeModal()}
+                  />
+                  <input 
+                    type="submit"
+                    disabled={!this.state.title}
+                    value="Create Channel"
+                  />
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
       </div>
     )
   }

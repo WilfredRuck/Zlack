@@ -33,16 +33,6 @@
   cursor: pointer;
 }
 
-.channel-nav-container .logout {
-  margin-bottom: 50px;
-  margin-top: 20px;
-  color: white;
-  padding: 10px;
-  background-color: transparent;
-  border: 1px solid white;
-  cursor: pointer;
-}
-
 .current-user {
   display: flex;
   color: #ab9ba9;
@@ -273,44 +263,4 @@ input[type="search"]::placeholder {
   font-weight: 900;
   font-family: 'Roboto Slab', serif;
   margin-right: 8px;
-}
-
-/* MODAL */
-
-.modal-background {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background-color: #fff;
-  z-index: 10;
-}
-
-.modal-child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-
-/* NEW CHANNEL FORM */
-
-.new-channel-container {
-  display: flex;
-  justify-content: center;
-  padding-top: 100px;
-  background-color: #fff;
-}
-
-.cancel-modal {
-  font-size: 35px;
-  text-decoration: none;
-  border-radius: 50%;
-  padding: 15px;
-}
-
-.cancel-modal:hover {
-  background-color: lightgray;
 }
