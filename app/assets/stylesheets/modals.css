@@ -99,6 +99,7 @@
   padding: 10px 24px;
   border-top: 1px solid #000;
   cursor: pointer;
+  border-radius: 3px;
 }
 
 .nav-menu .logout-button:hover {
@@ -202,4 +203,25 @@
 .form-buttons input[type="submit"]:hover {
   border: 1px solid #616061;
   box-shadow: inset 0 0 0 2px rgba(29,28,29,.3)
+}
+
+
+/* CHANNEL INFO MODAL */
+
+
+.channel-info-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: transparent;
+  z-index: 10;
+}
+
+.channel-info-child {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

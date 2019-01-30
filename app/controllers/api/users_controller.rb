@@ -1,5 +1,10 @@
 class Api::UsersController < ApplicationController
 
+  def index
+    channel_user_ids = Subscription.where(channel_id: params[:channel_id]).pluck(:user_id)
+    @users = User.where(id: channel_user_ids)
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save

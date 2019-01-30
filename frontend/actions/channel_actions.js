@@ -2,6 +2,7 @@ import * as ChannelApiUtil from "../util/channel_api_util";
 
 export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
+export const RECEIVE_CHANNEL_USERS = 'RECEIVE_CHANNEL_USERS';
 
 const receiveChannels = channels => {
   return {
@@ -13,6 +14,11 @@ const receiveChannels = channels => {
 const receiveChannel = channel => ({
   type: RECEIVE_CHANNEL,
   channel,
+})
+
+const receiveChannelUsers = users => ({
+  type: RECEIVE_CHANNEL_USERS,
+  users,
 })
 
 export const requestChannels = () => dispatch => {
@@ -27,4 +33,8 @@ export const requestChannel = (id) => dispatch => (
 
 export const createChannel = (channel) => dispatch => {
   ChannelApiUtil.postChannel(channel).then(channel => dispatch(receiveChannel(channel)))
+}
+
+export const requestChannelUsers = (id) => dispatch => {
+  ChannelApiUtil.fetchChannelUsers(id).then(users => dispatch(receiveChannelUsers(users)))
 }

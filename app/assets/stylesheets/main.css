@@ -202,6 +202,7 @@ input[type="search"]::placeholder {
 .chatbox-index-form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .chatbox-container .chatbox {
@@ -228,16 +229,21 @@ input[type="search"]::placeholder {
   margin: 8px 0px;
 }
 
+.chatbox-form form {
+  padding: 10px;
+  padding-bottom: 5px;
+}
+
 .chatbox-form input {
   padding: 10.8px;
-  margin-left: 1.4%;
   margin-bottom: 1.35%;
-  width: 100%;
   border: 2px solid #616061;
   border-radius: 5px;
   height: auto;
   font-size: 15px;
   outline: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .chatbox-form input::placeholder {

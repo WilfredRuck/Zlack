@@ -2,6 +2,7 @@ import { requestChannel } from '../../actions/channel_actions';
 import { requestChannelMessages, createMessage } from '../../actions/message_actions';
 import { connect } from 'react-redux';
 import Channel from './channel';
+import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({ session, entities: { users, channels, messages } }, ownProps) => {
   let channelId = ownProps.match.params.channelId;
@@ -19,6 +20,7 @@ const mapDispatchToProps = dispatch => {
     requestChannel: (id) => dispatch(requestChannel(id)),
     requestMessages: (id) => dispatch(requestChannelMessages(id)),
     createMessage: (message) => dispatch(createMessage(message)),
+    openModal: (channel) => dispatch(openModal(channel))
   };
 };
 

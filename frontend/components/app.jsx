@@ -6,7 +6,6 @@ import LogInFormContainer from './session_form/login_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Splash from '../components/landing_page/splash';
 import Footer from './landing_page/footer';
-import ChannelNav from './channel/channel_nav';
 import ChannelContainer from './channel/channel_container';
 import ChannelNewModal from './channel/channel_new_modal';
 import Modal from './ui/modal';
@@ -14,11 +13,8 @@ import Modal from './ui/modal';
 const App = () => (
   <div>
     <ProtectedRoute path="/channels" component={Modal}/>
-    <div className="main-container">
-      <ProtectedRoute path="/channels/new" component={ChannelNewModal}/>
-      <ProtectedRoute path="/channels/:channelId" component={ChannelNav}/>
-      <ProtectedRoute path="/channels/:channelId" component={ChannelContainer}/>
-    </div>
+    <ProtectedRoute path="/channels/new" component={ChannelNewModal}/>
+    <ProtectedRoute path="/channels/:channelId" component={ChannelContainer}/>
     <AuthRoute exact path="/" component={NavContainer} />
     <AuthRoute exact path="/login" component={NavContainer} />
     <AuthRoute exact path="/signup" component={NavContainer} />

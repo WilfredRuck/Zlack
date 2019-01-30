@@ -4,3 +4,8 @@ json.direct @channel.is_direct
 json.memberIds @channel.member_ids
 json.messageIds @channel.message_ids
 json.creator User.find(@channel.creator_id).username
+
+json.members @channel.members.each do |member|
+    json.member member.username 
+    json.avatar member.avatar
+end

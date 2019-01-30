@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import ChannelMessagesIndex from './channel_messages_index';
 import ChannelForm from './channel_form';
-import { ProtectedRoute } from '../../util/route_util'
-import ChannelDetails from './channel_details';
+import ChannelNav from './channel_nav';
 
 class Channel extends React.Component {
   constructor(props) {
@@ -28,12 +27,13 @@ class Channel extends React.Component {
   render() {
     return (
       <div className="main-container">
+        <ChannelNav />
         <div className="channel-container">
           
           <header className="channel-header">
             <div className="channel-info">
               <h1>#{this.props.channel.title}</h1>
-              <Link to={`/channels/${this.props.channel.id}/details`} className="channel-detail-button"><i className="far fa-user"></i> {this.props.channel.memberIds.length}</Link>
+              <a onClick={() => this.props.openModal('channelInfo')} className="channel-detail-button"><i className="far fa-user"></i> {this.props.channel.memberIds.length}</a>
             </div>
             <div className="channel-search">
               <form action="">
@@ -55,8 +55,8 @@ class Channel extends React.Component {
                 currentUser = {this.props.currentUser}
                 createMessage = {this.props.createMessage}
               />
+              
             </div>
-            <ProtectedRoute path="/channels/:channelId/details" component={ChannelDetails}/>
           </div>
         </div>
       </div>

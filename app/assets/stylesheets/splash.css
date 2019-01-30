@@ -1,6 +1,8 @@
 .splash-container {
   margin: 0 auto;
   width: 50%;
+  height: 100%;
+  overflow: hidden;
   margin-top: 60px;
   margin-bottom: 100px;
   padding-left: 150px;
@@ -24,7 +26,7 @@
 }
 
 .splash-main-content button {
-  padding: 1.3rem 2.3rem;
+  padding: 1.3em 2.3em;
   background-color: #611f69;
   color: white;
   cursor: pointer;
