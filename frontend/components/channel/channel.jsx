@@ -13,14 +13,12 @@ class Channel extends React.Component {
   componentDidMount() {
     let channelId = this.props.match.params.channelId;
     this.props.requestChannel(channelId);
-    this.props.requestMessages(channelId);
   }
 
   componentDidUpdate(oldProps) {
     if (oldProps.match.params.channelId != this.props.match.params.channelId) {
       let channelId = this.props.match.params.channelId;
       this.props.requestChannel(channelId);
-      this.props.requestMessages(channelId);
     }
   }
 

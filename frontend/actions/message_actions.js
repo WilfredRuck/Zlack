@@ -3,10 +3,11 @@ import { fetchChannelMessages, postChannelMessage } from "../util/channel_api_ut
 export const RECEIVE_CHANNEL_MESSAGES = 'RECEIVE_CHANNEL_MESSAGES'; 
 export const RECEIVE_CHANNEL_MESSAGE = 'RECEIVE_CHANNEL_MESSAGE';
 
-const receiveChannelMessages = messages => {
+const receiveChannelMessages = ({ messages, channel }) => {
   return {
     type: RECEIVE_CHANNEL_MESSAGES,
     messages,
+    channel,
   }
 }
 

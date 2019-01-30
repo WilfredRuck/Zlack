@@ -4,12 +4,18 @@ import { connect } from 'react-redux';
 import Channel from './channel';
 import { openModal } from '../../actions/modal_actions';
 
-const mapStateToProps = ({ session, entities: { users, channels, messages } }, ownProps) => {
+const mapStateToProps = (state, ownProps) => {
   let channelId = ownProps.match.params.channelId;
-  let channel = channels[channelId] || {memberIds: []};
-  let allMessages = Object.values(messages);
+  let channel = state.entities.channels[channelId] || { memberIds: [], messageIds: [] };
+  let allMessages = [];
+  channel.messageIds.forEach(id => {
+    if (state.entities.messages[id]) {
+      allMessages.push(state.entities.messages[id]);
+    }
+  })
+  debugger
   return {
-    currentUser: users[session.id],
+    currentUser: state.entities.users[state.session.id],
     channel: channel,
     messages: allMessages,
   };
@@ -20,7 +26,7 @@ const mapDispatchToProps = dispatch => {
     requestChannel: (id) => dispatch(requestChannel(id)),
     requestMessages: (id) => dispatch(requestChannelMessages(id)),
     createMessage: (message) => dispatch(createMessage(message)),
-    openModal: (channel) => dispatch(openModal(channel))
+    openModal: (modal) => dispatch(openModal(modal)),
   };
 };
 

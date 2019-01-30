@@ -1,7 +1,6 @@
 import React from 'react';
 import { requestChannels, createChannel } from "../../actions/channel_actions";
 import { connect } from 'react-redux';
-import { logoutUser } from '../../actions/session_actions';
 import ChannelNavItem from './channel_nav_item';
 import { openModal } from '../../actions/modal_actions';
 
@@ -41,7 +40,7 @@ class ChannelNav extends React.Component {
         </div>
         
         <div className="add-channel-button">
-          <i className="fas fa-plus"></i> Add a channel
+          {/* <i className="fas fa-plus"></i> Add a channel */}
         </div>
 
         <div className="direct-messages">
@@ -68,7 +67,6 @@ const mapStateToProps = ({ session, entities: { users, channels } }) => {
 const mapDispatchToProps = dispatch => ({
   requestChannels: () => dispatch(requestChannels()),
   createChannel: (channel) => dispatch(createChannel(channel)),
-  logout: () => dispatch(logoutUser()),
   openModal: modal => dispatch(openModal(modal)),
 });
 
