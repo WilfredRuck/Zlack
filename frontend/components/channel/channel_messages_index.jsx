@@ -43,7 +43,6 @@ class ChannelMessagesIndex extends React.Component {
   }
 
   render() {
-    debugger
     const messages = this.props.messages.map(message => {
       return(<ChannelMessagesIndexItem key={message.id} message={message}/>)
     })

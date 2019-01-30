@@ -13,7 +13,6 @@ const mapStateToProps = (state, ownProps) => {
       allMessages.push(state.entities.messages[id]);
     }
   })
-  debugger
   return {
     currentUser: state.entities.users[state.session.id],
     channel: channel,
