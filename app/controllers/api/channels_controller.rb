@@ -27,6 +27,6 @@ class Api::ChannelsController < ApplicationController
   private
 
   def channel_params
-    params.require(:channel).permit(:title, :description, :creator_id)
+    params.require(:channel).permit(:title, :description, :creator_id, :is_direct)
   end
 end

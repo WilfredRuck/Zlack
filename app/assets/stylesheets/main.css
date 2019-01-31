@@ -140,6 +140,30 @@
   margin-top: 50px;
   padding-left: 17px;
   padding-right: 12px;
+  padding-bottom: 10px;
+}
+
+.direct-messages a div {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 17px;
+  padding-right: 12px;
+  color: #c5b7c6;
+  opacity: 0.5;
+}
+
+.direct-messages a {
+  text-decoration: none;
+  font-size: .865rem;
+  transition: all ease 0.3s;
+}
+
+.direct-messages a div:hover {
+  background-color: #2f0a2f;
+}
+
+.direct-messages h4 {
+  font-size: 16px;
 }
 
 /* CHATROOM  */

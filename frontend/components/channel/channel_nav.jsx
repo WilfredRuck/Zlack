@@ -12,7 +12,15 @@ class ChannelNav extends React.Component {
   
   render() {
     const channels = this.props.channels.map(channel => {
-      return(<ChannelNavItem key={channel.id} channel={channel} />)
+      if (!channel.direct) {
+        return(<ChannelNavItem key={channel.id} channel={channel} />)
+      }
+    })
+
+    const dms = this.props.channels.map(channel => {
+      if (channel.direct) {
+        return(<ChannelNavItem key={channel.id} channel={channel} />)
+      }
     })
 
     return (
@@ -44,6 +52,9 @@ class ChannelNav extends React.Component {
               <h4>Direct Messages</h4>
               <p onClick={() => this.props.openModal('channelDM')} className="plus-circle">⊕</p>
           </div>
+          <ul>
+            {dms}
+          </ul>
         </div>
 
       </div>
