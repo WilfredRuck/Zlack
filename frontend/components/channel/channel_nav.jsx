@@ -42,7 +42,7 @@ class ChannelNav extends React.Component {
         <div className="direct-messages">
           <div>
               <h4>Direct Messages</h4>
-              <p className="plus-circle">⊕</p>
+              <p onClick={() => this.props.openModal('channelDM')} className="plus-circle">⊕</p>
           </div>
         </div>
 

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ChannelNewModal from '../channel/channel_new_modal';
 import ChannelNavMenu from '../channel/channel_nav_menu';
 import ChannelDetails from '../channel/channel_details';
+import NewDirectMessage from '../channel/new_direct_message';
 
 function Modal({modal}) {
   if (!modal) {
@@ -18,6 +19,9 @@ function Modal({modal}) {
       break;
     case 'channelInfo':
       component = <ChannelDetails />;
+      break;
+    case 'channelDM':
+      component = <NewDirectMessage />;
       break;
     default:
       return null;

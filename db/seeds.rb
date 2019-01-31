@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(username:'DemoUser', email: 'demouser@gmail.com', password: 'demouser')
-Channel.create(title:"App-Academy-Alumni", description: "A place for App Academy alumni to communicate and share knowledge", creator_id: User.first.id)
-Channel.create(title:"FBI", description: "A secret, but public, group of selected individuals", creator_id: User.first.id)
-Channel.create(title:"Jobs-NY", description: "A place to share job openings in NY", creator_id: User.first.id)
+User.create(email: "demouser@gmail.com", password: "demouser")
+Channel.create(title: "App-Academy-Alumni", description: "A place for App Academy alumni to communicate and share knowledge", creator_id: User.first.id)
+Channel.create(title: "FBI", description: "A secret, but public, group of selected individuals", creator_id: User.first.id)
+Channel.create(title: "Jobs-NY", description: "A place to share job openings in NY", creator_id: User.first.id)
 Subscription.create(channel_id: Channel.first.id, user_id: User.first.id)

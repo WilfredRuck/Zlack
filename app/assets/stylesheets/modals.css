@@ -12,7 +12,7 @@
 
 .modal-child {
   position: absolute;
-  top: 30%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -207,7 +207,7 @@
 
 .form-buttons input[type="submit"]:hover {
   border: 1px solid #616061;
-  box-shadow: inset 0 0 0 1px rgba(29,28,29,.3)
+  box-shadow: inset 0 0 0 1px rgba(29,28,29,.3);
 }
 
 label .dim {
@@ -239,6 +239,64 @@ label span {
   align-items: center;
   margin-bottom: 10px;
 }
+
+
+/* DIRECT MESSAGE MODAL */
+
+.dm-modal-child {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.new-dm-container {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  width: 700px;
+}
+
+.new-dm-container .form-title {
+  color: #1d1c1d;
+  font-size: 34px;
+  line-height: 41px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.new-dm-container input[type="search"] {
+  height: 26px;
+  width: 80%;
+  padding: 26px 14px 26px 15px;
+  outline: none;
+  font-size: 1.25rem;
+}
+
+.new-dm-container input[type="search"]::placeholder {
+  opacity: 0.5;
+}
+
+.new-dm-form-group {
+  width: 100%;
+}
+
+.new-dm-form {
+  display: flex;
+}
+
+.new-dm-form input[type="submit"] {
+  padding: 14px 20px 16px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #007a5a;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  outline: none;
+}
+
 
 
 /* CHANNEL INFO MODAL */
