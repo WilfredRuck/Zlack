@@ -92,7 +92,7 @@ class ChannelNewModal extends React.Component {
 }
 
 
-const setStateToProps = ({ session, entities: { users} }) => {
+const setStateToProps = ({ session, entities: { users } }) => {
   return ({
     currentUser: users[session.id],
   })

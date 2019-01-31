@@ -245,7 +245,7 @@ label span {
 
 .dm-modal-child {
   position: absolute;
-  top: 18%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -295,6 +295,34 @@ label span {
   cursor: pointer;
   margin-left: 10px;
   outline: none;
+}
+
+.new-dm-form-group ul {
+  height: 300px;
+  overflow-y: scroll;
+  width: 91%;
+  margin-top: 40px;
+}
+
+.new-dm-form-group ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.new-dm-form-group ul::-webkit-scrollbar-thumb {
+  background-color: #888686;
+  border-radius: 5px;
+}
+
+.new-dm-form-group ul::-webkit-scrollbar-track {
+  width: 8px;
+  background-color: lightgrey;
+}
+
+.new-dm-form-group ul li {
+  border-top: 1px solid lightgray;
+  padding: 20px 0px;
+  margin-right: 20px;
+  text-align: center;
 }
 
 

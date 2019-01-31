@@ -28,6 +28,9 @@ class NewDirectMessage extends React.Component {
   }
 
   render() {
+    // const users = this.props.users.map(user => {
+    //   return(<li key={user.id}>{user.username}</li>)
+    // })
     return (
       <div className="modal-background">
         <div onClick={() => this.props.closeModal()} className="cancel-modal">
@@ -49,7 +52,20 @@ class NewDirectMessage extends React.Component {
                     type="submit"
                     value="Go"
                   />
+
                 </form>
+                <ul>
+                  {/* {users} */}
+                  <li>user</li>
+                  <li>user</li>
+                  <li>user</li>
+                  <li>user</li>
+                  <li>user</li>
+                  <li>user</li>
+                  <li>user</li>
+                  <li>user</li>
+                  <li>user</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -59,9 +75,11 @@ class NewDirectMessage extends React.Component {
 }
 
 
-const setStateToProps = ({ session, entities: { users} }) => {
+const setStateToProps = state => {
+  debugger
   return ({
-    currentUser: users[session.id],
+    currentUser: state.entities.users[state.session.id],
+    users: state.entities.users,
   })
 }
 
