@@ -15,7 +15,7 @@ const ChannelNavMenu = (props) => {
                     <p>{props.currentUser.username}</p>
                   </div>
                 </li>  
-                <li onClick={() => {props.logout(); props.closeModal();}} className="logout-button">Log Out</li>  
+                <li onClick={() => {props.logout(); props.closeModal();}} className="logout-button">Sign out of 6lack</li>  
               </ul>
             </div>
           </div>

@@ -194,9 +194,9 @@ input[type="search"]::placeholder {
 
 .chatbox-container {
   display: flex;
+  flex-direction: column;
   align-items: flex-end;
-  justify-content: space-between;
-  height: 100%;
+  height: fit-content;
   width: 100%;
 }
 
@@ -204,10 +204,10 @@ input[type="search"]::placeholder {
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
 }
 
 .chatbox-container .chatbox {
-  padding: 0px 30px;  
   overflow-y: scroll;
 }
 
@@ -253,10 +253,11 @@ input[type="search"]::placeholder {
 
 .chatbox ul li {
   margin-top: 20px;
+  padding-left: 30px;
 }
 
 .chatbox ul li:last-child {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .chatbox ul li:hover {
