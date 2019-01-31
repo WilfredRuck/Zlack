@@ -19,6 +19,10 @@ class ChannelNewModal extends React.Component {
   }
 
   handleSubmit(e) {
+    if (e.target.disabled) {
+      return;
+    }
+    this.props.closeModal();
     e.preventDefault();
     const channel = Object.assign({}, this.state);
     this.props.createChannel(channel);
@@ -28,7 +32,7 @@ class ChannelNewModal extends React.Component {
     return (
       <div className="modal-background">
         <div onClick={() => this.props.closeModal()} className="cancel-modal">
-          <p>X</p>
+          <p></p>
           <p>esc</p>
         </div>
         <div className="modal-child" onClick={e => e.stopPropagation()}>

@@ -15,8 +15,18 @@
   overflow-y: auto;
 }
 
+.channel-nav-container::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+}
+
+.channel-nav-container::-webkit-scrollbar-thumb {
+  background-color: #888686;
+  border-radius: 5px;
+}
+
 .channel-nav-container img {
-  margin-left: 17px;
+  margin-left: 23px;
 }
 
 .fa-angle-down {
@@ -120,6 +130,7 @@
 
 .direct-messages {
   color: #c5b7c6;
+  margin-bottom: 200px;
 }
 
 .direct-messages > div {
@@ -156,15 +167,27 @@
   margin-bottom: 11px;
   display: flex;
   flex-direction: column;
+}
+
+.channel-header .channel-info h1 {
   text-transform: lowercase;
 }
 
-.channel-header .channel-info > a {
+.channel-header .channel-info span {
   margin-top: 9px;
   font-size: 13px;
   opacity: 0.7;
   width: max-content;
+}
+
+.channel-header .channel-info span a {
+  margin-right: 6px;
   cursor: pointer;
+}
+
+.channel-header .channel-info span p {
+  display: inline;
+  margin-left: 6px;
 }
 
 .channel-detail-button {

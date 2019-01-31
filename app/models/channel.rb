@@ -13,7 +13,7 @@
 #
 
 class Channel < ApplicationRecord
-  validates :title, presence: true;
+  validates :title, presence: true
   validates :description, length: { maximum: 50 }
   validates :is_direct, :is_private, inclusion: { in: [ true, false ] }
 
@@ -30,10 +30,16 @@ class Channel < ApplicationRecord
   through: :subscriptions,
   source: :user
 
-  after_initialize :set_booleans
+  after_initialize :set_booleans, :set_description
 
   def set_booleans
-    self.is_private || self.is_private = false;
-    self.is_direct || self.is_direct = false;
+    self.is_private || self.is_private = false
+    self.is_direct || self.is_direct = false
+  end
+
+  def set_description
+    if self.description == ""
+      self.description = "No description provided"
+    end
   end
 end

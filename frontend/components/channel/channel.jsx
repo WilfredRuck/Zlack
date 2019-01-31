@@ -31,7 +31,12 @@ class Channel extends React.Component {
           <header className="channel-header">
             <div className="channel-info">
               <h1>#{this.props.channel.title}</h1>
-              <a onClick={() => this.props.openModal('channelInfo')} className="channel-detail-button"><i className="far fa-user"></i> {this.props.channel.memberIds.length}</a>
+              <span>
+                <a onClick={() => this.props.openModal('channelInfo')} className="channel-detail-button">
+                  <i className="far fa-user"></i> {this.props.channel.memberIds.length}
+                </a>|
+                <p>{this.props.channel.description}</p>
+              </span>
             </div>
             <div className="channel-search">
               <form action="">
