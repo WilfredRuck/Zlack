@@ -29,7 +29,7 @@ class ChannelDetails extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
 
-  let channelId = ownProps.match.params.channelId;
+  let channelId = 1;
   let channel = state.entities.channels[channelId] || { memberIds: [] };
   let allUsers = [];
   channel.memberIds.forEach(id => {

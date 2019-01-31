@@ -35,7 +35,7 @@ class Channel extends React.Component {
             </div>
             <div className="channel-search">
               <form action="">
-                <input type="search" placeholder="Search"/>
+                <input type="search" placeholder="Search" disabled={true}/>
               </form>
             </div>
           </header>

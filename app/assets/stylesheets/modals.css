@@ -73,7 +73,7 @@
   box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 4px 12px 0 rgba(0,0,0,.12);
   margin-top: 55px;
   margin-left: 10px;
-  transition: transform 400ms ease-in;
+  transition: all 1s ease-in;
 }
 
 .nav-menu {
@@ -153,6 +153,7 @@
   display: flex;
   font-size: 18px;
   padding: 12px 12px 12px 32px;
+  outline: none;
 }
 
 .new-channel-container input[type="text"]::placeholder {
@@ -162,7 +163,6 @@
 .new-channel-container .form-buttons {
   display: flex;
   justify-content: flex-end;
-  /* font-family: 'Lato', sans-serif !important; */
   width: 100%;
 }
 

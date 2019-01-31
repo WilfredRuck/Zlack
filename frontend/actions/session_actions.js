@@ -33,7 +33,5 @@ export const loginUser = user => dispatch => {
 }
 
 export const logoutUser = () => dispatch => {
-  return deleteSession().then(() => dispatch(logoutCurrentUser()), err => (
-    dispatch(receiveErrors(err.responseJSON))
-  ))
+  return deleteSession().then(() => dispatch(logoutCurrentUser()))
 }

@@ -50,7 +50,7 @@ class ChannelNewModal extends React.Component {
                   <label>Name <br/>
                     <input 
                       type="text" 
-                      placeholder="e.g. leads"
+                      placeholder="# e.g. leads"
                       value={this.state.title}
                       onChange={this.update('title')}
                     />
