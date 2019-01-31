@@ -38,10 +38,6 @@ class ChannelNav extends React.Component {
             {channels}
           </ul>
         </div>
-        
-        <div className="add-channel-button">
-          {/* <i className="fas fa-plus"></i> Add a channel */}
-        </div>
 
         <div className="direct-messages">
           <div>

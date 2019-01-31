@@ -53,7 +53,6 @@ class Channel extends React.Component {
                 currentUser = {this.props.currentUser}
                 createMessage = {this.props.createMessage}
               />
-              
             </div>
           </div>
         </div>

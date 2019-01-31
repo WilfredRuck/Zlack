@@ -1,44 +1,53 @@
 import React from 'react';
-import { requestChannelUsers } from '../../actions/channel_actions';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router-dom';
 
 class ChannelDetails extends React.Component {
   constructor(props) {
     super(props);
   }
-  
-  componentDidMount() {
-    // let channelId = this.props.match.params.channelId;
-    // this.props.requestUsers(channelId);
-  }
 
   render() {
+  
+    const users = this.props.users.map(user => {
+      return(<li key={user.id}>{user.username}</li>)
+    })
 
     return (
-      <div className="channel-info-background">
+      <div className="channel-info-background" onClick={() => this.props.closeModal()}>
         <div className="channel-info-child" onClick={e => e.stopPropagation()}>
           <div>CHANNEL DETAILS</div>
-          <p onClick={() => this.props.closeModal()}>X</p>
+          <ul>
+            {users}
+          </ul>
         </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ session, entities: { users, channels } }, ownProps) => {
-  // let channelId = ownProps.match.params.channelId;
-  // let channel = channels[channelId];
-  return ({
-    
+const mapStateToProps = (state, ownProps) => {
+
+  let channelId = ownProps.match.params.channelId;
+  let channel = state.entities.channels[channelId] || { memberIds: [] };
+  let allUsers = [];
+  channel.memberIds.forEach(id => {
+    if (state.entities.users[id]) {
+      allUsers.push(state.entities.users[id]);
+    }
   })
+
+  return {
+    channel: channel,
+    users: allUsers,
+  };
 }
 
 const mapDispatchToProps = dispatch => {
   return ({
-    requestUsers: (id) => dispatch(requestChannelUsers(id)),
     closeModal: () => dispatch(closeModal()),
   })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelDetails);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ChannelDetails));

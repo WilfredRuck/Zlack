@@ -38,13 +38,13 @@ class ChannelNewModal extends React.Component {
                 <div className="form-description">Channels are where your members communicate. They’re best when organized around a topic — #leads, for example.</div><br/>
                 <form onSubmit={this.handleSubmit}>
 
-                  <label>
+                  <label className="toggle-group">
                     <Toggle
-                      defaultChecked={this.state.private}
+                      defaultChecked={true}
+                      disabled={true}
                       className='custom-classname'
-                      onChange={this.state.private} 
                     />
-                    <span>Private</span>
+                    <span>Public - Anyone in your workspace can view and join this channel.</span>
                   </label>
 
                   <label>Name <br/>
@@ -57,7 +57,7 @@ class ChannelNewModal extends React.Component {
                   </label>
                   <p>Names must be lowercase, without spaces or periods, and shorter than 22 characters.</p>
 
-                  <label>Purpose (optional) <br/>
+                  <label>Purpose <p className="dim">(optional)</p>
                     <input 
                       type="text"
                       value={this.state.description}
