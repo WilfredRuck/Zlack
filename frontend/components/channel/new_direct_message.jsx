@@ -28,9 +28,6 @@ class NewDirectMessage extends React.Component {
   }
 
   render() {
-    // const users = this.props.users.map(user => {
-    //   return(<li key={user.id}>{user.username}</li>)
-    // })
     return (
       <div className="modal-background">
         <div onClick={() => this.props.closeModal()} className="cancel-modal">
@@ -55,16 +52,54 @@ class NewDirectMessage extends React.Component {
 
                 </form>
                 <ul>
-                  {/* {users} */}
-                  <li>user</li>
-                  <li>user</li>
-                  <li>user</li>
-                  <li>user</li>
-                  <li>user</li>
-                  <li>user</li>
-                  <li>user</li>
-                  <li>user</li>
-                  <li>user</li>
+                  <li>
+                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
+                    <p>{this.props.currentUser.username}</p>
+                  </li>
+                  <li>
+                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
+                    <p>{this.props.currentUser.username}</p>
+                  </li>
+                  <li>
+                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
+                    <p>{this.props.currentUser.username}</p>
+                  </li>
+                  <li>
+                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
+                    <p>{this.props.currentUser.username}</p>
+                  </li>
+                  <li>
+                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
+                    <p>{this.props.currentUser.username}</p>
+                  </li>
+                  <li>
+                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
+                    <p>{this.props.currentUser.username}</p>
+                  </li>
+                  <li>
+                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
+                    <p>{this.props.currentUser.username}</p>
+                  </li>
+                  <li>
+                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
+                    <p>{this.props.currentUser.username}</p>
+                  </li>
+                  <li>
+                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
+                    <p>{this.props.currentUser.username}</p>
+                  </li>
+                  <li>
+                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
+                    <p>{this.props.currentUser.username}</p>
+                  </li>
+                  <li>
+                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
+                    <p>{this.props.currentUser.username}</p>
+                  </li>
+                  <li>
+                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
+                    <p>{this.props.currentUser.username}</p>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -76,7 +111,6 @@ class NewDirectMessage extends React.Component {
 
 
 const setStateToProps = state => {
-  debugger
   return ({
     currentUser: state.entities.users[state.session.id],
     users: state.entities.users,

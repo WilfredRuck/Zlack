@@ -302,6 +302,7 @@ label span {
   overflow-y: scroll;
   width: 91%;
   margin-top: 40px;
+  cursor: pointer;
 }
 
 .new-dm-form-group ul::-webkit-scrollbar {
@@ -320,12 +321,18 @@ label span {
 
 .new-dm-form-group ul li {
   border-top: 1px solid lightgray;
-  padding: 20px 0px;
+  padding: 10px 0px;
   margin-right: 20px;
-  text-align: center;
+  text-align: left;
+  display: flex;
+  align-items: center;
 }
 
-
+.new-dm-form-group ul li:hover {
+  background-color: #e8f5fa;
+  border: 1px solid #c7e6f4;
+  border-radius: 6px;
+}
 
 /* CHANNEL INFO MODAL */
 
