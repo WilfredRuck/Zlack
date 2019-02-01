@@ -6,7 +6,7 @@ import { closeModal } from '../../actions/modal_actions';
 class NewDirectMessage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {title: 'Direct Message', description: '', is_direct: true, creator_id: this.props.currentUser.id };
+    this.state = {title: this.props.currentUser.username, description: '', is_direct: true, creator_id: this.props.currentUser.id };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
