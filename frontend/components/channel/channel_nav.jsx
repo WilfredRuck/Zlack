@@ -18,7 +18,7 @@ class ChannelNav extends React.Component {
     })
 
     const dms = this.props.channels.map(channel => {
-      if (channel.direct) {
+      if ((channel.direct) && (channel.memberIds.includes(this.props.currentUser.id))) {
         return(<ChannelNavItem key={channel.id} channel={channel} />)
       }
     })
