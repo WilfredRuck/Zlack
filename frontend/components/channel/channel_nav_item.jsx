@@ -5,14 +5,14 @@ const ChannelNavItem = props => {
   if (props.channel.direct)  {
     return (
       <Link to={`/channels/${props.channel.id}`}>
-        <div> {props.channel.title} </div> 
+        <div className={props.highlighted}> {props.channel.title} </div> 
       </Link>
     )
   }
 
   return (
     <Link to={`/channels/${props.channel.id}`}>
-      <div> <i className="fas fa-hashtag"></i>  {props.channel.title} </div> 
+      <div className={props.highlighted}> <i className="fas fa-hashtag"></i>  {props.channel.title} </div> 
     </Link>
   )
 }

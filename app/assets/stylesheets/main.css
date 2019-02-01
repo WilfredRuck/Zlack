@@ -166,6 +166,20 @@
   font-size: 16px;
 }
 
+.highlighted {
+  background-color: #1164A3;
+  color: #fff !important;
+  opacity: unset !important;
+}
+
+.highlighted:hover {
+  background-color: #1164A3 !important;
+}
+
+.not-highlighted {
+  background-color: none;
+}
+
 /* CHATROOM  */
 
 .channel-container {
