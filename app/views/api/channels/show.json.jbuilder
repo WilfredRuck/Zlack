@@ -6,7 +6,7 @@ json.channel do
         json.direct @channel.is_direct
         json.memberIds @channel.member_ids
         json.messageIds @channel.message_ids
-        json.creatorId @channel.creator_id
+        json.creator User.find(@channel.creator_id).username
     end
 end
 
@@ -14,7 +14,7 @@ json.members do
     @channel.members.each do |member|
         json.set! member.id do 
             json.id member.id
-            json.member member.username 
+            json.username member.username 
             json.avatar member.avatar
             json.chatroom_ids member.chatroom_ids
         end

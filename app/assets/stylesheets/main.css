@@ -13,6 +13,7 @@
   width: 15.56em;
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .channel-nav-container::-webkit-scrollbar {
@@ -26,7 +27,7 @@
 }
 
 .channel-nav-container img {
-  margin-left: 23px;
+  width: max-content;
 }
 
 .fa-angle-down {
@@ -61,7 +62,7 @@
   font-size: .875rem;
 }
 
-.current-user .online-dot {
+.online-dot {
   background-color: #38978d;
   height: 8.5px;
   width: 8.5px;
@@ -357,8 +358,52 @@ input[type="search"]::placeholder {
 
 /* CHANNEL DETAIL SECTION */
 
-.channel-detail-container {
+.channel-sidebar-info-container {
   height: 100%;
-  justify-self: flex-end;
   width: 25%;
+  background-color: #fff;
+}
+
+.channel-sidebar-info .title-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 15px;
+  font-weight: 900;
+  background-color: #f9f9f9;
+}
+
+.channel-sidebar-info .title-section div:last-of-type {
+  cursor: pointer;
+}
+
+.channel-sidebar-info .details-section {
+  padding: 30px 15px;
+  border-top: 1px solid lightgray;
+}
+
+.channel-sidebar-info .details-section div:not(:first-of-type) {
+  margin-top: 10px;
+}
+
+.channel-sidebar-info .details-section p {
+  margin-top: 10px;
+}
+
+.channel-sidebar-info .members-section {
+  padding: 30px 15px;
+  border-top: 1px solid lightgray;
+}
+
+.channel-sidebar-info .members-section ul {
+  margin-top: 20px;
+}
+
+.channel-sidebar-info .members-section ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.channel-sidebar-info .members-section ul li img {
+  margin-right: 5px;
 }

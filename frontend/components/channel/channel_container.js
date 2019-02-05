@@ -13,10 +13,19 @@ const mapStateToProps = (state, ownProps) => {
       allMessages.push(state.entities.messages[id]);
     }
   })
+
+  let allMembers = [];
+  channel.memberIds.forEach(id => {
+    if (state.entities.users[id]) {
+      allMembers.push(state.entities.users[id]);
+    }
+  })
+
   return {
     currentUser: state.entities.users[state.session.id],
     channel: channel,
     messages: allMessages,
+    members: allMembers, 
   };
 };
 

@@ -23,6 +23,15 @@ class Channel extends React.Component {
   }
 
   render() {
+    const members = this.props.members.map(member => {
+      return(
+      <li key={member.id}>
+      <p className="online-dot"></p>
+      <img src={member.avatar} alt="user's avatar" height="25px" width="25px"/>
+      {member.username}
+      </li>
+      )
+    })
     return (
       <div className="main-container">
         <ChannelNav />
@@ -60,6 +69,36 @@ class Channel extends React.Component {
               />
             </div>
           </div>
+        </div>
+        <div className="channel-sidebar-info-container">
+              <div className="channel-sidebar-info">
+                
+                <div className="title-section">
+                  <div>About #{this.props.channel.title}</div>
+                  <div>X</div>
+                </div>
+
+                <div className="details-section">
+                  <div>Channel Details</div>
+                  <div>
+                    <p>Purpose</p>
+                    <p>{this.props.channel.description}</p>
+                  </div>
+                  <div>
+                    <p>Created</p>
+                    <p>Created by {this.props.channel.creator} on {this.props.channel.created}</p>
+                  </div>
+                </div>
+
+                <div className="members-section">
+                  <div>{this.props.channel.memberIds.length} Members</div>
+                  <ul>
+                    {members}
+                  </ul>
+                </div>
+
+
+              </div>
         </div>
       </div>
     )
