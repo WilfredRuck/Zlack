@@ -22,6 +22,15 @@ class Channel extends React.Component {
     }
   }
 
+  closeSidebar() {
+    // debugger
+    document.getElementsByClassName("channel-sidebar-info-container")[0].style.width = "0%";
+  }
+
+  openSidebar() {
+    document.getElementsByClassName("channel-sidebar-info-container")[0].style.width = "25%";
+  }
+
   render() {
     const members = this.props.members.map(member => {
       return(
@@ -41,7 +50,7 @@ class Channel extends React.Component {
             <div className="channel-info">
               <h1>#{this.props.channel.title}</h1>
               <span>
-                <a onClick={() => this.props.openModal('channelInfo')} className="channel-detail-button">
+                <a onClick={this.openSidebar} className="channel-detail-button">
                   <i className="far fa-user"></i> {this.props.channel.memberIds.length}
                 </a>|
                 <p>{this.props.channel.description}</p>
@@ -75,7 +84,7 @@ class Channel extends React.Component {
                 
                 <div className="title-section">
                   <div>About #{this.props.channel.title}</div>
-                  <div>X</div>
+                  <div onClick={this.closeSidebar}>X</div>
                 </div>
 
                 <div className="details-section">

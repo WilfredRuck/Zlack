@@ -387,6 +387,7 @@ input[type="search"]::placeholder {
 
 .channel-sidebar-info .details-section p {
   margin-top: 10px;
+  font-size: 14px;
 }
 
 .channel-sidebar-info .members-section {
@@ -402,6 +403,7 @@ input[type="search"]::placeholder {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .channel-sidebar-info .members-section ul li img {
