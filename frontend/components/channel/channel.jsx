@@ -23,7 +23,6 @@ class Channel extends React.Component {
   }
 
   closeSidebar() {
-    // debugger
     document.getElementsByClassName("channel-sidebar-info-container")[0].style.width = "0%";
   }
 
@@ -41,6 +40,18 @@ class Channel extends React.Component {
       </li>
       )
     })
+
+    let description = "";
+    let deleteChannelButton = "";
+    if (this.props.currentUser.username === this.props.channel.creator) {
+      description = <p onClick={() => this.props.openModal("editChannel")} className="edit-channel">{this.props.channel.description}</p>;
+      if (this.props.channel.id !== 1) {
+        deleteChannelButton = <button>Delete channel</button>
+      }
+    }
+    else {
+      description = <p>{this.props.channel.description}</p>;
+    }
     return (
       <div className="main-container">
         <ChannelNav />
@@ -56,11 +67,7 @@ class Channel extends React.Component {
                 <p>{this.props.channel.description}</p>
               </span>
             </div>
-            <div className="channel-search">
-              <form action="">
-                <input type="search" placeholder="Search" disabled={true}/>
-              </form>
-            </div>
+
           </header>
 
           <div className="chatbox-container">
@@ -88,10 +95,10 @@ class Channel extends React.Component {
                 </div>
 
                 <div className="details-section">
-                  <div>Channel Details</div>
+                  <div>Channel Details {deleteChannelButton}</div>
                   <div>
                     <p>Purpose</p>
-                    <p>{this.props.channel.description}</p>
+                    {description}
                   </div>
                   <div>
                     <p>Created</p>

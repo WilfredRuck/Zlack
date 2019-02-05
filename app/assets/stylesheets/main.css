@@ -362,6 +362,7 @@ input[type="search"]::placeholder {
   height: 100%;
   width: 25%;
   background-color: #fff;
+  border-left: 1px solid lightgray;
 }
 
 .channel-sidebar-info .title-section {
@@ -388,6 +389,11 @@ input[type="search"]::placeholder {
 .channel-sidebar-info .details-section p {
   margin-top: 10px;
   font-size: 14px;
+}
+
+.channel-sidebar-info .details-section .edit-channel {
+  cursor: pointer;
+  color: #1164A3;
 }
 
 .channel-sidebar-info .members-section {

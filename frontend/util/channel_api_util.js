@@ -20,6 +20,14 @@ export const postChannel = (channel) => {
   })
 }
 
+export const updateChannel = (channel) => {
+  return $.ajax({
+    method: "PATCH",
+    url: `api/channels/${channel.id}`,
+    data: { channel }
+  })
+}
+
 export const fetchChannelUsers = (id) => {
   return $.ajax({
     method: "GET",

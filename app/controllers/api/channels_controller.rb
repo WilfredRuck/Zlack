@@ -24,6 +24,22 @@ class Api::ChannelsController < ApplicationController
     end
   end
 
+  def update
+    @channel = Channel.find(params[:id])
+    if @channel.update(channel_params)
+      render :show
+    else
+      logger.info(@channel.errors.full_messages)
+      render json: @channel.errors.full_messages, status: 401
+    end
+  end
+
+  def destroy
+    @channel = Channel.find(params[:id])
+    @channel.destroy
+    render :show
+  end
+
   private
 
   def channel_params
