@@ -3,7 +3,7 @@ import React from 'react'
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {email: '', password: ''}
+    this.state = {email: '', password: '', errors: []}
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoSubmit = this.demoSubmit.bind(this);
   }
@@ -26,9 +26,6 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user)
-    // .then(() => {
-    //   this.props.history.push("/channels/1")
-    // });
   }
 
   renderErrors() {
