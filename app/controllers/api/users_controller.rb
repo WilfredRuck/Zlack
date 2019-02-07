@@ -5,6 +5,10 @@ class Api::UsersController < ApplicationController
     @users = User.where(id: channel_user_ids)
   end
 
+  def all_users_index
+    @users = User.all
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save

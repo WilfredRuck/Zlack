@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createChannel, requestChannels } from '../../actions/channel_actions';
+import { createChannel, requestUsers } from '../../actions/channel_actions';
 import { closeModal } from '../../actions/modal_actions';
 
 class NewDirectMessage extends React.Component {
@@ -11,13 +11,13 @@ class NewDirectMessage extends React.Component {
       description: '',
       is_direct: true,
       creator_id: this.props.currentUser.id,
-      memberIds: []
+      memberIds: [],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    // this.props.requestChannels();
+    this.props.requestUsers();
   }
 
   update(field) {
@@ -38,11 +38,24 @@ class NewDirectMessage extends React.Component {
   }
 
   addUserToDM(user) {
-    if (this.state.title.includes(user.username)) return null;
-    let updatedUsernames = this.state.title.concat(" " + user.username);
-    let updatedIds = this.state.memberIds.concat(user.id);
-    console.log(this.state.title);
-    console.log(this.state.memberIds);
+    if (this.state.title.includes(user.username)) {
+      this.removeUserFromDM(user);
+    }
+    else {
+      let updatedUsernames = this.state.title.concat(" " + user.username);
+      let updatedIds = this.state.memberIds.concat(user.id);
+      return this.setState({
+        title: updatedUsernames,
+        memberIds: updatedIds
+      });
+    }
+  }
+
+  removeUserFromDM(user) {
+    let updatedUsernames = this.state.title.replace(` ${user.username}`, '');
+    let updatedIds = this.state.memberIds.filter(id => {
+      return (id !== user.id);
+    })
     return this.setState({
       title: updatedUsernames,
       memberIds: updatedIds
@@ -81,6 +94,7 @@ class NewDirectMessage extends React.Component {
                   />
 
                 </form>
+                <p>{this.state.title}</p>
                 <ul>
                   {users}
                 </ul>
@@ -104,7 +118,7 @@ const setStateToProps = state => {
 const setDispatchToProps = dispatch => {
   return ({
     createChannel: channel => dispatch(createChannel(channel)),
-    // requestChannels: () => dispatch(requestChannels()),
+    requestUsers: () => dispatch(requestUsers()),
     closeModal: () => dispatch(closeModal()),
   })
 }

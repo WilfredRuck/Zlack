@@ -3,6 +3,7 @@ import * as ChannelApiUtil from "../util/channel_api_util";
 export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
 export const RECEIVE_CHANNEL_USERS = 'RECEIVE_CHANNEL_USERS';
+export const RECEIVE_USERS = 'RECEIVE_USERS';
 
 const receiveChannels = channels => {
   return {
@@ -20,6 +21,11 @@ const receiveChannel = ({channel, members, messages}) => ({
 
 const receiveChannelUsers = users => ({
   type: RECEIVE_CHANNEL_USERS,
+  users,
+})
+
+const receiveUsers = users => ({
+  type: RECEIVE_USERS,
   users,
 })
 
@@ -48,3 +54,7 @@ export const destroyChannel = (id) => dispatch => {
 export const requestChannelUsers = (id) => dispatch => {
   ChannelApiUtil.fetchChannelUsers(id).then(users => dispatch(receiveChannelUsers(users)))
 }
+
+export const requestUsers = () => dispatch => {
+  ChannelApiUtil.fetchUsers().then(users => dispatch(receiveUsers(users)))
+} 

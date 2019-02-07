@@ -1,5 +1,4 @@
 import { OPEN_MODAL, CLOSE_MODAL } from '../actions/modal_actions';
-import { RECEIVE_CHANNEL } from '../actions/channel_actions';
 
 export const modalReducer = (state = null, action) => {
   switch (action.type) {
@@ -7,8 +6,6 @@ export const modalReducer = (state = null, action) => {
       return action.modal;
     case CLOSE_MODAL:
       return null;
-    case RECEIVE_CHANNEL:
-      return action.members;
     default:
       return state;
   }

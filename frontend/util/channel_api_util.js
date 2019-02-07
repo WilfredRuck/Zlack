@@ -52,7 +52,14 @@ export const fetchChannelMessages = (id) => {
 export const postChannelMessage = (message) => {
   return $.ajax({
     method: "POST",
-    url: `api/messages`,
+    url: 'api/messages',
     data: { message }
+  })
+}
+
+export const fetchUsers = () => {
+  return $.ajax({
+    method: "GET",
+    url: 'api/users'
   })
 }

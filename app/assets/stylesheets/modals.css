@@ -283,6 +283,7 @@ label span {
 
 .new-dm-form {
   display: flex;
+  margin-bottom: 15px;
 }
 
 .new-dm-form input[type="submit"] {
@@ -301,7 +302,7 @@ label span {
   height: 300px;
   overflow-y: scroll;
   height: fit-content;
-  margin-top: 40px;
+  margin-top: 15px;
   cursor: pointer;
 }
 

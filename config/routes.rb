@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:index]
       resources :subscriptions, only: [:create, :destroy]
     end
+    get 'users', :to => 'users#all_users_index'
     resources :messages, only: [:create]
   end
 end

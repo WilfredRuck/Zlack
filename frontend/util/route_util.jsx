@@ -22,7 +22,7 @@ const Protected = ({component: Component, path, loggedIn, exact}) => (
   )}/>
 );
 
-const mapStateToProps = ({ session, entities: { users} }) => {
+const mapStateToProps = ({ session, entities: { users } }) => {
   const currentUser = users[session.id];
   let latest;
   if (currentUser) {
