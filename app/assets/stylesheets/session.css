@@ -50,6 +50,10 @@ body {
   color: #611f69;
 }
 
+nav a {
+  cursor: pointer;
+}
+
 .nav-signup {
   padding: .75rem 1rem;
   background-color: #611f69;

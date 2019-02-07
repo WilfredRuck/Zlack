@@ -6,6 +6,7 @@ class Api::ChannelsController < ApplicationController
 
   def show
     @channel = Channel.find(params[:id])
+    @all_users = User.all
     if @channel
       render "api/channels/show"
     else
@@ -44,6 +45,6 @@ class Api::ChannelsController < ApplicationController
   private
 
   def channel_params
-    params.require(:channel).permit(:title, :description, :creator_id, :is_direct, :is_private, :id)
+    params.require(:channel).permit(:title, :description, :creator_id, :is_direct, :is_private, :id, :memberIds)
   end
 end

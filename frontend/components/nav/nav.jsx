@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Nav = ({ currentUser, logout }) => {
+const Nav = (props) => {
   return (
       <header className="splash-nav">
         <div className="splash-content">
@@ -12,8 +12,8 @@ const Nav = ({ currentUser, logout }) => {
             <a href="https://www.github.com/wilfredruck/Zlack" target="_blank" className="nav-github">Github Repo</a>
           </div>
           <nav>
-            <Link to="/login" className='nav-login'>Sign in</Link>
-            <Link to="/signup" className='nav-signup'>Get Started</Link>
+            <a className='nav-login' onClick={() => props.history.push("/login")}>Sign in</a>
+            <a className='nav-signup' onClick={() => props.history.push("/signup")}>Get Started</a>
           </nav>
         </div>
       </header>

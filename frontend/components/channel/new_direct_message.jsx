@@ -1,13 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createChannel } from '../../actions/channel_actions';
+import { createChannel, requestChannels } from '../../actions/channel_actions';
 import { closeModal } from '../../actions/modal_actions';
 
 class NewDirectMessage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {title: this.props.currentUser.username, description: '', is_direct: true, creator_id: this.props.currentUser.id };
+    this.state = {
+      title: [this.props.currentUser.username],
+      description: '',
+      is_direct: true,
+      creator_id: this.props.currentUser.id,
+      memberIds: []
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    // this.props.requestChannels();
   }
 
   update(field) {
@@ -23,11 +33,36 @@ class NewDirectMessage extends React.Component {
     }
     this.props.closeModal();
     e.preventDefault();
+    let stringedTitle = this.state.title.join(" ");
+    debugger
+    this.setState({
+      title: stringedTitle
+    })
+    debugger
     const channel = Object.assign({}, this.state);
     this.props.createChannel(channel);
   }
 
+  addUserToDM(user) {
+    if (this.state.title.includes(user.username)) return null;
+    let updatedUsernames = this.state.title.concat(user.username);
+    let updatedIds = this.state.memberIds.concat(user.id);
+    debugger
+    return this.setState({
+      title: updatedUsernames,
+      memberIds: updatedIds
+    });
+  }
+
   render() {
+    const users = this.props.users.map(user => {
+      return(
+      <li key={user.id} onClick={() => this.addUserToDM(user)}>
+        <img src={user.avatar} alt="user's avatar" height="36px" width="36px"/>
+        <p>{user.username}</p>
+      </li>
+      )
+    })
     return (
       <div className="modal-background">
         <div onClick={() => this.props.closeModal()} className="cancel-modal">
@@ -52,54 +87,7 @@ class NewDirectMessage extends React.Component {
 
                 </form>
                 <ul>
-                  <li>
-                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
-                    <p>{this.props.currentUser.username}</p>
-                  </li>
-                  <li>
-                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
-                    <p>{this.props.currentUser.username}</p>
-                  </li>
-                  <li>
-                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
-                    <p>{this.props.currentUser.username}</p>
-                  </li>
-                  <li>
-                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
-                    <p>{this.props.currentUser.username}</p>
-                  </li>
-                  <li>
-                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
-                    <p>{this.props.currentUser.username}</p>
-                  </li>
-                  <li>
-                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
-                    <p>{this.props.currentUser.username}</p>
-                  </li>
-                  <li>
-                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
-                    <p>{this.props.currentUser.username}</p>
-                  </li>
-                  <li>
-                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
-                    <p>{this.props.currentUser.username}</p>
-                  </li>
-                  <li>
-                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
-                    <p>{this.props.currentUser.username}</p>
-                  </li>
-                  <li>
-                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
-                    <p>{this.props.currentUser.username}</p>
-                  </li>
-                  <li>
-                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
-                    <p>{this.props.currentUser.username}</p>
-                  </li>
-                  <li>
-                    <img src={this.props.currentUser.avatar} alt="user's avatar" height="36px" width="36px"/>
-                    <p>{this.props.currentUser.username}</p>
-                  </li>
+                  {users}
                 </ul>
               </div>
             </div>
@@ -111,16 +99,18 @@ class NewDirectMessage extends React.Component {
 
 
 const setStateToProps = state => {
+  const users = Object.values(state.entities.users);
   return ({
     currentUser: state.entities.users[state.session.id],
-    users: state.entities.users,
+    users: users,
   })
 }
 
 const setDispatchToProps = dispatch => {
   return ({
     createChannel: channel => dispatch(createChannel(channel)),
-    closeModal: () => dispatch(closeModal())
+    // requestChannels: () => dispatch(requestChannels()),
+    closeModal: () => dispatch(closeModal()),
   })
 }
 

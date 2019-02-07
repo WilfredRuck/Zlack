@@ -300,7 +300,7 @@ label span {
 .new-dm-form-group ul {
   height: 300px;
   overflow-y: scroll;
-  width: 91%;
+  height: fit-content;
   margin-top: 40px;
   cursor: pointer;
 }

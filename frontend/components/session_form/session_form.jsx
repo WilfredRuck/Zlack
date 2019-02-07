@@ -8,6 +8,10 @@ class SessionForm extends React.Component {
     this.demoSubmit = this.demoSubmit.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearSessionErrors();
+  }
+
   demoSubmit(e) {
     e.preventDefault();
     e.persist();
