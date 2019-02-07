@@ -75,7 +75,11 @@ class User < ApplicationRecord
   end
 
   def assign_username
-    self.username ||= self.email.split("@").first.capitalize
+    if (self.email != "")
+      self.username ||= self.email.split("@").first.capitalize
+    else
+      self.username = ""
+    end
   end
 
 end
