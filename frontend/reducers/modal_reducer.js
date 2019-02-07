@@ -8,7 +8,7 @@ export const modalReducer = (state = null, action) => {
     case CLOSE_MODAL:
       return null;
     case RECEIVE_CHANNEL:
-      return action.users;
+      return action.members;
     default:
       return state;
   }

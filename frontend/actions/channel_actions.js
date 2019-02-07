@@ -11,12 +11,11 @@ const receiveChannels = channels => {
   }
 }
 
-const receiveChannel = ({channel, members, messages, users}) => ({
+const receiveChannel = ({channel, members, messages}) => ({
   type: RECEIVE_CHANNEL,
   channel,
   members,
   messages,
-  users,
 })
 
 const receiveChannelUsers = users => ({

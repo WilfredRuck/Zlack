@@ -18,6 +18,11 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.new(channel_params)
     if @channel.save
       Subscription.create(channel_id: @channel.id, user_id: @channel.creator_id)
+      if(params["channel"]["memberIds"])
+        params["channel"]["memberIds"].each do |id|
+          Subscription.create(channel_id: @channel.id, user_id: id)
+        end
+      end
       render :show
     else
       logger.info(@channel.errors.full_messages)

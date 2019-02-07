@@ -7,7 +7,7 @@ class NewDirectMessage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: [this.props.currentUser.username],
+      title: this.props.currentUser.username,
       description: '',
       is_direct: true,
       creator_id: this.props.currentUser.id,
@@ -33,21 +33,16 @@ class NewDirectMessage extends React.Component {
     }
     this.props.closeModal();
     e.preventDefault();
-    let stringedTitle = this.state.title.join(" ");
-    debugger
-    this.setState({
-      title: stringedTitle
-    })
-    debugger
     const channel = Object.assign({}, this.state);
     this.props.createChannel(channel);
   }
 
   addUserToDM(user) {
     if (this.state.title.includes(user.username)) return null;
-    let updatedUsernames = this.state.title.concat(user.username);
+    let updatedUsernames = this.state.title.concat(" " + user.username);
     let updatedIds = this.state.memberIds.concat(user.id);
-    debugger
+    console.log(this.state.title);
+    console.log(this.state.memberIds);
     return this.setState({
       title: updatedUsernames,
       memberIds: updatedIds

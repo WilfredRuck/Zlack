@@ -21,16 +21,6 @@ json.members do
     end
 end
 
-json.users do
-    @all_users.each do |user|
-        json.set! user.id do
-            json.id user.id
-            json.username user.username
-            json.avatar user.avatar
-        end
-    end
-end
-
 json.messages do
     @channel.messages.each do |message|
         json.set! message.id do
