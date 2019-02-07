@@ -41,6 +41,10 @@ export const updateChannel = (channel) => dispatch => {
   ChannelApiUtil.updateChannel(channel).then(channel => dispatch(receiveChannel(channel)))
 }
 
+export const destroyChannel = (id) => dispatch => {
+  ChannelApiUtil.destroyChannel(id).then((channel) => dispatch(receiveChannel(channel)))
+}
+
 export const requestChannelUsers = (id) => dispatch => {
   ChannelApiUtil.fetchChannelUsers(id).then(users => dispatch(receiveChannelUsers(users)))
 }

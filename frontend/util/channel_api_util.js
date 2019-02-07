@@ -28,6 +28,13 @@ export const updateChannel = (channel) => {
   })
 }
 
+export const destroyChannel = (id) => {
+  return $.ajax({
+    method: "DELETE",
+    url: `api/channels/${id}`
+  })
+}
+
 export const fetchChannelUsers = (id) => {
   return $.ajax({
     method: "GET",

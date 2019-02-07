@@ -35,14 +35,15 @@ class Api::ChannelsController < ApplicationController
   end
 
   def destroy
-    @channel = Channel.find(params[:id])
-    @channel.destroy
-    render :show
+    @old_channel = Channel.find(params[:id])
+    @old_channel.destroy
+    @channel = Channel.first
+    render "api/channels/show"
   end
 
   private
 
   def channel_params
-    params.require(:channel).permit(:title, :description, :creator_id, :is_direct)
+    params.require(:channel).permit(:title, :description, :creator_id, :is_direct, :is_private, :id)
   end
 end

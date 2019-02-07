@@ -1,4 +1,4 @@
-import { requestChannel } from '../../actions/channel_actions';
+import { requestChannel, destroyChannel } from '../../actions/channel_actions';
 import { requestChannelMessages, createMessage } from '../../actions/message_actions';
 import { connect } from 'react-redux';
 import Channel from './channel';
@@ -32,6 +32,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     requestChannel: (id) => dispatch(requestChannel(id)),
+    deleteChannel: (id) => dispatch(destroyChannel(id)),
     requestMessages: (id) => dispatch(requestChannelMessages(id)),
     createMessage: (message) => dispatch(createMessage(message)),
     openModal: (modal) => dispatch(openModal(modal)),
