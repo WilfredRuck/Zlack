@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import ChannelMessagesIndex from './channel_messages_index';
 import ChannelForm from './channel_form';
 import ChannelNav from './channel_nav';
@@ -121,4 +120,4 @@ class Channel extends React.Component {
   }
 }
 
-export default withRouter(Channel);
+export default Channel;

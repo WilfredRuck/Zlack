@@ -8,14 +8,18 @@ import { withRouter } from 'react-router-dom';
 class ChannelEditModal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {title: this.props.channel.title, description: this.props.channel.description, is_private: false };
+    this.state = {
+      title: this.props.channel.title,
+      description: this.props.channel.description,
+      is_private: false,
+      id: this.props.channel.id
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value,
-      id: this.props.channel.id
     });
   }
 
@@ -30,7 +34,6 @@ class ChannelEditModal extends React.Component {
   }
 
   render() {
-    debugger
     return (
       <div className="modal-background">
         <div onClick={() => this.props.closeModal()} className="cancel-modal">
@@ -95,9 +98,8 @@ class ChannelEditModal extends React.Component {
 
 
 const setStateToProps = ({ session, entities: { users, channels } }, ownProps) => {
-  let channelId = ownProps.match.params.channelId;
-  // debugger
-  let channel = channels[7] || {title: "", description: ""};
+  const channelId = ownProps.match.params.channelId;
+  const channel = channels[channelId];
   return ({
     currentUser: users[session.id],
     channel: channel,
