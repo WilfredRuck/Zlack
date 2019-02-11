@@ -2,6 +2,7 @@ import React from 'react';
 import ChannelMessagesIndex from './channel_messages_index';
 import ChannelForm from './channel_form';
 import ChannelNav from './channel_nav';
+import { Link } from 'react-router-dom';
 
 class Channel extends React.Component {
   constructor(props) {
@@ -45,7 +46,7 @@ class Channel extends React.Component {
     if (this.props.currentUser.username === this.props.channel.creator) {
       description = <p onClick={() => this.props.openModal("editChannel")} className="edit-channel">{this.props.channel.description}</p>;
       if (this.props.channel.id !== 1) {
-        deleteChannelButton = <button onClick={() => this.props.deleteChannel(this.props.channel.id)}>Delete channel</button>
+        deleteChannelButton = <Link to="/channels/1" onClick={() => this.props.deleteChannel(this.props.channel.id)}>Delete channel</Link>
       }
     }
     else {
