@@ -1,20 +1,29 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createChannel } from '../../actions/channel_actions';
+import { createChannel, requestUsers } from '../../actions/channel_actions';
 import { closeModal } from '../../actions/modal_actions';
-import Toggle from 'react-toggle';
 
 class ChannelNewModal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {title: '', description: '', private: false };
+    this.state = {
+      title: '',
+      description: '',
+      is_private: false,
+      memberIds: [],
+      creator_id: this.props.currentUser.id 
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.changeStatus = this.changeStatus.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.requestUsers();
   }
 
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value,
-      creator_id: this.props.currentUser.id
     });
   }
 
@@ -28,7 +37,68 @@ class ChannelNewModal extends React.Component {
     this.props.createChannel(channel);
   }
 
+  changeStatus() {
+    this.setState({
+      is_private: !(this.state.is_private)
+    })
+  }
+
+  addUserToChannel(user) {
+    if (this.state.memberIds.includes(user.id)) {
+      this.removeUserFromChannel(user);
+    }
+    else {
+      let updatedIds = this.state.memberIds.concat(user.id);
+      return this.setState({
+        memberIds: updatedIds
+      });
+    }
+  }
+
+  removeUserFromChannel(user) {
+    let updatedIds = this.state.memberIds.filter(id => {
+      return (id !== user.id);
+    })
+    return this.setState({
+      memberIds: updatedIds
+    });
+  }
+
   render() {
+    let statusMessage = <span>Public - Anyone in your workspace can view and join this channel.</span>
+    let status = "Public";
+    let channeltype = <div className="form-title">Create a channel</div>
+    if (this.state.is_private) {
+      statusMessage = <span>Private - This channel can only be joined or viewed by invite</span>;
+      channeltype = <div className="form-title">Create a private channel</div>;
+      status = "Private";
+    }
+
+    let allMembers = [];
+    this.state.memberIds.forEach(id => {
+        allMembers.push(this.props.users[id - 1]);
+    });
+
+    const selectedUsers = allMembers.map(user => {
+        return(
+        <li key={user.id} onClick={() => this.addUserToDM(user)}>
+          <img src={user.avatar} alt="user's avatar" height="20px" width="20px"/>
+          <p>{user.username}</p>
+        </li>
+        )
+    })
+
+    const users = this.props.users.map(user => {
+      if (user.id !== this.props.currentUser.id) {
+        return(
+        <li key={user.id} onClick={() => this.addUserToChannel(user)}>
+          <img src={user.avatar} alt="user's avatar" height="36px" width="36px"/>
+          <p>{user.username}</p>
+        </li>
+        )
+      }
+    })
+
     return (
       <div className="modal-background">
         <div onClick={() => this.props.closeModal()} className="cancel-modal">
@@ -38,18 +108,12 @@ class ChannelNewModal extends React.Component {
         <div className="modal-child" onClick={e => e.stopPropagation()}>
           <div className="new-channel-container">  
               <div className="new-channel-form">
-                <div className="form-title">Create a channel</div><br/>
+                {channeltype}<br/>
                 <div className="form-description">Channels are where your members communicate. They’re best when organized around a topic — #leads, for example.</div><br/>
                 <form onSubmit={this.handleSubmit}>
 
-                  <label className="toggle-group">
-                    <Toggle
-                      defaultChecked={true}
-                      disabled={true}
-                      className='custom-classname'
-                    />
-                    <span>Public - Anyone in your workspace can view and join this channel.</span>
-                  </label>
+                    <button type="button" className={`private-button-${this.state.is_private}`} onClick={() => this.changeStatus()}>{status}</button>
+                    {statusMessage}
 
                   <label>Name <br/>
                     <input 
@@ -68,7 +132,14 @@ class ChannelNewModal extends React.Component {
                       onChange={this.update('description')}
                     />
                   </label>
-                    <p> What's this channel about?</p><br/>
+                    <p> What's this channel about?</p>
+                  <label>Send Invites to: <p className="dim">(optional)</p></label>
+                  <ul className="selectedUsers">
+                    {selectedUsers}
+                  </ul>
+                  <ul className="selectUsers">
+                    {users}
+                  </ul>
 
                   <div className="form-buttons">
                     <input 
@@ -80,6 +151,7 @@ class ChannelNewModal extends React.Component {
                       type="submit"
                       disabled={!this.state.title}
                       value="Create Channel"
+                      className={`${!this.state.title}`}
                     />
                   </div>
                 </form>
@@ -92,15 +164,18 @@ class ChannelNewModal extends React.Component {
 }
 
 
-const setStateToProps = ({ session, entities: { users } }, ownProps) => {
+const setStateToProps = ({ session, entities: { users } }) => {
+  const allUsers = Object.values(users);
   return ({
     currentUser: users[session.id],
+    users: allUsers,
   })
 }
 
 const setDispatchToProps = dispatch => {
   return ({
     createChannel: channel => dispatch(createChannel(channel)),
+    requestUsers: () => dispatch(requestUsers()),
     closeModal: () => dispatch(closeModal())
   })
 }
