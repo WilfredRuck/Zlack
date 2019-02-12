@@ -132,8 +132,8 @@ class ChannelNewModal extends React.Component {
                       onChange={this.update('description')}
                     />
                   </label>
-                    <p> What's this channel about?</p><br/>
-
+                    <p> What's this channel about?</p>
+                  <label>Send Invites to: <p className="dim">(optional)</p></label>
                   <ul className="selectedUsers">
                     {selectedUsers}
                   </ul>
@@ -151,6 +151,7 @@ class ChannelNewModal extends React.Component {
                       type="submit"
                       disabled={!this.state.title}
                       value="Create Channel"
+                      className={`${!this.state.title}`}
                     />
                   </div>
                 </form>
