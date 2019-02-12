@@ -23,7 +23,6 @@ class NewDirectMessage extends React.Component {
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value,
-      creator_id: this.props.currentUser.id
     });
   }
 

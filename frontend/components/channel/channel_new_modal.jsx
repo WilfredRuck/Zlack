@@ -1,21 +1,29 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createChannel } from '../../actions/channel_actions';
+import { createChannel, requestUsers } from '../../actions/channel_actions';
 import { closeModal } from '../../actions/modal_actions';
-import Toggle from 'react-toggle';
 
 class ChannelNewModal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {title: '', description: '', is_private: false };
+    this.state = {
+      title: '',
+      description: '',
+      is_private: false,
+      memberIds: [],
+      creator_id: this.props.currentUser.id 
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeStatus = this.changeStatus.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.requestUsers();
   }
 
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value,
-      creator_id: this.props.currentUser.id
     });
   }
 
@@ -35,6 +43,27 @@ class ChannelNewModal extends React.Component {
     })
   }
 
+  addUserToChannel(user) {
+    if (this.state.memberIds.includes(user.id)) {
+      this.removeUserFromChannel(user);
+    }
+    else {
+      let updatedIds = this.state.memberIds.concat(user.id);
+      return this.setState({
+        memberIds: updatedIds
+      });
+    }
+  }
+
+  removeUserFromChannel(user) {
+    let updatedIds = this.state.memberIds.filter(id => {
+      return (id !== user.id);
+    })
+    return this.setState({
+      memberIds: updatedIds
+    });
+  }
+
   render() {
     let statusMessage = <span>Public - Anyone in your workspace can view and join this channel.</span>
     let status = "Public";
@@ -44,6 +73,32 @@ class ChannelNewModal extends React.Component {
       channeltype = <div className="form-title">Create a private channel</div>;
       status = "Private";
     }
+
+    let allMembers = [];
+    this.state.memberIds.forEach(id => {
+        allMembers.push(this.props.users[id - 1]);
+    });
+
+    const selectedUsers = allMembers.map(user => {
+        return(
+        <li key={user.id} onClick={() => this.addUserToDM(user)}>
+          <img src={user.avatar} alt="user's avatar" height="20px" width="20px"/>
+          <p>{user.username}</p>
+        </li>
+        )
+    })
+
+    const users = this.props.users.map(user => {
+      if (user.id !== this.props.currentUser.id) {
+        return(
+        <li key={user.id} onClick={() => this.addUserToChannel(user)}>
+          <img src={user.avatar} alt="user's avatar" height="36px" width="36px"/>
+          <p>{user.username}</p>
+        </li>
+        )
+      }
+    })
+
     return (
       <div className="modal-background">
         <div onClick={() => this.props.closeModal()} className="cancel-modal">
@@ -79,6 +134,13 @@ class ChannelNewModal extends React.Component {
                   </label>
                     <p> What's this channel about?</p><br/>
 
+                  <ul className="selectedUsers">
+                    {selectedUsers}
+                  </ul>
+                  <ul className="selectUsers">
+                    {users}
+                  </ul>
+
                   <div className="form-buttons">
                     <input 
                       type="button" 
@@ -102,14 +164,17 @@ class ChannelNewModal extends React.Component {
 
 
 const setStateToProps = ({ session, entities: { users } }) => {
+  const allUsers = Object.values(users);
   return ({
     currentUser: users[session.id],
+    users: allUsers,
   })
 }
 
 const setDispatchToProps = dispatch => {
   return ({
     createChannel: channel => dispatch(createChannel(channel)),
+    requestUsers: () => dispatch(requestUsers()),
     closeModal: () => dispatch(closeModal())
   })
 }

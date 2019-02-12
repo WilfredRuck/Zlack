@@ -120,7 +120,7 @@
 .new-channel-container {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 300px;
   background-color: #fff;
   width: 700px;
 }
@@ -241,6 +241,50 @@ label .dim {
   color: white;
   text-align: center;
   margin-right: 10px;
+}
+
+.selectUsers {
+  overflow-y: scroll;
+  height: 150px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.selectUsers::-webkit-scrollbar {
+  width: 8px;
+}
+
+.selectUsers::-webkit-scrollbar-thumb {
+  background-color: #888686;
+  border-radius: 5px;
+}
+
+.selectUsers::-webkit-scrollbar-track {
+  width: 8px;
+  background-color: lightgrey;
+}
+
+.selectUsers li {
+  border-top: 1px solid lightgray;
+  padding: 6px 0px;
+  margin-right: 20px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.selectUsers li:hover {
+  background-color: #e8f5fa;
+  border: 1px solid #c7e6f4;
+  border-radius: 6px;
+}
+
+.selectedUsers {
+  display: flex;
+}
+
+.selectedUsers li {
+  display: flex;
 }
 
 
