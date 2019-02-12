@@ -9,6 +9,13 @@ const ChannelNavItem = props => {
       </Link>
     )
   }
+  else if (props.channel.private) {
+    return (
+      <Link to={`/channels/${props.channel.id}`}>
+        <div className={props.highlighted}> <i className="fas fa-lock"></i>  {props.channel.title} </div> 
+      </Link>
+    )
+  }
 
   return (
     <Link to={`/channels/${props.channel.id}`}>

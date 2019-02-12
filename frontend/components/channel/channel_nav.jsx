@@ -15,7 +15,11 @@ class ChannelNav extends React.Component {
     let currentChannel = this.props.match.params.channelId;
     const channels = this.props.channels.map(channel => {
       let highlighted = "not-highlighted";
-      if (!channel.direct) {
+      if (!channel.direct && !channel.private) {
+        if (channel.id == currentChannel) highlighted = "highlighted"; 
+        return(<ChannelNavItem key={channel.id} channel={channel} highlighted={highlighted} />)
+      }
+      else if ((channel.private) && (channel.memberIds.includes(this.props.currentUser.id))) {
         if (channel.id == currentChannel) highlighted = "highlighted"; 
         return(<ChannelNavItem key={channel.id} channel={channel} highlighted={highlighted} />)
       }
