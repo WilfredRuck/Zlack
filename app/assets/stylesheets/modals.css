@@ -305,7 +305,7 @@ label .dim {
 
 .dm-modal-child {
   position: absolute;
-  top: 35%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -361,7 +361,6 @@ label .dim {
 .new-dm-form-group ul {
   height: 300px;
   overflow-y: scroll;
-  height: fit-content;
   margin-top: 15px;
   cursor: pointer;
 }
