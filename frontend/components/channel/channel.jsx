@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 class Channel extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { amountOfMembers: this.props.channel.memberIds }
+    this.state = { amountOfMembers: this.props.channel.memberIds.length }
   }
 
   componentDidMount() {
@@ -67,7 +67,7 @@ class Channel extends React.Component {
                 <p>{this.props.channel.description}</p>
               </span>
             </div>
-            <button>Leave Channel</button>
+
           </header>
 
           <div className="chatbox-container">
@@ -107,7 +107,7 @@ class Channel extends React.Component {
                 </div>
 
                 <div className="members-section">
-                  <div>{this.state.amountOfMembers.length} Members</div>
+                  <div>{this.props.channel.memberIds.length} Members</div>
                   <ul>
                     {members}
                   </ul>
