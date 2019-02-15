@@ -52,11 +52,13 @@ class Channel extends React.Component {
     else {
       description = <p>{this.props.channel.description}</p>;
     }
-    let currentChannelTitle = this.props.channel.title;
+    let currentChannelTitle = "#" + this.props.channel.title;
+    let channelInfoTitle = "About #" + this.props.channel.title;
     if (this.props.channel.direct) {
       if ((this.props.channel.title).includes(this.props.currentUser.username)) {
         const newTitle = this.props.channel.title.split(" ").filter(e => e !== this.props.currentUser.username);
         currentChannelTitle = newTitle.join(" ");
+        channelInfoTitle = "About this conversation";
       }
     }
 
@@ -67,7 +69,7 @@ class Channel extends React.Component {
           
           <header className="channel-header">
             <div className="channel-info">
-              <h1>#{currentChannelTitle}</h1>
+              <h1>{currentChannelTitle}</h1>
               <span>
                 <a onClick={this.openSidebar} className="channel-detail-button">
                   <i className="far fa-user"></i> {this.props.channel.memberIds.length}
@@ -98,7 +100,7 @@ class Channel extends React.Component {
               <div className="channel-sidebar-info">
                 
                 <div className="title-section">
-                  <div>About #{currentChannelTitle}</div>
+                  <div>{channelInfoTitle}</div>
                   <div onClick={this.closeSidebar}>X</div>
                 </div>
 
