@@ -7,7 +7,7 @@ class NewDirectMessage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: this.props.currentUser.username,
+      title: '',
       description: '',
       is_direct: true,
       creator_id: this.props.currentUser.id,
@@ -91,6 +91,7 @@ class NewDirectMessage extends React.Component {
 
                   <input 
                     type="submit"
+                    disabled={!(this.state.memberIds.length !== 0)}
                     value="Go"
                   />
 
