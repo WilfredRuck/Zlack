@@ -6,7 +6,7 @@ import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let channelId = ownProps.match.params.channelId;
-  let channel = state.entities.channels[channelId] || { memberIds: [], messageIds: [] };
+  let channel = state.entities.channels[channelId] || { memberIds: [], messageIds: [], title: "", direct: false };
   let allMessages = [];
   channel.messageIds.forEach(id => {
     if (state.entities.messages[id]) {

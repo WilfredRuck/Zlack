@@ -29,7 +29,7 @@ class ChannelNav extends React.Component {
       let highlighted = "not-highlighted";
       if ((channel.direct) && (channel.memberIds.includes(this.props.currentUser.id))) {
         if (channel.id == currentChannel) highlighted = "highlighted";
-        return(<ChannelNavItem key={channel.id} channel={channel} highlighted={highlighted} />)
+        return(<ChannelNavItem key={channel.id} channel={channel} highlighted={highlighted} currentUser={this.props.currentUser} />)
       }
     })
 
@@ -49,7 +49,7 @@ class ChannelNav extends React.Component {
 
         <div className="channel-names">
           <div>
-            <h4>Channels</h4>
+            <h4 onClick={() => this.props.openModal('newChannel')}>Channels</h4>
             <p onClick={() => this.props.openModal('newChannel')} className="plus-circle">⊕</p>
           </div>
           <ul>
@@ -59,7 +59,7 @@ class ChannelNav extends React.Component {
 
         <div className="direct-messages">
           <div>
-              <h4>Direct Messages</h4>
+              <h4 onClick={() => this.props.openModal('channelDM')}>Direct Messages</h4>
               <p onClick={() => this.props.openModal('channelDM')} className="plus-circle">⊕</p>
           </div>
           <ul>

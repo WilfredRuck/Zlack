@@ -37,7 +37,7 @@ class NewDirectMessage extends React.Component {
   }
 
   addUserToDM(user) {
-    if (this.state.title.includes(user.username)) {
+    if (this.state.title.split(" ").includes(user.username)) {
       this.removeUserFromDM(user);
     }
     else {
@@ -63,12 +63,14 @@ class NewDirectMessage extends React.Component {
 
   render() {
     const users = this.props.users.map(user => {
-      return(
-      <li key={user.id} onClick={() => this.addUserToDM(user)}>
-        <img src={user.avatar} alt="user's avatar" height="36px" width="36px"/>
-        <p>{user.username}</p>
-      </li>
-      )
+      if (user.id !== this.props.currentUser.id) {
+        return(
+        <li key={user.id} onClick={() => this.addUserToDM(user)}>
+          <img src={user.avatar} alt="user's avatar" height="36px" width="36px"/>
+          <p>{user.username}</p>
+        </li>
+        )
+      }
     })
     return (
       <div className="modal-background">

@@ -127,6 +127,12 @@
 
 .channel-names h4 {
   font-size: 16px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.channel-names h4:hover {
+  color: white;
 }
 
 .direct-messages {
@@ -165,6 +171,12 @@
 
 .direct-messages h4 {
   font-size: 16px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.direct-messages h4:hover {
+  color: white;
 }
 
 .highlighted {
@@ -363,6 +375,7 @@ input[type="search"]::placeholder {
   width: 25%;
   background-color: #fff;
   border-left: 1px solid lightgray;
+  overflow-y: scroll;
 }
 
 .channel-sidebar-info .title-section {
@@ -397,6 +410,7 @@ input[type="search"]::placeholder {
 }
 
 .channel-sidebar-info .members-section {
+
   padding: 30px 15px;
   border-top: 1px solid lightgray;
 }
