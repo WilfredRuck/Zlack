@@ -7,7 +7,7 @@ const ChannelNavItem = props => {
     const currentChannelTitle = newTitle.join(" ");
     return (
       <Link to={`/channels/${props.channel.id}`}>
-        <div className={props.highlighted}> {currentChannelTitle} </div> 
+        <div className={props.highlighted}> {currentChannelTitle} </div>
       </Link>
     )
   }

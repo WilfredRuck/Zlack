@@ -1,5 +1,5 @@
 import React from 'react';
-import { requestChannels, createChannel } from "../../actions/channel_actions";
+import { requestChannels, createChannel, destroyChannel } from "../../actions/channel_actions";
 import { connect } from 'react-redux';
 import ChannelNavItem from './channel_nav_item';
 import { openModal } from '../../actions/modal_actions';
@@ -29,7 +29,7 @@ class ChannelNav extends React.Component {
       let highlighted = "not-highlighted";
       if ((channel.direct) && (channel.memberIds.includes(this.props.currentUser.id))) {
         if (channel.id == currentChannel) highlighted = "highlighted";
-        return(<ChannelNavItem key={channel.id} channel={channel} highlighted={highlighted} currentUser={this.props.currentUser} />)
+        return(<ChannelNavItem key={channel.id} channel={channel} highlighted={highlighted} currentUser={this.props.currentUser} deleteChannel={this.props.deleteChannel} />)
       }
     })
 
@@ -85,6 +85,7 @@ const mapDispatchToProps = dispatch => ({
   requestChannels: () => dispatch(requestChannels()),
   createChannel: (channel) => dispatch(createChannel(channel)),
   openModal: modal => dispatch(openModal(modal)),
+  deleteChannel: (id) => dispatch(destroyChannel(id)),
 });
 
 export default withRouter(connect(
