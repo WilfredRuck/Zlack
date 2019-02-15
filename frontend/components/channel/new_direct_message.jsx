@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { createChannel, requestUsers } from '../../actions/channel_actions';
 import { closeModal } from '../../actions/modal_actions';
+import { withRouter } from 'react-router-dom';
 
 class NewDirectMessage extends React.Component {
   constructor(props) {
@@ -33,7 +34,9 @@ class NewDirectMessage extends React.Component {
     this.props.closeModal();
     e.preventDefault();
     const channel = Object.assign({}, this.state);
-    this.props.createChannel(channel);
+    this.props.createChannel(channel).then((response) => {
+      this.props.history.push(`/channels/${Object.values(response.channel)[0].id}`);
+    });
   }
 
   addUserToDM(user) {
@@ -125,4 +128,4 @@ const setDispatchToProps = dispatch => {
   })
 }
 
-export default connect(setStateToProps, setDispatchToProps)(NewDirectMessage);
+export default withRouter(connect(setStateToProps, setDispatchToProps)(NewDirectMessage));
