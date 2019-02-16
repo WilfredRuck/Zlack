@@ -30,6 +30,38 @@ class Channel extends React.Component {
     document.getElementsByClassName("channel-sidebar-info-container")[0].style.width = "25%";
   }
 
+  toggleChannelDetails() {
+    const detailDiv = document.getElementsByClassName("details-info")[0];
+    const caret = document.getElementsByClassName("arrow")[0];
+
+    if (detailDiv.style.display === '') {
+      detailDiv.style.display = 'none';
+      caret.classList.remove('fa-caret-down');
+      caret.classList.add('fa-caret-right');
+    }
+    else {
+      detailDiv.style.display = '';
+      caret.classList.remove('fa-caret-right');
+      caret.classList.add('fa-caret-down');
+    }
+  }
+
+  toggleChannelMembers() {
+    const membersUl = document.getElementsByClassName("members-info")[0];
+    const caret = document.getElementsByClassName("arrow")[1];
+    
+    if (membersUl.style.display === '') {
+      membersUl.style.display = 'none';
+      caret.classList.remove('fa-caret-down');
+      caret.classList.add('fa-caret-right');
+    }
+    else {
+      membersUl.style.display = '';
+      caret.classList.remove('fa-caret-right');
+      caret.classList.add('fa-caret-down');
+    }
+  }
+
   render() {
     const members = this.props.members.map(member => {
       return(
@@ -103,20 +135,28 @@ class Channel extends React.Component {
                 </div>
 
                 <div className="details-section">
-                  <div>Channel Details {deleteChannelButton}</div>
-                  <div>
-                    <p>Purpose</p>
-                    {description}
+                  <div onClick={() => this.toggleChannelDetails()} className="toggler">
+                    <div id="channel-detail">Channel Details</div>
+                    <i className="fas arrow fa-caret-down"></i>
                   </div>
-                  <div>
-                    <p>Created</p>
-                    <p>Created by {this.props.channel.creator} on {this.props.channel.created}</p>
+                  <div className="details-info">
+                    <div>
+                      <p>Purpose</p>
+                      {description}
+                    </div>
+                    <div>
+                      <p>Created</p>
+                      <p>Created by {this.props.channel.creator} on {this.props.channel.created}</p>
+                    </div>
                   </div>
                 </div>
 
                 <div className="members-section">
-                  <div>{this.props.channel.memberIds.length} Members</div>
-                  <ul>
+                  <div onClick={() => this.toggleChannelMembers()} className="toggler">
+                    <div><i className="far fa-user"></i> {this.props.channel.memberIds.length} Members</div>
+                    <i className="fas arrow fa-caret-down"></i>
+                  </div>
+                  <ul className="members-info">
                     {members}
                   </ul>
                 </div>

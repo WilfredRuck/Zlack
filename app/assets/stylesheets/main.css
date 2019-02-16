@@ -391,17 +391,32 @@ input[type="search"]::placeholder {
 }
 
 .channel-sidebar-info .details-section {
-  padding: 30px 15px;
   border-top: 1px solid lightgray;
 }
 
-.channel-sidebar-info .details-section div:not(:first-of-type) {
+
+
+.channel-sidebar-info .details-section .details-info {
+  transition: 1s ease-in-out;
   margin-top: 10px;
+  margin-left: 15px;
+}
+
+.details-section .toggler {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 15px;
+  cursor: pointer;
 }
 
 .channel-sidebar-info .details-section p {
   margin-top: 10px;
   font-size: 14px;
+}
+
+.channel-sidebar-info .details-section p:last-of-type {
+  margin-bottom: 30px;
 }
 
 .channel-sidebar-info .details-section .edit-channel {
@@ -410,13 +425,11 @@ input[type="search"]::placeholder {
 }
 
 .channel-sidebar-info .members-section {
-
-  padding: 30px 15px;
   border-top: 1px solid lightgray;
 }
 
 .channel-sidebar-info .members-section ul {
-  margin-top: 20px;
+  margin-left: 15px;
 }
 
 .channel-sidebar-info .members-section ul li {
@@ -428,4 +441,17 @@ input[type="search"]::placeholder {
 
 .channel-sidebar-info .members-section ul li img {
   margin-right: 5px;
+}
+
+.members-section .fa-user {
+  margin-right: 5px;
+  color: #007a5a;
+}
+
+.members-section .toggler {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 15px;
+  cursor: pointer;
 }
