@@ -11,10 +11,11 @@ class ChannelEditModal extends React.Component {
     this.state = {
       title: this.props.channel.title,
       description: this.props.channel.description,
-      is_private: false,
+      is_private: this.props.channel.private,
       id: this.props.channel.id
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.changeStatus = this.changeStatus.bind(this);
   }
 
   update(field) {
@@ -33,7 +34,20 @@ class ChannelEditModal extends React.Component {
     this.props.updateChannel(channel);
   }
 
+  changeStatus() {
+    this.setState({
+      is_private: !(this.state.is_private)
+    })
+  }
+
   render() {
+    let statusMessage = <span>Public - Anyone in your workspace can view and join this channel.</span>
+    let status = "Public";
+    if (this.state.is_private) {
+      statusMessage = <span>Private - This channel can only be joined or viewed by invite</span>;
+      status = "Private";
+    }
+
     return (
       <div className="modal-background">
         <div onClick={() => this.props.closeModal()} className="cancel-modal">
@@ -47,14 +61,8 @@ class ChannelEditModal extends React.Component {
                 <div className="form-description">Channels are where your members communicate. They’re best when organized around a topic — #leads, for example.</div><br/>
                 <form onSubmit={this.handleSubmit}>
 
-                  <label className="toggle-group">
-                    <Toggle
-                      defaultChecked={true}
-                      disabled={true}
-                      className='custom-classname'
-                    />
-                    <span>Public - Anyone in your workspace can view and join this channel.</span>
-                  </label>
+                  <button type="button" className={`private-button-${this.state.is_private}`} onClick={() => this.changeStatus()}>{status}</button>
+                  {statusMessage}
 
                   <label>Name <br/>
                     <input 
@@ -85,6 +93,7 @@ class ChannelEditModal extends React.Component {
                       type="submit"
                       disabled={!this.state.title}
                       value="Update Channel"
+                      className={`${!this.state.title}`}
                     />
                   </div>
                 </form>

@@ -41,17 +41,15 @@ class Channel extends React.Component {
       )
     })
 
-    let description = "";
+    let description = <p>{this.props.channel.description}</p>;
     let deleteChannelButton = "";
-    if (this.props.currentUser.username === this.props.channel.creator) {
-      description = <p onClick={() => this.props.openModal("editChannel")} className="edit-channel">{this.props.channel.description}</p>;
-      if (this.props.channel.id !== 1) {
-        deleteChannelButton = <Link to="/channels/1" onClick={() => this.props.deleteChannel(this.props.channel.id)}>Delete channel</Link>
+    if ((this.props.currentUser.username === this.props.channel.creator) && (this.props.channel.id !== 1)) {
+      if (!this.props.channel.direct) {
+        description = <p onClick={() => this.props.openModal("editChannel")} className="edit-channel">{this.props.channel.description}</p>;
       }
+      deleteChannelButton = <Link to="/channels/1" onClick={() => this.props.deleteChannel(this.props.channel.id)}>Delete channel</Link>
     }
-    else {
-      description = <p>{this.props.channel.description}</p>;
-    }
+    
     let currentChannelTitle = "#" + this.props.channel.title;
     let channelInfoTitle = "About #" + this.props.channel.title;
     if (this.props.channel.direct) {
