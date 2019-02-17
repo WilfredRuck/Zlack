@@ -298,6 +298,7 @@ label .dim {
 
 .selectedUsers li {
   display: flex;
+  margin-right: 10px;
 }
 
 

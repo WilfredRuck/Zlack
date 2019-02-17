@@ -1,7 +1,7 @@
 json.channel do
     json.set! @channel.id do
         json.extract! @channel, :id, :title, :description
-        json.created @channel.created_at
+        json.created @channel.created_at.strftime("%B %d, %Y")
         json.private @channel.is_private
         json.direct @channel.is_direct
         json.memberIds @channel.member_ids

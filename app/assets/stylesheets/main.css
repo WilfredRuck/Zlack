@@ -208,16 +208,41 @@
   border-bottom: 1px solid lightgrey;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: 9%;
 }
 
 .channel-header .channel-info {
   font-weight: 900;
   color: #1d1c1d;
   margin-left: 20px;
-  margin-top: 11px;
-  margin-bottom: 11px;
   display: flex;
   flex-direction: column;
+}
+
+.channel-header .info-box {
+  margin-right: 20px;
+  border-radius: .25rem;
+  height: 30px;
+  width: 30px;
+  background: #ddd;
+  cursor: pointer;
+}
+
+.info-box .grey {
+  color: #616061;
+  font-size: 18px;
+  padding: 6px;
+}
+
+.info-box:hover .grey {
+  color: #1264a3;
+}
+
+.info-box .black {
+  color: #1d1c1d;
+  font-size: 18px;
+  padding: 6px;
 }
 
 .channel-header .channel-info h1 {
@@ -274,7 +299,7 @@ input[type="search"]::placeholder {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  height: fit-content;
+  height: auto;
   width: 100%;
 }
 
@@ -396,8 +421,20 @@ input[type="search"]::placeholder {
 
 .channel-sidebar-info .details-section .details-info {
   transition: 1s ease-in-out;
-  margin-top: 10px;
+  margin-top: -20px;
   margin-left: 15px;
+  margin-bottom: 30px;
+  margin-right: 15px;
+}
+
+.channel-sidebar-info .details-section p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.channel-sidebar-info .details-section .edit-channel {
+  cursor: pointer;
+  color: #1164A3;
 }
 
 .details-section .toggler {
@@ -408,18 +445,26 @@ input[type="search"]::placeholder {
   cursor: pointer;
 }
 
-.channel-sidebar-info .details-section p {
+.details-section .fa-info-circle {
+  margin-right: 5px;
+  color: #616061;
+  font-size: 18px;
+}
+
+.details-section .delete-button {
+  padding: .5rem 1rem;
   margin-top: 10px;
-  font-size: 14px;
-}
-
-.channel-sidebar-info .details-section p:last-of-type {
-  margin-bottom: 30px;
-}
-
-.channel-sidebar-info .details-section .edit-channel {
   cursor: pointer;
-  color: #1164A3;
+  background-color: #e01563;
+  color: white;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.28571429;
+  letter-spacing: 1px;
+  border: none;
+  transition: all ease .5s;
+  width: 100%;
 }
 
 .channel-sidebar-info .members-section {
@@ -428,6 +473,8 @@ input[type="search"]::placeholder {
 
 .channel-sidebar-info .members-section ul {
   margin-left: 15px;
+  margin-right: 15px;
+  margin-top: -10px;
 }
 
 .channel-sidebar-info .members-section ul li {

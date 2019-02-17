@@ -24,10 +24,24 @@ class Channel extends React.Component {
 
   closeSidebar() {
     document.getElementsByClassName("channel-sidebar-info-container")[0].style.width = "0%";
+    document.getElementsByClassName("info-box")[0].style.background = "#fff";
+    const infoButton = document.getElementsByClassName("info-button")[0];
+    infoButton.classList.remove('black');
+    infoButton.classList.add('grey');
   }
-
+  
   openSidebar() {
     document.getElementsByClassName("channel-sidebar-info-container")[0].style.width = "25%";
+    document.getElementsByClassName("info-box")[0].style.background = "#ddd";
+    const infoButton = document.getElementsByClassName("info-button")[0];
+    infoButton.classList.remove('grey');
+    infoButton.classList.add('black');
+  }
+
+  toggleChannelInfo() {
+    const channelInfo = document.getElementsByClassName("channel-sidebar-info-container")[0];
+    if (channelInfo.style.width === "25%" || channelInfo.style.width === "") this.closeSidebar();
+    else this.openSidebar();
   }
 
   toggleChannelDetails() {
@@ -75,21 +89,29 @@ class Channel extends React.Component {
 
     let description = <p>{this.props.channel.description}</p>;
     let deleteChannelButton = "";
+    let created_by = this.props.channel.creator;
     if ((this.props.currentUser.username === this.props.channel.creator) && (this.props.channel.id !== 1)) {
       if (!this.props.channel.direct) {
         description = <p onClick={() => this.props.openModal("editChannel")} className="edit-channel">{this.props.channel.description}</p>;
       }
-      deleteChannelButton = <Link to="/channels/1" onClick={() => this.props.deleteChannel(this.props.channel.id)}>Delete channel</Link>
+      deleteChannelButton = <Link to="/channels/1" onClick={() => this.props.deleteChannel(this.props.channel.id)}>
+      <button className="delete-button">Delete channel</button>
+      </Link>
+      created_by = "You";
     }
     
-    let currentChannelTitle = "#" + this.props.channel.title;
-    let channelInfoTitle = "About #" + this.props.channel.title;
+    let currentChannelTitle = <h1>{`# ${this.props.channel.title}`}</h1>;
+    let channelInfoTitle = <div> {`About # ${this.props.channel.title}`}</div>;
     if (this.props.channel.direct) {
       if ((this.props.channel.title).includes(this.props.currentUser.username)) {
         const newTitle = this.props.channel.title.split(" ").filter(e => e !== this.props.currentUser.username);
-        currentChannelTitle = newTitle.join(" ");
+        currentChannelTitle = <h1>{newTitle.join(" ")}</h1>;
         channelInfoTitle = "About this conversation";
       }
+    }
+    else if (this.props.channel.private) {
+      currentChannelTitle = <h1><i className="fas fa-lock"></i> {this.props.channel.title}</h1>;
+      channelInfoTitle = <div>About <i className="fas fa-lock"></i> {this.props.channel.title}</div>;
     }
 
     return (
@@ -99,7 +121,7 @@ class Channel extends React.Component {
           
           <header className="channel-header">
             <div className="channel-info">
-              <h1>{currentChannelTitle}</h1>
+              {currentChannelTitle}
               <span>
                 <a onClick={this.openSidebar} className="channel-detail-button">
                   <i className="far fa-user"></i> {this.props.channel.memberIds.length}
@@ -107,7 +129,9 @@ class Channel extends React.Component {
                 <p>{this.props.channel.description}</p>
               </span>
             </div>
-
+            <div className="info-box" onClick={() => this.toggleChannelInfo()}>
+              <i className="fas fa-info-circle info-button black"></i>
+            </div>
           </header>
 
           <div className="chatbox-container">
@@ -127,42 +151,41 @@ class Channel extends React.Component {
           </div>
         </div>
         <div className="channel-sidebar-info-container">
-              <div className="channel-sidebar-info">
-                
-                <div className="title-section">
-                  <div>{channelInfoTitle}</div>
-                  <div onClick={this.closeSidebar}>X</div>
-                </div>
+          <div className="channel-sidebar-info">
+            
+            <div className="title-section">
+              {channelInfoTitle}
+              <div onClick={this.closeSidebar}>X</div>
+            </div>
 
-                <div className="details-section">
-                  <div onClick={() => this.toggleChannelDetails()} className="toggler">
-                    <div id="channel-detail">Channel Details</div>
-                    <i className="fas arrow fa-caret-down"></i>
-                  </div>
-                  <div className="details-info">
-                    <div>
-                      <p>Purpose</p>
-                      {description}
-                    </div>
-                    <div>
-                      <p>Created</p>
-                      <p>Created by {this.props.channel.creator} on {this.props.channel.created}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="members-section">
-                  <div onClick={() => this.toggleChannelMembers()} className="toggler">
-                    <div><i className="far fa-user"></i> {this.props.channel.memberIds.length} Members</div>
-                    <i className="fas arrow fa-caret-down"></i>
-                  </div>
-                  <ul className="members-info">
-                    {members}
-                  </ul>
-                </div>
-
-
+            <div className="details-section">
+              <div onClick={() => this.toggleChannelDetails()} className="toggler">
+                <div id="channel-detail"><i className="fas fa-info-circle"></i>Channel Details</div>
+                <i className="fas arrow fa-caret-down"></i>
               </div>
+              <div className="details-info">
+                <div>
+                  <p>Purpose</p>
+                  {description}
+                </div>
+                <div>
+                  <p>Created</p>
+                  <p>Created by {created_by} on {this.props.channel.created}</p>
+                  {deleteChannelButton}
+                </div>
+              </div>
+            </div>
+
+            <div className="members-section">
+              <div onClick={() => this.toggleChannelMembers()} className="toggler">
+                <div><i className="far fa-user"></i> {this.props.channel.memberIds.length} Members</div>
+                <i className="fas arrow fa-caret-down"></i>
+              </div>
+              <ul className="members-info">
+                {members}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     )
