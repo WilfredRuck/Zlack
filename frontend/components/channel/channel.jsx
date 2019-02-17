@@ -87,6 +87,8 @@ class Channel extends React.Component {
       )
     })
 
+    let memberWord = "Member"
+    if (this.props.channel.memberIds.length > 1) memberWord = "Members" 
     let description = <p>{this.props.channel.description}</p>;
     let deleteChannelButton = "";
     let created_by = this.props.channel.creator;
@@ -126,7 +128,7 @@ class Channel extends React.Component {
                 <a onClick={this.openSidebar} className="channel-detail-button">
                   <i className="far fa-user"></i> {this.props.channel.memberIds.length}
                 </a>|
-                <p>{this.props.channel.description}</p>
+                {description}
               </span>
             </div>
             <div className="info-box" onClick={() => this.toggleChannelInfo()}>
@@ -155,7 +157,7 @@ class Channel extends React.Component {
             
             <div className="title-section">
               {channelInfoTitle}
-              <div onClick={this.closeSidebar}>X</div>
+              <div onClick={this.closeSidebar} className="sidebar-close"></div>
             </div>
 
             <div className="details-section">
@@ -164,11 +166,11 @@ class Channel extends React.Component {
                 <i className="fas arrow fa-caret-down"></i>
               </div>
               <div className="details-info">
-                <div>
+                <div className="description">
                   <p>Purpose</p>
                   {description}
                 </div>
-                <div>
+                <div className="created-at">
                   <p>Created</p>
                   <p>Created by {created_by} on {this.props.channel.created}</p>
                   {deleteChannelButton}
@@ -178,7 +180,7 @@ class Channel extends React.Component {
 
             <div className="members-section">
               <div onClick={() => this.toggleChannelMembers()} className="toggler">
-                <div><i className="far fa-user"></i> {this.props.channel.memberIds.length} Members</div>
+                <div id="members-detail"><i className="far fa-user"></i> {this.props.channel.memberIds.length} {memberWord}</div>
                 <i className="fas arrow fa-caret-down"></i>
               </div>
               <ul className="members-info">

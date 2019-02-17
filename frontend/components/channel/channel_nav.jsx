@@ -45,8 +45,6 @@ class ChannelNav extends React.Component {
           </div>
         </div>
 
-        <img src={this.props.currentUser.avatar} alt="user's avatar" height=".575em" width=".575em"/>
-
         <div className="channel-names">
           <div>
             <h4 onClick={() => this.props.openModal('newChannel')}>Channels</h4>
@@ -66,7 +64,6 @@ class ChannelNav extends React.Component {
             {dms}
           </ul>
         </div>
-
       </div>
     )
   }
