@@ -85,7 +85,7 @@ class NewDirectMessage extends React.Component {
           <div className="new-dm-container">  
               <div className="new-dm-form-group">
                 <div className="form-title">Direct Messages</div><br/>
-                <form className="new-dm-form" onSubmit={this.handleSubmit}>
+                <form className="new-dm-form form-buttons" onSubmit={this.handleSubmit}>
 
                   <input 
                     type="search" 
@@ -96,6 +96,7 @@ class NewDirectMessage extends React.Component {
                     type="submit"
                     disabled={!(this.state.memberIds.length !== 0)}
                     value="Go"
+                    className={`${!(this.state.memberIds.length !== 0)}`}
                   />
 
                 </form>
