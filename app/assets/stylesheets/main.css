@@ -210,7 +210,7 @@ ul .fa-lock, ul .fa-hashtag {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .channel-header {
@@ -289,26 +289,11 @@ ul .fa-lock, ul .fa-hashtag {
   align-self: center;
 }
 
-input[type="search"] {
-  height: 34px;
-  padding-right: 140px;
-  border: solid 1px #868686;
-  border-radius: 5px;
-  display: flex;
-  font-size: 15px;
-  padding-left: 20px;
-}
-
-input[type="search"]::placeholder {
-  text-align: left;
-  opacity: 0.5;
-}
-
 .chatbox-container {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  height: auto;
+  height: 91%;
   width: 100%;
 }
 
@@ -321,6 +306,7 @@ input[type="search"]::placeholder {
 
 .chatbox-container .chatbox {
   overflow-y: scroll;
+  margin-top: auto;
 }
 
 .chatbox-container .chatbox::-webkit-scrollbar {
