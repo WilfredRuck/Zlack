@@ -4,11 +4,13 @@
 
 ## Screenshots
 
-![6lack_channel_preview](https://i.ibb.co/SXmzFYr/chatroom.png)
+![6lack_channel_preview](https://i.ibb.co/52QgTRz/6lack-main-menu-closed.png)
 <p align="center">Channel preview</p><br />
 
+![6lack_channel_preview](https://i.ibb.co/H4yGKyD/6lack-main.png)
+<p align="center">Channel with open menu preview</p><br />
 
-![6lack_channel_form](https://i.ibb.co/rG2z9Bk/channel-form.png)
+![6lack_channel_form](https://i.ibb.co/xCWmXq9/6lack-channel-form.png)
 <p align="center">New channel form</p><br />
 
 ## Technical Specifications
