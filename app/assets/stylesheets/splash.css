@@ -1,11 +1,10 @@
 .splash-container {
-  margin: 0 auto;
-  width: 50%;
   height: 100%;
   overflow: hidden;
   margin-top: 60px;
   margin-bottom: 100px;
-  padding-left: 150px;
+  padding-left: 25%;
+  padding-right: 25%;
   padding-bottom: 10px;
   position: relative;
 }
@@ -22,11 +21,11 @@
 
 .splash-main-content {
   display: flex;
-  height: 500px;
 }
 
 .splash-main-content button {
-  padding: 1.3em 2.3em;
+  height: 59px;
+  width: 182px;
   background-color: #611f69;
   color: white;
   cursor: pointer;
@@ -58,7 +57,7 @@
   line-height: 1.44444444;
   letter-spacing: -.2px;
   width: 95%;
-  font-size: 15xpx;
+  font-size: 15px;
   margin-bottom: 30px;
   margin-top: 20px;
 }
@@ -67,9 +66,9 @@
   background-image: url("https://i.ibb.co/WK9xX4B/Slack-Customer.jpg");
   background-size: contain;
   background-position: center;
-  height: 100%;
-  width: 100%;
   background-repeat: no-repeat;
+  height: 502px;
+  width: 502px;
 }
 
 .splash-content {
@@ -112,7 +111,7 @@
   z-index: -1;
   position: absolute;
   top: 85px;
-  left: 60px;
+  left: 18%;
   background-image: url("https://i.ibb.co/KWCxyQH/Slack-Customer-Away.jpg");
   background-size: contain;
   background-position: center;
@@ -178,4 +177,19 @@
 .instagram {
   text-decoration: none;
   color: #6ecadc;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1315px) {
+  .splash-container {
+    padding-left: 16%;
+    padding-right: 16%;
+  }
+
+  .splash-image-above {
+    position: absolute;
+    top: 85px;
+    left: 8%;
+  }
 }

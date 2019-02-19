@@ -518,8 +518,18 @@ ul .fa-lock, ul .fa-hashtag {
 .channel-sidebar-info .members-section ul li {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   font-weight: bold;
+  padding-left: 10px;
+  border: 1px solid transparent;
+  font-size: 15px;
+}
+
+.channel-sidebar-info .members-section ul li:hover {
+  background-color: #e8f5fa;
+  border: 1px solid #c7e6f4;
+  border-radius: 1px;
 }
 
 .channel-sidebar-info .members-section ul li img {

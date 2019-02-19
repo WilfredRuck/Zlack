@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom'
 const Splash = () => {
   return (
     <div className="splash-container">
-      <h1>Imagine what you’ll<br/>accomplish together</h1>
+      <h1>Imagine what you’ll accomplish together</h1>
       <div className="splash-main-content">
         <div className="splash-image-above"></div>
-        <div className="splash-image"></div>
-        <p>Molly Moon creates a recipe for success with 6lack</p>
+        <div height="100%">
+          <img src="https://i.ibb.co/WK9xX4B/Slack-Customer.jpg" height="502px"
+            width="502px"></img>
+          <p>Molly Moon creates a recipe for success with 6lack</p>
+        </div>
         <div className="splash-content">
           <p>
             Slack is a collaboration hub for work, no matter what work you do.
