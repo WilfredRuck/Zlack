@@ -13,6 +13,7 @@ class NewDirectMessage extends React.Component {
       is_direct: true,
       creator_id: this.props.currentUser.id,
       memberIds: [],
+      searchName: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -65,7 +66,9 @@ class NewDirectMessage extends React.Component {
   }
 
   render() {
-    const users = this.props.users.map(user => {
+    let users;
+    if (this.state.searchName === '') {
+      users = this.props.users.map(user => {
       if (user.id !== this.props.currentUser.id) {
         return(
         <li key={user.id} onClick={() => this.addUserToDM(user)}>
@@ -74,7 +77,22 @@ class NewDirectMessage extends React.Component {
         </li>
         )
       }
-    })
+      })
+    }
+    else {
+      users = this.props.users.map(user => {
+        if (user.id !== this.props.currentUser.id) {
+          if (user.username.toUpperCase().includes(this.state.searchName.toUpperCase())) {
+            return(
+            <li key={user.id} onClick={() => this.addUserToDM(user)}>
+              <img src={user.avatar} alt="user's avatar" height="36px" width="36px"/>
+              <p>{user.username}</p>
+            </li>
+            )
+          }
+        }
+      })
+    }
     return (
       <div className="modal-background">
         <div onClick={() => this.props.closeModal()} className="cancel-modal">
@@ -89,6 +107,8 @@ class NewDirectMessage extends React.Component {
 
                   <input 
                     type="search" 
+                    value={this.state.searchName}
+                    onChange={this.update('searchName')}
                     placeholder="Find or start a conversation"
                   />
 
