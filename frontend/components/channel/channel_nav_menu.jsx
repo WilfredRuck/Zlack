@@ -23,17 +23,17 @@ const ChannelNavMenu = (props) => {
   )
 }
 
-const setStateToProps = ({ session, entities: {users} }) => {
+const mapStateToProps = ({ session, entities: {users} }) => {
   return ({
     currentUser: users[session.id],
   })
 }
 
-const setDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
   return ({
     closeModal: () => dispatch(closeModal()),
     logout: () => dispatch(logoutUser()),
   })
 }
 
-export default connect(setStateToProps, setDispatchToProps)(ChannelNavMenu);
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelNavMenu);

@@ -167,7 +167,7 @@ class ChannelNewModal extends React.Component {
 }
 
 
-const setStateToProps = ({ session, entities: { users } }) => {
+const mapStateToProps = ({ session, entities: { users } }) => {
   const allUsers = Object.values(users);
   return ({
     currentUser: users[session.id],
@@ -175,7 +175,7 @@ const setStateToProps = ({ session, entities: { users } }) => {
   })
 }
 
-const setDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
   return ({
     createChannel: channel => dispatch(createChannel(channel)),
     requestUsers: () => dispatch(requestUsers()),
@@ -183,4 +183,4 @@ const setDispatchToProps = dispatch => {
   })
 }
 
-export default withRouter(connect(setStateToProps, setDispatchToProps)(ChannelNewModal));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ChannelNewModal));

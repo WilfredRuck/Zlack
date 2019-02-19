@@ -29,7 +29,16 @@ class ChannelNav extends React.Component {
       let highlighted = "not-highlighted";
       if ((channel.direct) && (channel.memberIds.includes(this.props.currentUser.id))) {
         if (channel.id == currentChannel) highlighted = "highlighted";
-        return(<ChannelNavItem key={channel.id} channel={channel} highlighted={highlighted} currentUser={this.props.currentUser} deleteChannel={this.props.deleteChannel} />)
+        return(
+          <ChannelNavItem 
+            key={channel.id} 
+            channel={channel} 
+            highlighted={highlighted} 
+            currentUser={this.props.currentUser} 
+            deleteChannel={this.props.deleteChannel}
+            currentChannel={this.props.currentChannel}
+          />
+        )
       }
     })
 
@@ -70,11 +79,14 @@ class ChannelNav extends React.Component {
 }
 
 
-const mapStateToProps = ({ session, entities: { users, channels } }) => {
+const mapStateToProps = ({ session, entities: { users, channels } }, ownProps) => {
+  let channelId = ownProps.match.params.channelId;
+  let channel = channels[channelId];
   let allChannels = Object.values(channels);
   return {
     currentUser: users[session.id],
     channels: allChannels,
+    currentChannel: channel,
   };
 };
 
