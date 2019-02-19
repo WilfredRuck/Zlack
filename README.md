@@ -1,14 +1,16 @@
 # 6lack
 
-<a href="http://zlack-app.herokuapp.com">6lack</a> is a single-page messaging app inspired by Slack. It is built on Rails back-end and React/Redux front-end and utilizes RESTful architecture. It employs Action Cable to establish a live connection amongst users in each channel.
+<a href="http://zlack-app.herokuapp.com">6lack</a> is a single-page messaging app inspired by Slack. It is built on Rails back-end and React/Redux front-end and utilizes RESTful architecture. It employs Action Cable to establish a live connection amongst users in each channel. Users can message in real-time and create new channels or direct messages between selected users.
 
 ## Screenshots
 
-![6lack_channel_preview](https://i.ibb.co/SXmzFYr/chatroom.png)
+![6lack_channel_preview](https://i.ibb.co/52QgTRz/6lack-main-menu-closed.png)
 <p align="center">Channel preview</p><br />
 
+![6lack_channel_preview](https://i.ibb.co/H4yGKyD/6lack-main.png)
+<p align="center">Channel with open menu preview</p><br />
 
-![6lack_channel_form](https://i.ibb.co/rG2z9Bk/channel-form.png)
+![6lack_channel_form](https://i.ibb.co/xCWmXq9/6lack-channel-form.png)
 <p align="center">New channel form</p><br />
 
 ## Technical Specifications
