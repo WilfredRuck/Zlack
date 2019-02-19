@@ -84,7 +84,7 @@ class ChannelNewModal extends React.Component {
 
     const selectedUsers = allMembers.map(user => {
         return(
-        <li key={user.id} onClick={() => this.addUserToDM(user)}>
+        <li key={user.id} onClick={() => this.removeUserFromChannel(user)}>
           <img src={user.avatar} alt="user's avatar" height="20px" width="20px"/>
           <p>{user.username}</p>
         </li>

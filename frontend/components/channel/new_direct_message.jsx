@@ -73,7 +73,7 @@ class NewDirectMessage extends React.Component {
 
     const selectedUsers = allMembers.map(user => {
       return(
-      <li key={user.id} onClick={() => this.addUserToDM(user)}>
+      <li className="selectedUser" key={user.id} onClick={() => this.removeUserFromDM(user)}>
         <img src={user.avatar} alt="user's avatar" height="20px" width="20px"/>
         <p>{user.username}</p>
       </li>

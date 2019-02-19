@@ -294,6 +294,10 @@ label .dim {
 .selectedUsers li {
   display: flex;
   margin-right: 10px;
+  cursor: pointer;
+  background-color: #c7e6f4;
+  padding: 5px;
+  border-radius: 3px;
 }
 
 
