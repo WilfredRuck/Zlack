@@ -360,28 +360,28 @@ label .dim {
   outline: none;
 }
 
-.new-dm-form-group ul {
+.new-dm-form-group .selectUsers {
   height: 300px;
   overflow-y: scroll;
   margin-top: 15px;
   cursor: pointer;
 }
 
-.new-dm-form-group ul::-webkit-scrollbar {
+.new-dm-form-group .selectUsers::-webkit-scrollbar {
   width: 8px;
 }
 
-.new-dm-form-group ul::-webkit-scrollbar-thumb {
+.new-dm-form-group .selectUsers::-webkit-scrollbar-thumb {
   background-color: #888686;
   border-radius: 5px;
 }
 
-.new-dm-form-group ul::-webkit-scrollbar-track {
+.new-dm-form-group .selectUsers::-webkit-scrollbar-track {
   width: 8px;
   background-color: lightgrey;
 }
 
-.new-dm-form-group ul li {
+.new-dm-form-group .selectUsers li {
   border-top: 1px solid lightgray;
   padding: 10px 0px;
   margin-right: 20px;
@@ -390,7 +390,7 @@ label .dim {
   align-items: center;
 }
 
-.new-dm-form-group ul li:hover {
+.new-dm-form-group .selectUsers li:hover {
   background-color: #e8f5fa;
   border: 1px solid #c7e6f4;
   border-radius: 6px;

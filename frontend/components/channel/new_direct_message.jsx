@@ -66,6 +66,20 @@ class NewDirectMessage extends React.Component {
   }
 
   render() {
+    let allMembers = [];
+    this.state.memberIds.forEach(id => {
+        allMembers.push(this.props.users[id - 1]);
+    });
+
+    const selectedUsers = allMembers.map(user => {
+      return(
+      <li key={user.id} onClick={() => this.addUserToDM(user)}>
+        <img src={user.avatar} alt="user's avatar" height="20px" width="20px"/>
+        <p>{user.username}</p>
+      </li>
+      )
+    })
+
     let users;
     if (this.state.searchName === '') {
       users = this.props.users.map(user => {
@@ -120,8 +134,10 @@ class NewDirectMessage extends React.Component {
                   />
 
                 </form>
-                <p>{this.state.title}</p>
-                <ul>
+                <ul className="selectedUsers">
+                  {selectedUsers}
+                </ul>
+                <ul className="selectUsers">
                   {users}
                 </ul>
               </div>
