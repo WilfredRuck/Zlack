@@ -106,7 +106,7 @@ class ChannelEditModal extends React.Component {
 }
 
 
-const setStateToProps = ({ session, entities: { users, channels } }, ownProps) => {
+const mapStateToProps = ({ session, entities: { users, channels } }, ownProps) => {
   const channelId = ownProps.match.params.channelId;
   const channel = channels[channelId];
   return ({
@@ -115,11 +115,11 @@ const setStateToProps = ({ session, entities: { users, channels } }, ownProps) =
   })
 }
 
-const setDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
   return ({
     updateChannel: channel => dispatch(updateChannel(channel)),
     closeModal: () => dispatch(closeModal())
   })
 }
 
-export default withRouter(connect(setStateToProps, setDispatchToProps)(ChannelEditModal));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ChannelEditModal));

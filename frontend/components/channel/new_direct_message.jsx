@@ -113,7 +113,7 @@ class NewDirectMessage extends React.Component {
 }
 
 
-const setStateToProps = state => {
+const mapStateToProps = state => {
   const users = Object.values(state.entities.users);
   return ({
     currentUser: state.entities.users[state.session.id],
@@ -121,7 +121,7 @@ const setStateToProps = state => {
   })
 }
 
-const setDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
   return ({
     createChannel: channel => dispatch(createChannel(channel)),
     requestUsers: () => dispatch(requestUsers()),
@@ -129,4 +129,4 @@ const setDispatchToProps = dispatch => {
   })
 }
 
-export default withRouter(connect(setStateToProps, setDispatchToProps)(NewDirectMessage));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewDirectMessage));

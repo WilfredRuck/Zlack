@@ -115,7 +115,6 @@
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 17px;
-  padding-right: 12px;
   color: #c5b7c6;
   opacity: 0.5;
 }
@@ -159,9 +158,10 @@
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 17px;
-  padding-right: 12px;
   color: #c5b7c6;
   opacity: 0.5;
+  display: flex;
+  justify-content: space-between;
 }
 
 .direct-messages a {
@@ -551,4 +551,19 @@ ul .fa-lock, ul .fa-hashtag {
 
 .members-section #members-detail {
   font-size: 18px;
+}
+
+.fa-times-circle {
+  color: transparent;
+  margin-right: 15px;
+}
+
+.fa-times-circle:hover {
+  color: white;
+  position: relative;
+  z-index: 10;
+}
+
+#cursor {
+  cursor: pointer;
 }
