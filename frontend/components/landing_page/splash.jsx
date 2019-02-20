@@ -9,7 +9,7 @@ const Splash = () => {
         <div className="splash-image-above"></div>
         <div height="100%">
           <img src="https://i.ibb.co/WK9xX4B/Slack-Customer.jpg" height="502px"
-            width="502px"></img>
+            width="502px" className="mainImage"></img>
           <p>Molly Moon creates a recipe for success with 6lack</p>
         </div>
         <div className="splash-content">
