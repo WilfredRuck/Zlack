@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { updateChannel } from '../../actions/channel_actions';
 import { closeModal } from '../../actions/modal_actions';
-import Toggle from 'react-toggle';
 import { withRouter } from 'react-router-dom';
 
 class ChannelEditModal extends React.Component {
@@ -16,6 +15,21 @@ class ChannelEditModal extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeStatus = this.changeStatus.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyPress);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress);
+  }
+
+  handleKeyPress(e) {
+    if (e.keyCode === 27) {
+      this.props.closeModal();
+    }
   }
 
   update(field) {

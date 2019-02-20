@@ -16,10 +16,22 @@ class NewDirectMessage extends React.Component {
       searchName: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
-
+  
   componentDidMount() {
     this.props.requestUsers();
+    document.addEventListener('keydown', this.handleKeyPress);
+  }
+  
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress);
+  }
+
+  handleKeyPress(e) {
+    if (e.keyCode === 27) {
+      this.props.closeModal();
+    }
   }
 
   update(field) {

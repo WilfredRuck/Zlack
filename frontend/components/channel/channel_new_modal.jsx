@@ -16,10 +16,22 @@ class ChannelNewModal extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeStatus = this.changeStatus.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   componentDidMount() {
     this.props.requestUsers();
+    document.addEventListener('keydown', this.handleKeyPress);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress);
+  }
+
+  handleKeyPress(e) {
+    if (e.keyCode === 27) {
+      this.props.closeModal();
+    }
   }
 
   update(field) {
