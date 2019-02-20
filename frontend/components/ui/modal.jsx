@@ -5,8 +5,9 @@ import ChannelEditModal from '../channel/channel_edit_modal';
 import ChannelNavMenu from '../channel/channel_nav_menu';
 import ChannelDetails from '../channel/channel_details';
 import NewDirectMessage from '../channel/new_direct_message';
+import ChannelUserModal from '../channel/channel_user_modal';
 
-function Modal({modal}) {
+function Modal({modal, modalData}) {
   if (!modal) {
     return null;
   }
@@ -27,6 +28,9 @@ function Modal({modal}) {
     case 'channelDM':
       component = <NewDirectMessage />;
       break;
+    case 'userProfile':
+      component = <ChannelUserModal modalData={modalData}/>;
+      break;
     default:
       return null;
   }
@@ -38,8 +42,10 @@ function Modal({modal}) {
 }
 
 const mapStateToProps = state => {
+  const modal = state.ui.modalReducer || { modal: '', modalData: ''};
   return {
-    modal: state.ui.modalReducer
+    modal: modal.modal,
+    modalData: modal.modalData,
   };
 };
 

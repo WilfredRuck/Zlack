@@ -35,7 +35,7 @@ const mapDispatchToProps = dispatch => {
     deleteChannel: (id) => dispatch(destroyChannel(id)),
     requestMessages: (id) => dispatch(requestChannelMessages(id)),
     createMessage: (message) => dispatch(createMessage(message)),
-    openModal: (modal) => dispatch(openModal(modal)),
+    openModal: (modal, modalData) => dispatch(openModal(modal, modalData)),
   };
 };
 

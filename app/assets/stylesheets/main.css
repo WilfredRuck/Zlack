@@ -524,6 +524,7 @@ ul .fa-lock, ul .fa-hashtag {
   padding-left: 10px;
   border: 1px solid transparent;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .channel-sidebar-info .members-section ul li:hover {

@@ -79,7 +79,7 @@ class Channel extends React.Component {
   render() {
     const members = this.props.members.map(member => {
       return(
-      <li key={member.id}>
+      <li key={member.id} onClick={() => this.props.openModal("userProfile", member)}>
       <p className="online-dot"></p>
       <img src={member.avatar} alt="user's avatar" height="25px" width="25px"/>
       {member.username}
