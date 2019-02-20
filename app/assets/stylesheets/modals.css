@@ -424,7 +424,7 @@ label .dim {
 
 /* USER INFO MODAL */
 
-.nav-modal-background {
+.user-modal-background {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -433,45 +433,51 @@ label .dim {
   z-index: 10;
 }
 
-.nav-menu-child {
+.user-modal-child {
   position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  right: 0;
+  /* transform: translate(-50%, -50%); */
 }
 
-.nav-menu-container {
+.user-menu-container {
   background-color: #fff;
-  width: 300px;
+  width: 224px;
   min-width: 200px;
   max-width: 360px;
   color: #1d1c1d;
   border-radius: 6px;
   background: #fff;
   box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 4px 12px 0 rgba(0,0,0,.12);
-  margin-top: 55px;
-  margin-left: 10px;
+  margin-top: 100px;
   transition: all 1s ease-in;
 }
 
-.nav-menu {
+.user-menu {
   color: #000;
 }
 
-.nav-menu .user-info {
+.user-menu .user-info {
   padding: 10px 24px;
   margin-bottom: 5px;
   font-size: 16px;
 }
 
-.nav-menu .user-info > div {
+.user-menu .user-info > div {
   display: flex;
   align-items: center;
   font-size: 1.125em;
   font-weight: bolder;
 }
 
-.nav-menu .logout-button {
+.user-menu li:first-of-type {
+  border-bottom: 2px solid grey;
+}
+
+.user-menu li:last-of-type {
+  padding: 10px;
+}
+
+.user-menu .logout-button {
   margin-bottom: 5px;
   font-size: 16px;
   padding: 10px 24px;
@@ -480,7 +486,7 @@ label .dim {
   border-radius: 3px;
 }
 
-.nav-menu .logout-button:hover {
+.user-menu .logout-button:hover {
   background-color: #08c;
   color: #fff;
 }

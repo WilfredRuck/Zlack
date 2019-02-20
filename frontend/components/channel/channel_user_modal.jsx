@@ -20,16 +20,18 @@ class ChannelUserModal extends React.Component {
       return (user.id === this.props.modalData.id)
     });
     return (
-      <div className="nav-modal-background" onClick={() => this.props.closeModal()}>
-        <div className="nav-modal-child" onClick={e => e.stopPropagation()}>
-          <div className="nav-menu-container">  
-              <ul className="nav-menu">
+      <div className="user-modal-background" onClick={() => this.props.closeModal()}>
+        <div className="user-modal-child" onClick={e => e.stopPropagation()}>
+          <div className="user-menu-container">  
+              <ul className="user-menu">
                 <li className="user-info">
                   <div>
-                    <img src={user.avatar} alt="user's avatar" height="36px" width="36px"/>
-                    <p>{user.username}</p>
+                    <img src={user.avatar} alt="user's avatar" height="200px" width="100%"/>
                   </div>
-                </li>  
+                </li>
+                <li>
+                  {user.username}
+                </li> 
               </ul>
             </div>
           </div>
