@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import { requestChannelUsers } from '../../actions/channel_actions';
 import { withRouter } from 'react-router-dom';
-import { postUser } from '../../util/session_api_util';
 
 class ChannelUserModal extends React.Component {
   constructor(props) {
