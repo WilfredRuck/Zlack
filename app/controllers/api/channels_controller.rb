@@ -25,7 +25,6 @@ class Api::ChannelsController < ApplicationController
       end
       render :show
     else
-      logger.info(@channel.errors.full_messages)
       render json: @channel.errors.full_messages, status: 401
     end
   end
