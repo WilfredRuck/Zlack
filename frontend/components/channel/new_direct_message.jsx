@@ -8,7 +8,7 @@ class NewDirectMessage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
+      title: `${this.props.currentUser.username}`,
       description: '',
       is_direct: true,
       creator_id: this.props.currentUser.id,

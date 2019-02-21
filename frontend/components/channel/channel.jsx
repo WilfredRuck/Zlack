@@ -108,6 +108,7 @@ class Channel extends React.Component {
         const newTitle = this.props.channel.title.split(" ").filter(name => ((name !== this.props.currentUser.username) && (name !== "")));
         currentChannelTitle = <h1>{newTitle.join(", ")}</h1>;
         channelInfoTitle = "About this conversation";
+        debugger
     }
     else if (this.props.channel.private) {
       currentChannelTitle = <h1><i className="fas fa-lock"></i> {this.props.channel.title}</h1>;
