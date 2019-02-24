@@ -61,13 +61,6 @@
   z-index: 10;
 }
 
-.nav-menu-child {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .nav-menu-container {
   background-color: #fff;
   width: 300px;
