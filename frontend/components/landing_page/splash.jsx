@@ -19,9 +19,9 @@ const Splash = () => {
             With Slack, your team is better connected.
           </p>
           <div className="splash-signup-section">
-            <form>
+            {/* <form>
               <input type="text" placeholder="Email address" className="splash-input"/>
-            </form>
+            </form> */}
             <Link to="/signup"><button>Get Started</button></Link>
           </div>
           <p className="login-link-section">Already using 6lack? <Link to="/login">Sign in</Link>.</p>

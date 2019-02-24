@@ -20,7 +20,6 @@ const mapStateToProps = (state, ownProps) => {
       allMembers.push(state.entities.users[id]);
     }
   })
-  debugger
   return {
     currentUser: state.entities.users[state.session.id],
     channel: channel,
