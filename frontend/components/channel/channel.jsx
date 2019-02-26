@@ -87,9 +87,12 @@ class Channel extends React.Component {
       )
     })
 
-    let unsubscribeButton = null;
+    let subscribeButton;
     if (this.props.channel.memberIds.includes(this.props.currentUser.id)) {
-      unsubscribeButton = <button onClick={() => this.props.unsubscribeChannel(this.props.channel.id)}>Leave Channel</button>
+      subscribeButton = <button onClick={() => this.props.unsubscribeChannel(this.props.channel.id)}>Leave Channel</button>;
+    }
+    else {
+      subscribeButton = <button onClick={() => this.props.subscribeToChannel(this.props.channel.id)}>Join Channel</button>;
     }
 
     let memberWord = "Member"
@@ -135,7 +138,7 @@ class Channel extends React.Component {
               </span>
             </div>
             <div className="header-right-info">
-              {unsubscribeButton}
+              {subscribeButton}
               <div className="info-box" onClick={() => this.toggleChannelInfo()}>
                 <i className="fas fa-info-circle info-button black"></i>
               </div>

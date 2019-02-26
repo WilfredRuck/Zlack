@@ -1,4 +1,4 @@
-import { requestChannel, destroyChannel, deleteChannelSubscription } from '../../actions/channel_actions';
+import { requestChannel, destroyChannel, deleteChannelSubscription, createChannelSubscription } from '../../actions/channel_actions';
 import { requestChannelMessages, createMessage } from '../../actions/message_actions';
 import { connect } from 'react-redux';
 import Channel from './channel';
@@ -36,6 +36,7 @@ const mapDispatchToProps = dispatch => {
     createMessage: (message) => dispatch(createMessage(message)),
     openModal: (modal, modalData) => dispatch(openModal(modal, modalData)),
     unsubscribeChannel: (id) => dispatch(deleteChannelSubscription(id)),
+    subscribeToChannel: (id) => dispatch(createChannelSubscription(id)),
   };
 };
 
