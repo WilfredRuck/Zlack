@@ -157,6 +157,7 @@ class Channel extends React.Component {
                 channelId = {this.props.match.params.channelId}
                 currentUser = {this.props.currentUser}
                 createMessage = {this.props.createMessage}
+                createSubscription = {this.props.subscribeToChannel}
               />
             </div>
           </div>
