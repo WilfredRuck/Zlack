@@ -229,6 +229,15 @@ ul .fa-lock, ul .fa-hashtag {
   flex-direction: column;
 }
 
+.channel-header .header-right-info {
+  display: flex;
+}
+
+.channel-header .header-right-info button {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
 .channel-header .info-box {
   margin-right: 20px;
   border-radius: .25rem;

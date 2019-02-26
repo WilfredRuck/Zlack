@@ -1,4 +1,5 @@
 import * as ChannelApiUtil from "../util/channel_api_util";
+import * as SubscriptionApiUtil from "../util/subscription_api_util";
 
 export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
@@ -67,4 +68,12 @@ export const requestChannelUsers = (id) => dispatch => {
 
 export const requestUsers = () => dispatch => {
   ChannelApiUtil.fetchUsers().then(users => dispatch(receiveUsers(users)))
-} 
+}
+
+export const createChannelSubscription = (channelId) => dispatch => {
+  SubscriptionApiUtil.createSubscription(channelId).then(channel => dispatch(receiveChannel(channel)))
+}
+
+export const deleteChannelSubscription = (channelId) => dispatch => {
+  SubscriptionApiUtil.destroySubscription(channelId).then(channels => dispatch(receiveChannels(channels)))
+}
