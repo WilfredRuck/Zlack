@@ -231,11 +231,29 @@ ul .fa-lock, ul .fa-hashtag {
 
 .channel-header .header-right-info {
   display: flex;
+  align-items: center;
 }
 
 .channel-header .header-right-info button {
   margin-right: 10px;
   cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.1s ease-in-out;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+}
+
+.channel-header .unsubscribe-button {
+  background-color: #e9a820;
+  color: white;
+}
+
+.channel-header .subscribe-button {
+  background-color: #3eb991;
+  color: white;
 }
 
 .channel-header .info-box {

@@ -89,10 +89,10 @@ class Channel extends React.Component {
 
     let subscribeButton;
     if (this.props.channel.memberIds.includes(this.props.currentUser.id)) {
-      subscribeButton = <button onClick={() => this.props.unsubscribeChannel(this.props.channel.id)}>Leave Channel</button>;
+      subscribeButton = <button className="unsubscribe-button" onClick={() => this.props.unsubscribeChannel(this.props.channel.id)}>Leave Channel</button>;
     }
     else {
-      subscribeButton = <button onClick={() => this.props.subscribeToChannel(this.props.channel.id)}>Join Channel</button>;
+      subscribeButton = <button className="subscribe-button" onClick={() => this.props.subscribeToChannel(this.props.channel.id)}>Join Channel</button>;
     }
 
     let memberWord = "Member"
