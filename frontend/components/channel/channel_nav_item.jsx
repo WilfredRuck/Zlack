@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
-import { destroyChannel } from '../../actions/channel_actions';
+import { deleteChannelSubscription } from '../../actions/channel_actions';
 import { connect } from 'react-redux';
 
 class ChannelNavItem extends React.Component {
@@ -10,9 +10,9 @@ class ChannelNavItem extends React.Component {
     this.handleSwitch = this.handleSwitch.bind(this);
   }
 
-  handleDelete(e, channel) {
+  handleUnsubscribe(e, channel) {
     e.stopPropagation();
-    this.props.deleteChannel(channel.id);
+    this.props.unsubscribeChannel(channel.id);
     if (this.props.currentChannel.id === channel.id) {
       this.props.history.push(`/channels/1`);
     }
@@ -29,7 +29,7 @@ class ChannelNavItem extends React.Component {
       return (
         <a id="cursor" onClick={() => this.handleSwitch(this.props.channel.id)} to={`/channels/${this.props.channel.id}`}>
           <div className={this.props.highlighted}> {currentChannelTitle} 
-            <i onClick={(e) => this.handleDelete(e, this.props.channel)} className="far fa-times-circle"></i>
+            <i onClick={(e) => this.handleUnsubscribe(e, this.props.channel)} className="far fa-times-circle"></i>
           </div>
         </a>
       )
@@ -52,7 +52,7 @@ class ChannelNavItem extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    deleteChannel: (id) => dispatch(destroyChannel(id)),
+    unsubscribeChannel: (id) => dispatch(deleteChannelSubscription(id)),
   }
 }
 
