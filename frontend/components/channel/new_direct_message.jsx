@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createChannel, requestUsers } from '../../actions/channel_actions';
+import { createChannel, requestUsers, requestChannels } from '../../actions/channel_actions';
 import { closeModal } from '../../actions/modal_actions';
 import { withRouter } from 'react-router-dom';
 
@@ -41,15 +41,25 @@ class NewDirectMessage extends React.Component {
   }
 
   handleSubmit(e) {
-    if (e.target.disabled) {
-      return;
-    }
-    this.props.closeModal();
+    if (e.target.disabled) return;
     e.preventDefault();
-    const channel = Object.assign({}, this.state);
-    this.props.createChannel(channel).then((response) => {
-      this.props.history.push(`/channels/${Object.values(response.channel)[0].id}`);
+    this.props.closeModal();
+    let that = this;
+    let exist = false;
+    this.props.channels.forEach(channel => {
+      let storedChannelTitle = channel.title.split(" ").sort();
+      let newChannelTitle = that.state.title.split(" ").sort();
+      if (storedChannelTitle.every(function(value, index) { return value === newChannelTitle[index]})) {
+        exist = true;
+        that.props.history.push(`/channels/${channel.id}`);
+      };
     });
+    if (!exist) {
+      const channel = Object.assign({}, this.state);
+      this.props.createChannel(channel).then((response) => {
+        this.props.history.push(`/channels/${Object.values(response.channel)[0].id}`);
+      });
+    }
   }
 
   addUserToDM(user) {
@@ -163,14 +173,22 @@ class NewDirectMessage extends React.Component {
 
 const mapStateToProps = state => {
   const users = Object.values(state.entities.users);
+  const currentUser = state.entities.users[state.session.id]
+  const allChannels = Object.values(state.entities.channels);
+  const channels = []
+  allChannels.forEach(channel => {
+    if (channel.direct && channel.title.includes(currentUser.username)) channels.push(channel);
+  })
   return ({
-    currentUser: state.entities.users[state.session.id],
+    currentUser: currentUser,
     users: users,
+    channels: channels,
   })
 }
 
 const mapDispatchToProps = dispatch => {
   return ({
+    requestChannels: () => dispatch(requestChannels()),
     createChannel: channel => dispatch(createChannel(channel)),
     requestUsers: () => dispatch(requestUsers()),
     closeModal: () => dispatch(closeModal()),
