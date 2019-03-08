@@ -8,7 +8,7 @@ class Api::SubscriptionsController < ApplicationController
 
   def destroy
     oldSub = Subscription.find_by(channel_id: params[:channel_id], user_id: current_user.id)
-    oldSub.destroy
+    oldSub.destroy if oldSub
 
     @channels = Channel.all
     render "api/channels/index"
