@@ -72,8 +72,6 @@ const dms = this.props.channels.map(channel => {
 
 ### Future Features
 
-* Create a slide-in/slide-out widget to display all users in a given channel
-* Users can set up direct messaging with multiple users
 * Allow users to upload files, gifs, and emojis into chat
 
 ## Author
