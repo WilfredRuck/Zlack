@@ -46,9 +46,9 @@ class NewDirectMessage extends React.Component {
     this.props.closeModal();
     let that = this;
     let exist = false;
+    let newChannelTitle = that.state.title.split(" ").sort();
     this.props.channels.forEach(channel => {
       let storedChannelTitle = channel.title.split(" ").sort();
-      let newChannelTitle = that.state.title.split(" ").sort();
       if (storedChannelTitle.every(function(value, index) { return value === newChannelTitle[index]})) {
         exist = true;
         that.props.history.push(`/channels/${channel.id}`);
