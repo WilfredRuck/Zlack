@@ -51,7 +51,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
-  gem 'jquery-rails'
+  gem 'bullet'
 end
 
 group :test do
