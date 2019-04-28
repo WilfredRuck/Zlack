@@ -63,7 +63,7 @@ class NewDirectMessage extends React.Component {
   }
 
   addUserToDM(user) {
-    if (this.state.title.split(" ").includes(user.username)) {
+    if (this.state.memberIds.includes(user.id)) {
       this.removeUserFromDM(user);
     }
     else {
