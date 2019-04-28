@@ -21,16 +21,18 @@ json.members do
     end
 end
 
-json.messages do
-    @channel.messages.each do |message|
-        json.set! message.id do
-            json.id message.id
-            json.body message.body
-            json.userId message.author_id
-            json.user message.user.username
-            json.avatar message.user.avatar
-            json.channelId message.channel_id
-            json.created message.created_at
+if @messages
+    json.messages do
+        @messages.each do |message|
+            json.set! message.id do
+                json.id message.id
+                json.body message.body
+                json.userId message.author_id
+                json.user message.user.username
+                json.avatar message.user.avatar
+                json.channelId message.channel_id
+                json.created message.created_at
+            end
         end
     end
 end

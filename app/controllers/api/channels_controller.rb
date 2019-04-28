@@ -6,6 +6,7 @@ class Api::ChannelsController < ApplicationController
 
   def show
     @channel = Channel.find(params[:id])
+    @messages = @channel.messages.includes(:user)
     @all_users = User.all
     if @channel
       render "api/channels/show"
