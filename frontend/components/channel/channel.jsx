@@ -112,9 +112,12 @@ class Channel extends React.Component {
     
     let currentChannelTitle = <h1>{`# ${this.props.channel.title}`}</h1>;
     let channelInfoTitle = <div> {`About # ${this.props.channel.title}`}</div>;
+
     if (this.props.channel.direct) {
-        const newTitle = this.props.channel.title.split(" ").filter(name => ((name !== this.props.currentUser.username) && (name !== "")));
-        currentChannelTitle = <h1>{newTitle.join(", ")}</h1>;
+        const filteredMembers = this.props.members.filter(member => ((member.username !== this.props.currentUser.username)));
+        const usernameArr = [];
+        filteredMembers.forEach(user => usernameArr.push(user.username)); 
+        currentChannelTitle = <h1>{usernameArr.join(", ")}</h1>;
         channelInfoTitle = "About this conversation";
     }
     else if (this.props.channel.private) {

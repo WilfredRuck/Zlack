@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createChannel, requestUsers, requestChannels } from '../../actions/channel_actions';
+import { createChannel, requestUsers, requestChannels, createChannelSubscription } from '../../actions/channel_actions';
 import { closeModal } from '../../actions/modal_actions';
 import { withRouter } from 'react-router-dom';
 
@@ -51,6 +51,7 @@ class NewDirectMessage extends React.Component {
       let storedChannelTitle = channel.title.split(" ").sort();
       if (storedChannelTitle.every(function(value, index) { return value === newChannelTitle[index]})) {
         exist = true;
+        that.props.subscribeToChannel(channel.id);
         that.props.history.push(`/channels/${channel.id}`);
       };
     });
@@ -192,6 +193,7 @@ const mapDispatchToProps = dispatch => {
     createChannel: channel => dispatch(createChannel(channel)),
     requestUsers: () => dispatch(requestUsers()),
     closeModal: () => dispatch(closeModal()),
+    subscribeToChannel: (id) => dispatch(createChannelSubscription(id)),
   })
 }
 

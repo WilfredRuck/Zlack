@@ -26,6 +26,7 @@ class ChannelNavItem extends React.Component {
     if (this.props.channel.direct)  {
       const newTitle = this.props.channel.title.split(" ").filter(name => ((name !== this.props.currentUser.username) && (name !== "")));
       const currentChannelTitle = newTitle.join(", ");
+
       return (
         <a id="cursor" onClick={() => this.handleSwitch(this.props.channel.id)} to={`/channels/${this.props.channel.id}`}>
           <div className={this.props.highlighted}> {currentChannelTitle} 
