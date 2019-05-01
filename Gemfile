@@ -52,6 +52,7 @@ group :development do
   gem 'pry-rails'
   gem 'annotate'
   gem 'bullet'
+  gem 'rb-readline'
 end
 
 group :test do
