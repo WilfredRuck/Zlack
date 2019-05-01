@@ -107,7 +107,7 @@ class Channel extends React.Component {
       deleteChannelButton = <Link to="/channels/1" onClick={() => this.props.deleteChannel(this.props.channel.id)}>
       <button className="delete-button">Delete channel</button>
       </Link>
-      created_by = "You";
+      created_by = "you";
     }
     
     let currentChannelTitle = <h1>{`# ${this.props.channel.title}`}</h1>;
